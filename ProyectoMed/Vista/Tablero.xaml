@@ -1,0 +1,132 @@
+﻿<Window x:Class="ProyectoMed.Vista.Tablero"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoMed.Vista"
+        mc:Ignorable="d"
+        Title="Tablero" Height="486" Width="768.5">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF421FDC">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <Label Content="Materia 1"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" FontSize="18" FontFamily="Yu Gothic UI" VerticalAlignment="Center" Foreground="#FFFBF2F2"></Label>
+            <Button  Name="P11" Content="200" Grid.Column="0" Grid.Row="1"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF421FDC" Foreground="#FFFFF9F9" BorderBrush="Black"/>
+            <Button Name="P12" Content="400" Grid.Column="0" Grid.Row="2"  Width="auto" Height="auto"  FontSize="24" BorderBrush="Black" Foreground="White" Background="#FF421FDC" FontWeight="Bold"/>
+            <Button Name="P13" Content="600" Grid.Column="0" Grid.Row="3"  Width="auto" Height="auto"  FontSize="24" Background="#FF421FDC" BorderBrush="Black" Foreground="White" FontWeight="Bold"/>
+            <Button Name="P14" Content="800" Grid.Column="0" Grid.Row="4"  Width="auto" Height="auto"  FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P15" Content="1000" Grid.Column="0" Grid.Row="5"  Width="auto" Height="auto"  FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+
+            <Label Content="Materia 2"  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" FontSize="18" FontFamily="Yu Gothic UI" VerticalAlignment="Center" Foreground="#FFFBF2F2"></Label>
+            <Button Name="P21" Content="200" Grid.Column="1" Grid.Row="1"  Width="auto" Height="auto"  FontSize="24" Background="#FF421FDC" BorderBrush="Black" Foreground="#FFFFF9F9" FontWeight="Bold"/>
+            <Button Name="P22" Content="400" Grid.Column="1" Grid.Row="2"  Width="auto" Height="auto"  FontSize="24" Background="#FF421FDC" Foreground="White" BorderBrush="Black" FontWeight="Bold"/>
+            <Button Name="P23" Content="600" Grid.Column="1" Grid.Row="3"  Width="auto" Height="auto"  FontSize="24" Background="#FF421FDC" BorderBrush="Black" Foreground="White" FontWeight="Bold"/>
+            <Button Name="P24" Content="800" Grid.Column="1" Grid.Row="4"  Width="auto" Height="auto"  FontSize="24" FontWeight="Bold" Background="#FF2300BF" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P25" Content="1000" Grid.Column="1" Grid.Row="5"  Width="auto" Height="auto"  FontSize="24" FontWeight="Bold" Background="#FF2300BF" BorderBrush="#FF080707" Foreground="White"/>
+
+            <Label Content="Materia 3"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" FontSize="18" FontFamily="Yu Gothic UI" VerticalAlignment="Center" Foreground="#FFFBF2F2"></Label>
+            <Button Name="P31" Content="200" Grid.Column="2" Grid.Row="1"  Width="auto" Height="auto"  FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P32" Content="400" Grid.Column="2" Grid.Row="2"  Width="auto" Height="auto"  FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P33" Content="600" Grid.Column="2" Grid.Row="3"  Width="auto" Height="auto"  FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P34" Content="800" Grid.Column="2" Grid.Row="4"  Width="auto" Height="auto"  FontSize="24" FontWeight="Bold" Background="#FF2300BF" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P35" Content="1000" Grid.Column="2" Grid.Row="5"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF2300BF" BorderBrush="#FF080707" Foreground="White"/>
+
+            <Label Content="Materia 4"  Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" FontSize="18" FontFamily="Yu Gothic UI" VerticalAlignment="Center" Foreground="#FFFBF2F2"></Label>
+            <Button Name="P41" Content="200" Grid.Column="3" Grid.Row="1"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P42" Content="400" Grid.Column="3" Grid.Row="2"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P43" Content="600" Grid.Column="3" Grid.Row="3"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P44" Content="800" Grid.Column="3" Grid.Row="4"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF2300BF" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P45" Content="1000" Grid.Column="3" Grid.Row="5"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF2300BF" BorderBrush="#FF080707" Foreground="White"/>
+
+            <Label Content="Materia 5"  Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" FontSize="18" FontFamily="Yu Gothic UI" VerticalAlignment="Center" Foreground="#FFFBF2F2"></Label>
+            <Button Name="P51" Content="200" Grid.Column="4" Grid.Row="1"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P52" Content="400" Grid.Column="4" Grid.Row="2"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P53" Content="600" Grid.Column="4" Grid.Row="3"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P54" Content="800" Grid.Column="4" Grid.Row="4"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF2300BF" BorderBrush="#FF080707" Foreground="White"/>
+            <Button Name="P55" Content="1000" Grid.Column="4" Grid.Row="5"  Width="auto" Height="auto" FontSize="24" FontWeight="Bold" Background="#FF2300BF" BorderBrush="#FF080707" Foreground="White"/>
+        </Grid>
+        <Grid Grid.Row="1" Height="auto" Background="#FF421FDC" >
+            <Grid.RowDefinitions >
+                <RowDefinition Height="auto"/>
+
+
+            </Grid.RowDefinitions>
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>-->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" Height="auto" Width="auto"  Margin="10,0,10,10" Background="#FFF3F3F3" >
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="InputTeam1" Height="30" Text="Team 1"  Grid.Row="0" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="18" TextDecorations="Underline"  ></TextBox>
+                    <TextBox Name="InputTeam1Puntaje" Height="30"  Text="+1000"  Grid.Row="1" FontSize="16" FontFamily="Segoe UI Black" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF1C40AC" Foreground="#FF0CCD15"  />
+                    <Grid  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="+" Width="30" Grid.Column="0" FontWeight="Bold" FontSize="18" Background="{x:Null}" Foreground="#FF00B608" FontFamily="Rockwell Extra Bold" BorderBrush="{x:Null}"></Button>
+                        <Button Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60707" FontFamily="Stencil" BorderBrush="{x:Null}"></Button>
+                    </Grid>
+
+                </Grid>
+                <Grid Grid.Column="2" Height="auto" Width="auto"  Margin="10,0,10,10" Background="#FFF3F3F3" >
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="InputTeam2" Height="30" Text="Team 2"  Grid.Row="0" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="18" TextDecorations="Underline"  ></TextBox>
+                    <TextBox Name="InputTeam2Puntaje" Height="30"  Text="+1000"  Grid.Row="1" FontSize="16" FontFamily="Segoe UI Black" FontWeight="Bold" Background="#FF421FDC" BorderBrush="#FF1C40AC" Foreground="#FF0CCD15"  />
+                    <Grid  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="+" Width="30" Grid.Column="0" FontWeight="Bold" FontSize="18" Background="{x:Null}" Foreground="#FF00B608" FontFamily="Rockwell Extra Bold" BorderBrush="{x:Null}"></Button>
+                        <Button Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60707" FontFamily="Stencil" BorderBrush="{x:Null}"></Button>
+                    </Grid>
+
+                </Grid>
+
+
+
+            </Grid>
+
+
+
+        </Grid>
+    </Grid>
+</Window>
