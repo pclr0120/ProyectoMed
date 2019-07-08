@@ -18,7 +18,9 @@ namespace ProyectoMed.Logica
         private string[] Preguntas;
         public List<Pregunta> ListaPreguntas;
         public Pregunta Pregunta;
-        private string ruta = @"C:\Recursos\g1.txt";
+        private string rutaPreguntas = @"C:\TableroConfiguracion\Configuracion\P\";
+        private string rutaEquipos = @"C:\TableroConfiguracion\Configuracion\E\";
+        private string rutaMaterias = @"C:\TableroConfiguracion\Configuracion\M\";
         public LogicaExportarData()
         {
 
@@ -36,18 +38,18 @@ namespace ProyectoMed.Logica
                 string gradoRuta = "";
                 if(grado == 1)
                 {
-                    gradoRuta = "g1.txt";
+                    gradoRuta = "p1.txt";
                 }
                 else if(grado == 2)
-                    gradoRuta = "g2.txt";
+                    gradoRuta = "p2.txt";
                 else if(grado == 3)
-                    gradoRuta = "g3.txt";
+                    gradoRuta = "p3.txt";
                 else if(grado == 4)
-                    gradoRuta = "g4.txt";
+                    gradoRuta = "p4.txt";
                 string[] _Preguntas;
 
                 List<Pregunta> ListaPreguntasTxt = new List<Pregunta>();
-                string ruta = @"C:\Contenedor\recursos\"+gradoRuta;
+                string ruta = this.rutaPreguntas + gradoRuta;
                 if (File.Exists(ruta) ? true : false)
                 {
                     _Preguntas = System.IO.File.ReadAllLines(ruta, System.Text.Encoding.UTF8);
@@ -164,7 +166,7 @@ namespace ProyectoMed.Logica
                 Lista = this.Guardar(listaActulizar, GetImport1(grado));
             else
                 Lista = listaActulizar;
-            string docPath = @"C:\Contenedor\recursos\";
+            string docPath = this.rutaPreguntas;
             //Directory.CreateDirectory(docPath);
             //string[] DataWrite = null;
             for (int i = 0; i < Lista.Count; i++)
@@ -180,7 +182,7 @@ namespace ProyectoMed.Logica
                 }
 
             }
-            string ruta = @"C:\Contenedor\recursos\"+gradoRuta;
+            string ruta = this.rutaPreguntas+gradoRuta;
             if (File.Exists(ruta) ? true : false)
             {
               
@@ -219,17 +221,17 @@ namespace ProyectoMed.Logica
                     string gradoRuta = "";
                     if(grado == 1)
                     
-                        gradoRuta = "g1.txt";
+                        gradoRuta = "p1.txt";
                     
                     else if(grado == 2)
-                        gradoRuta = "g2.txt";
+                        gradoRuta = "p2.txt";
                     else if(grado == 3)
-                        gradoRuta = "g3.txt";
+                        gradoRuta = "p3.txt";
                     else if(grado == 4)
-                        gradoRuta = "g4.txt";
+                        gradoRuta = "p4.txt";
 
 
-                    string docPath = @"C:\Contenedor\recursos\";
+                    string docPath = this.rutaPreguntas;
 
                     using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
                     {
@@ -250,7 +252,7 @@ namespace ProyectoMed.Logica
                         gradoRuta = "e4.txt";
 
 
-                  
+                    docPath = this.rutaEquipos;
 
                     using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
                     {
@@ -270,7 +272,7 @@ namespace ProyectoMed.Logica
                     else if(grado == 4)
                         gradoRuta = "m4.txt";
 
-
+                    docPath = this.rutaMaterias;
 
                     using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
                     {
@@ -278,7 +280,7 @@ namespace ProyectoMed.Logica
 
 
                     }
-                    string ruta = @"C:\Contenedor\recursos\" + gradoRuta;
+                    string ruta = this.rutaMaterias+ gradoRuta;
                     if(File.Exists(ruta) ? true : false)
                     {
 
@@ -331,7 +333,7 @@ namespace ProyectoMed.Logica
                 string[] _Preguntas;
 
                 List<Equipo> ListaPreguntasTxt = new List<Equipo>();
-                string ruta = @"C:\Contenedor\recursos\" + gradoRuta;
+                string ruta =this.rutaEquipos + gradoRuta;
                 if(File.Exists(ruta) ? true : false)
                 {
                     _Preguntas = System.IO.File.ReadAllLines(ruta, System.Text.Encoding.UTF8);
@@ -415,7 +417,7 @@ namespace ProyectoMed.Logica
             List<Equipo> Lista = new List<Equipo>();
             List<string> ListaTemp = new List<string>();
             Lista = this.Guardar(listaActulizar, ListaPreguntasTotal);
-            string docPath = @"C:\Contenedor\recursos\";
+            string docPath = this.rutaEquipos;
             //Directory.CreateDirectory(docPath);
             //string[] DataWrite = null;
             for(int i = 0; i < Lista.Count; i++)
@@ -431,7 +433,7 @@ namespace ProyectoMed.Logica
                 }
 
             }
-            string ruta = @"C:\Contenedor\recursos\" + gradoRuta;
+            string ruta =this.rutaEquipos + gradoRuta;
             if(File.Exists(ruta) ? true : false)
             {
 

@@ -13,7 +13,7 @@ namespace ProyectoMed.Logica
     {
 
 
-
+        private string rutaMaterias = @"C:\TableroConfiguracion\Configuracion\M\";
 
         public bool Eliminar(int grado)
         {
@@ -44,7 +44,7 @@ namespace ProyectoMed.Logica
                         gradoRuta = "m4.txt";
 
 
-                    string docPath = @"C:\Contenedor\recursos\";
+                    string docPath = this.rutaMaterias;
 
                     using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
                     {
@@ -52,7 +52,7 @@ namespace ProyectoMed.Logica
 
 
                     }
-                    string ruta = @"C:\Contenedor\recursos\" + gradoRuta;
+                    string ruta = this.rutaMaterias + gradoRuta;
                     if(File.Exists(ruta) ? true : false)
                     {
 
@@ -105,7 +105,7 @@ namespace ProyectoMed.Logica
                 string[] _Preguntas;
 
                 List<Materias> ListaPreguntasTxt = new List<Materias>();
-                string ruta = @"C:\Contenedor\recursos\" + gradoRuta;
+                string ruta = this.rutaMaterias + gradoRuta;
                 if(File.Exists(ruta) ? true : false)
                 {
                     _Preguntas = System.IO.File.ReadAllLines(ruta, System.Text.Encoding.UTF8);
@@ -189,7 +189,7 @@ namespace ProyectoMed.Logica
             List<Materias> Lista = new List<Materias>();
             List<string> ListaTemp = new List<string>();
             Lista = this.Guardar(listaActulizar, ListaPreguntasTotal);
-            string docPath = @"C:\Contenedor\recursos\";
+            string docPath = this.rutaMaterias;
             //Directory.CreateDirectory(docPath);
             //string[] DataWrite = null;
             for(int i = 0; i < Lista.Count; i++)
@@ -205,7 +205,7 @@ namespace ProyectoMed.Logica
                 }
 
             }
-            string ruta = @"C:\Contenedor\recursos\" + gradoRuta;
+            string ruta = this.rutaMaterias + gradoRuta;
             if(File.Exists(ruta) ? true : false)
             {
 

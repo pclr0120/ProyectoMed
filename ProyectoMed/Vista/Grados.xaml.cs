@@ -38,9 +38,9 @@ namespace ProyectoMed.Vista
             {
                 LogicaExportarData l = new LogicaExportarData();
                 p1.Content = l.GetImport1(1).FindAll(i => i.Grado == 1).Count.ToString() +"/125";
-                p2.Content = l.GetImport1(1).FindAll(i => i.Grado == 2).Count.ToString() + "/125";
-                p3.Content = l.GetImport1(1).FindAll(i => i.Grado == 3).Count.ToString() + "/125";
-                p4.Content = l.GetImport1(1).FindAll(i => i.Grado == 4).Count.ToString() + "/125";
+                p2.Content = l.GetImport1(2).FindAll(i => i.Grado == 2).Count.ToString() + "/125";
+                p3.Content = l.GetImport1(3).FindAll(i => i.Grado == 3).Count.ToString() + "/125";
+                p4.Content = l.GetImport1(4).FindAll(i => i.Grado == 4).Count.ToString() + "/125";
             }
             catch(Exception e)
             {
@@ -74,29 +74,24 @@ namespace ProyectoMed.Vista
 
 
         }
-        private void G1_Click(object sender, RoutedEventArgs e)
-        {
-            PageTablero Tb = new PageTablero(1);
+
+        void GradoSelect(int grado) {
+
+            TotalRondas Tb = new TotalRondas(grado);
             this.NavigationService.Navigate(Tb);
+        
+            
         }
 
-        private void G2_Click(object sender, RoutedEventArgs e)
+        private void ClickSelect(object sender, RoutedEventArgs e)
         {
-            PageTablero Tb = new PageTablero(2);
-            this.NavigationService.Navigate(Tb);
+              Button b=sender as Button;
+
+            GradoSelect(int.Parse(b.CommandParameter.ToString()));
+        
         }
 
-        private void G3_Click(object sender, RoutedEventArgs e)
-        {
-            PageTablero Tb = new PageTablero(3);
-            this.NavigationService.Navigate(Tb);
-        }
-
-        private void G4_Click(object sender, RoutedEventArgs e)
-        {
-            PageTablero Tb = new PageTablero(4);
-            this.NavigationService.Navigate(Tb);
-        }
+   
 
         private void Btback_Click(object sender, RoutedEventArgs e)
         {

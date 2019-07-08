@@ -26,6 +26,7 @@ namespace ProyectoMed.Vista
 
         private List<Pregunta> ListaPreguntas;
         private List<Materias> ListaMaterias;
+        private List<Equipo> Equipos;
         private int grado;
 
         public PageTablero()
@@ -33,7 +34,7 @@ namespace ProyectoMed.Vista
             InitializeComponent();
 
         }
-        public PageTablero(int grado) : this()
+        public PageTablero(int grado,List<Equipo> Equipos) : this()
         {
             this._Grado = grado;
 

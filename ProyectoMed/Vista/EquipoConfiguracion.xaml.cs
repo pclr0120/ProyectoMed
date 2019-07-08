@@ -138,8 +138,6 @@ namespace ProyectoMed.Vista
         private bool Checkequipo(List<Equipo> lm)
         {
 
-            if(lm.Count > 4)
-            {
 
 
                 foreach(var item in lm)
@@ -148,16 +146,8 @@ namespace ProyectoMed.Vista
                         return false;
                 }
                 return true;
-            }
-            else
-            {
-                MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar las 5 materias.",
-                                    "Configuracion",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Question);
-                return false;
-
-            }
+            
+           
         }
         private bool PuedeGuardar(List<Equipo> lm)
         {
