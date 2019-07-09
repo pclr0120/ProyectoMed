@@ -57,9 +57,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Logica\LogicaExportarData.cs" />
+    <Compile Include="Logica\LogicaHistorialRonda.cs" />
+    <Compile Include="Logica\LogicaMarcador.cs" />
     <Compile Include="Logica\LogicaMaterias.cs" />
     <Compile Include="Modelo\Materias.cs" />
     <Compile Include="Modelo\PreguntaSeleccionada.cs" />
+    <Compile Include="Modelo\Ronda.cs" />
     <Compile Include="Vista\ConfiguracionEquiposAdd.xaml.cs">
       <DependentUpon>ConfiguracionEquiposAdd.xaml</DependentUpon>
     </Compile>

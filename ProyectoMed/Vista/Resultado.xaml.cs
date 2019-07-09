@@ -23,16 +23,18 @@ namespace ProyectoMed.Vista
     {
         List<Pregunta> ListaPreguntas;
         Pregunta Pregunta;
+        List<Equipo> Equipos;
         string Res;
         int puntaje;
         int grado;
-        public Resultado(Pregunta Pregunta,string Respuesta,int grado,int puntaje)
+        public Resultado(Pregunta Pregunta,string Respuesta,int grado,int puntaje,List<Equipo> Equipos)
         {
             InitializeComponent();
             this.grado = grado;
             this.puntaje = puntaje;
             this.Pregunta = Pregunta;
             this.Res = Respuesta;
+            this.Equipos = Equipos;
             this.Loaded += Resultado_Loaded;
         }
 
@@ -69,7 +71,7 @@ namespace ProyectoMed.Vista
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //  Grados G = new Grados();
-            PageTablero t =  new PageTablero(this.grado);
+            PageTablero t =  new PageTablero(this.grado,this.Equipos);
             this.NavigationService.Navigate(t);
         }
     }

@@ -24,6 +24,7 @@ namespace ProyectoMed.Vista
     {
         Pregunta Pregtunta;
         List<Pregunta> ListaPreguntas;
+        List<Equipo> Equipos;
         int Puntaje = 0;
         string respuesta;
         string materia;
@@ -36,11 +37,11 @@ namespace ProyectoMed.Vista
 
             this.Loaded += PagePregunta_Loaded;
         }
-        public PagePregunta(string materia,int grado,int nivel) : this() {
+        public PagePregunta(string materia,int grado,int nivel, List<Equipo> Equipos) : this() {
             this.materia = materia;
             this.grado = grado;
             this.nivel = nivel;
-
+            this.Equipos = Equipos;
         }
 
         private void PagePregunta_Loaded(object sender, RoutedEventArgs e)
@@ -170,7 +171,7 @@ namespace ProyectoMed.Vista
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Resultado R = new Resultado(this.Pregtunta,this.respuesta,this.grado,this.Puntaje);
+            Resultado R = new Resultado(this.Pregtunta,this.respuesta,this.grado,this.Puntaje,this.Equipos);
             this.NavigationService.Navigate(R);
         }
     }

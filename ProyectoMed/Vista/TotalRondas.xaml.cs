@@ -40,10 +40,13 @@ namespace ProyectoMed.Vista
             EquipoSeleccionar();
         }
         List<Equipo> eq;
+        List<Equipo> eq2;
         private void EquipoSeleccionar() {
             LogicaExportarData l = new LogicaExportarData();
             eq = l.GetImportEequipos(this.Grado);
+            
             this.cb2.IsEnabled = false;
+       
 
 
         }
@@ -77,23 +80,38 @@ namespace ProyectoMed.Vista
             Equipos.Add(e2);
             if(Continuar())
             {
-                PageTablero Tb = new PageTablero(this.Grado,Equipos);
-                this.NavigationService.Navigate(Tb);
+                LogicaHistorialRonda Lh = new LogicaHistorialRonda();
+                Ronda ronda = new Ronda();
+                ronda.Grado = this.Grado;
+                ronda.TotalRonda = int.Parse(this.TxtNumero.Text.ToString());
+                ronda.Equipo1 = this.cb1.Text;
+                ronda.Equipo2 = this.cb2.Text;
+                List<Ronda> lr = new List<Ronda>();
+                lr.Add(ronda);
+                if(Lh.GuardarTxtRonda(lr, Lh.GetRondas(this.Grado), this.Grado))
+                {
+                    PageTablero Tb = new PageTablero(this.Grado, Equipos);
+                    this.NavigationService.Navigate(Tb);
+                }
+                else MessageBox.Show("Ups!. Ocurrio un error si persiste comuniquese con el desarrollador  al siguiente telefono 6681010012","Tablero");
             }
             
         }
 
         private void Cb1_DropDownOpened(object sender, EventArgs e)
-        {       
+        {
+            EquipoSeleccionar();
             cb1.ItemsSource = this.eq;
+         
         }
 
         private void Cb1_DropDownClosed(object sender, EventArgs e)
         {
+            
             this.cb2.IsEnabled = true;
-            List<Equipo> letemp = this.eq;
-            letemp.RemoveAll(i=>i.Nombre==cb1.Text);
-            cb2.ItemsSource = letemp;
+            this.eq2 = this.eq;
+            this.eq2.RemoveAll(i=>i.Nombre==cb1.Text);
+            cb2.ItemsSource = this.eq2;
            
         }
 
@@ -109,6 +127,12 @@ namespace ProyectoMed.Vista
             if(ascci >= 48 && ascci <= 57)
                 e.Handled = false;
             else e.Handled = true;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Grados p = new Grados();
+            this.NavigationService.Navigate(p);
         }
     }
 }

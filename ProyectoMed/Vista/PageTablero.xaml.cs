@@ -27,7 +27,11 @@ namespace ProyectoMed.Vista
         private List<Pregunta> ListaPreguntas;
         private List<Materias> ListaMaterias;
         private List<Equipo> Equipos;
-        private int grado;
+        private int grado=0;
+        private int ronda = 0;
+        private int turno = 0;
+        private int Totalronda = 0;
+
 
         public PageTablero()
         {
@@ -37,9 +41,28 @@ namespace ProyectoMed.Vista
         public PageTablero(int grado,List<Equipo> Equipos) : this()
         {
             this._Grado = grado;
+            this.Equipos = Equipos;
 
             LogicaExportarData l = new LogicaExportarData();
             LogicaMaterias m = new LogicaMaterias();
+            LogicaHistorialRonda lh = new LogicaHistorialRonda();
+            List<Ronda> lronda = lh.GetRondas(this._Grado);
+
+            //simpre habra uno por que se tiene que registrar la rondas antes de empezar
+            if(lronda.Count > 1 && lronda[lronda.Count - 1].Estatus==true)
+            {
+             
+               
+                this.ronda = lronda[lronda.Count - 1].RondaActual;
+                this.turno = lronda[lronda.Count - 1].Turno;
+                this.Totalronda = lronda[lronda.Count - 1].TotalRonda;
+                this.InputTeam1.Content= lronda[lronda.Count - 1].Equipo1;
+                this.InputTeam2.Content = lronda[lronda.Count - 1].Equipo2;
+                this.InputTeam1Puntaje.Content = lronda[lronda.Count - 1].Equipo1Puntaje;
+                this.InputTeam2Puntaje.Content = lronda[lronda.Count - 1].Equipo2Puntaje;
+                this.lblRondas.Content = lronda[lronda.Count - 1].TotalRonda.ToString();
+            }
+           
             this.grado = grado;
 
             try
@@ -130,7 +153,7 @@ namespace ProyectoMed.Vista
                 nivel = 5;
 
             
-            PagePregunta p = new PagePregunta(materia, this.grado, nivel);
+            PagePregunta p = new PagePregunta(materia, this.grado, nivel,this.Equipos);
             this.NavigationService.Navigate(p);
 
 
@@ -145,6 +168,38 @@ namespace ProyectoMed.Vista
         {
             PageGradosConfig p = new PageGradosConfig();
             this.NavigationService.Navigate(p);
+        }
+
+
+
+
+        private void B1M_Click(object sender, RoutedEventArgs e)
+        {
+            LogicaMarcador l = new LogicaMarcador();
+
+            l.Sumar(Equipos, 0,100,this.ronda);
+        }
+
+        private void B1R_Click(object sender, RoutedEventArgs e)
+        {
+
+            LogicaMarcador l = new LogicaMarcador();
+
+            l.Restar(Equipos, 0, 100, this.ronda);
+        }
+
+        private void B2M_Click(object sender, RoutedEventArgs e)
+        {
+            LogicaMarcador l = new LogicaMarcador();
+
+            l.Sumar(Equipos, 0, 100, this.ronda);
+        }
+
+        private void B2R_Click(object sender, RoutedEventArgs e)
+        {
+            LogicaMarcador l = new LogicaMarcador();
+
+            l.Restar(Equipos, 0, 100, this.ronda);
         }
     }
 }
