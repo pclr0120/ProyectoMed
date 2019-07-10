@@ -64,84 +64,101 @@ namespace ProyectoMed.Vista
 
         void CargarTablero()
         {
+            try
+            {
+                this.P11.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5"; ;
+                this.P12.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5";
+                this.P13.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5";
+                this.P14.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5";
+                this.P15.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5";
 
-            this.P11.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5"; ;
-            this.P12.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5";
-            this.P13.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5";
-            this.P14.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5";
-            this.P15.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre).Count + "/5";
+                this.P21.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre).Count + "/5";
+                this.P22.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre).Count + "/5";
+                this.P23.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre).Count + "/5";
+                this.P24.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre).Count + "/5";
+                this.P25.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre).Count + "/5";
 
-            this.P21.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia==this.ListaMaterias[1].Nombre).Count + "/5";
-            this.P22.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia==this.ListaMaterias[1].Nombre).Count + "/5";
-            this.P23.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia==this.ListaMaterias[1].Nombre).Count + "/5";
-            this.P24.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia==this.ListaMaterias[1].Nombre).Count + "/5";
-            this.P25.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia==this.ListaMaterias[1].Nombre).Count + "/5";
+                this.P31.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
+                this.P32.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
+                this.P33.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
+                this.P34.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
+                this.P35.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
 
-            this.P31.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
-            this.P32.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
-            this.P33.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
-            this.P34.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
-            this.P35.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[2].Nombre).Count + "/5";
+                this.P41.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
+                this.P42.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
+                this.P43.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
+                this.P44.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
+                this.P45.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
 
-            this.P41.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
-            this.P42.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
-            this.P43.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
-            this.P44.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
-            this.P45.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[3].Nombre).Count + "/5";
+                this.P51.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
+                this.P52.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
+                this.P53.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
+                this.P54.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
+                this.P55.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
+            }
+            catch(Exception err)
+            {
 
-            this.P51.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
-            this.P52.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
-            this.P53.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
-            this.P54.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
-            this.P55.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[4].Nombre).Count + "/5";
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+
+
 
         }
         public void GetPregunta(object sender)
         {
+            try
+            {
+                Button b = sender as Button;
+                string materia = "";
+                if(b.Name.Equals("P11") || b.Name.Equals("P12") || b.Name.Equals("P13") || b.Name.Equals("P14") || b.Name.Equals("P15"))
+                    materia = this.M1.Content.ToString();
+                if(b.Name.Equals("P21") || b.Name.Equals("P22") || b.Name.Equals("P23") || b.Name.Equals("P24") || b.Name.Equals("P25"))
+                    materia = this.M2.Content.ToString();
+                if(b.Name.Equals("P31") || b.Name.Equals("P32") || b.Name.Equals("P33") || b.Name.Equals("P34") || b.Name.Equals("P35"))
+                    materia = this.M3.Content.ToString();
+                if(b.Name.Equals("P41") || b.Name.Equals("P42") || b.Name.Equals("P43") || b.Name.Equals("P44") || b.Name.Equals("P45"))
+                    materia = this.M4.Content.ToString();
+                if(b.Name.Equals("P51") || b.Name.Equals("P52") || b.Name.Equals("P53") || b.Name.Equals("P54") || b.Name.Equals("P55"))
+                    materia = this.M5.Content.ToString();
+                int nivel = 0;
+                //Random r = new Random();
+                //int preguntaRamdom = r.Next(1, 5);
+                List<Pregunta> pr = new List<Pregunta>();
 
-            Button b = sender as Button;
-            string materia = "";
-            if (b.Name.Equals("P11") || b.Name.Equals("P12") || b.Name.Equals("P13") || b.Name.Equals("P14") || b.Name.Equals("P15"))
-                materia = this.M1.Content.ToString();
-            if (b.Name.Equals("P21") || b.Name.Equals("P22") || b.Name.Equals("P23") || b.Name.Equals("P24") || b.Name.Equals("P25"))
-                materia = this.M2.Content.ToString();
-            if (b.Name.Equals("P31") || b.Name.Equals("P32") || b.Name.Equals("P33") || b.Name.Equals("P34") || b.Name.Equals("P35"))
-                materia = this.M3.Content.ToString();
-            if (b.Name.Equals("P41") || b.Name.Equals("P42") || b.Name.Equals("P43") || b.Name.Equals("P44") || b.Name.Equals("P45"))
-                materia = this.M4.Content.ToString();
-            if (b.Name.Equals("P51") || b.Name.Equals("P52") || b.Name.Equals("P53") || b.Name.Equals("P54") || b.Name.Equals("P55"))
-                materia = this.M5.Content.ToString();
-            int nivel = 0;
-            //Random r = new Random();
-            //int preguntaRamdom = r.Next(1, 5);
-            List<Pregunta> pr = new List<Pregunta>();
+                if(b.Content.ToString().Split(' ')[0].Equals("200"))
+                    nivel = 1;
+                if(b.Content.ToString().Split(' ')[0].Equals("400"))
+                    nivel = 2;
+                if(b.Content.ToString().Split(' ')[0].Equals("600"))
+                    nivel = 3;
+                if(b.Content.ToString().Split(' ')[0].Equals("800"))
+                    nivel = 4;
+                if(b.Content.ToString().Split(' ')[0].Equals("1000"))
+                    nivel = 5;
+                pr = this.ListaPreguntas.FindAll(i => i.Grado == this.grado && i.Nivel == nivel && i.Materia == materia);
+                // pr = this.ListaPreguntas.FindAll(i => i.Grado == this.grado && i.Nivel == nivel && i.Materia == materia && i.Estatus == true);
+                //if (pr.Count <5) {
 
-            if (b.Content.ToString().Split(' ')[0].Equals("200"))
-                nivel = 1;
-            if (b.Content.ToString().Split(' ')[0].Equals("400"))
-                nivel = 2;
-            if (b.Content.ToString().Split(' ')[0].Equals("600"))
-                nivel = 3;
-            if (b.Content.ToString().Split(' ')[0].Equals("800"))
-                nivel = 4;
-            if (b.Content.ToString().Split(' ')[0].Equals("1000"))
-                nivel = 5;
-            pr = this.ListaPreguntas.FindAll(i => i.Grado == this.grado && i.Nivel == nivel && i.Materia == materia );
-           // pr = this.ListaPreguntas.FindAll(i => i.Grado == this.grado && i.Nivel == nivel && i.Materia == materia && i.Estatus == true);
-            //if (pr.Count <5) {
+                //    int x = (5 - pr.Count);
+                //    for (int i = 0; i < x; i++)
+                //    {
+                //        Pregunta Pre = new Pregunta();
+                //        Pre.Nivel = nivel;
+                //        Pre.Materia = materia;
+                //        Pre.Grado = this.grado;
+                //        pr.Add(Pre);
+                //    }
+                //}
+                PagePreguntasConfig p = new PagePreguntasConfig(materia, this.grado, nivel);
+                this.NavigationService.Navigate(p);
 
-            //    int x = (5 - pr.Count);
-            //    for (int i = 0; i < x; i++)
-            //    {
-            //        Pregunta Pre = new Pregunta();
-            //        Pre.Nivel = nivel;
-            //        Pre.Materia = materia;
-            //        Pre.Grado = this.grado;
-            //        pr.Add(Pre);
-            //    }
-            //}
-            PagePreguntasConfig p = new PagePreguntasConfig(materia,this.grado,nivel);
-            this.NavigationService.Navigate(p);
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
 
 
         }

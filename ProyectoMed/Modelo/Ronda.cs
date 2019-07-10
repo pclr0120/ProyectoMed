@@ -16,7 +16,7 @@ namespace ProyectoMed.Modelo
         private int turno = 0;
         private bool estatus = true;
         private string fecha = "";
-        private string ganador;
+        private string ganador="";
         private int equipo1Puntaje = 0;
         private int equipo2Puntaje = 0;
         private string equipo1="";
@@ -32,7 +32,7 @@ namespace ProyectoMed.Modelo
             this.Estatus = true;
             this.Equipo1 = "";
             this.Equipo2 = "";
-            this.Ganador = "";
+            this.Ganador = "N";
         }
 
         public string Id { get => id; set => id = value; }

@@ -13,7 +13,7 @@ namespace ProyectoMed.Logica
     {
 
 
-        private string rutaEquipos = @"C:\TableroConfiguracion\Enjuego\E\historial";
+        private string rutaEquipos = @"C:\TableroConfiguracion\Enjuego\E\historial\";
         public List<Equipo> Sumar(List<Equipo> Equipo, int numEquipo, int puntajeAsumar,int ronda) {
 
             Equipo[numEquipo].Puntaje += puntajeAsumar;
@@ -25,7 +25,7 @@ namespace ProyectoMed.Logica
         public List<Equipo> Restar(List<Equipo> Equipo, int numEquipo,int puntajeRestar, int ronda)
         {
 
-            Equipo[numEquipo].Puntaje += puntajeRestar;
+            Equipo[numEquipo].Puntaje -= puntajeRestar;
             GuardarTxtEquipos(Equipo,this.GetImportEequipos(Equipo[numEquipo].Grado), Equipo[numEquipo].Grado);
             return Equipo;
         }
@@ -84,12 +84,13 @@ namespace ProyectoMed.Logica
                         Pre.Puntaje = int.Parse(_Pregunta[2]);
                         Pre.Fecha = _Pregunta[3];
                         Pre.Estatus = bool.Parse(_Pregunta[4]);
+                        Pre.Id= _Pregunta[5];
 
-                        //if (_Pregunta[8].Equals("true"))
+                    //if (_Pregunta[8].Equals("true"))
 
-                        //else
-                        //    Pre.Estatus = false;
-                        ListaPreguntasTxt.Add(Pre);
+                    //else
+                    //    Pre.Estatus = false;
+                    ListaPreguntasTxt.Add(Pre);
                     }
                 }
 
@@ -112,7 +113,9 @@ namespace ProyectoMed.Logica
 
                 for(int i = 0; i < ListaPreguntasActualizar.Count; i++)
                 {
-                    if(ListaPreguntasTotal.Remove(ListaPreguntasActualizar[i]))
+
+                    
+                    if(ListaPreguntasTotal.RemoveAll(et => et.Id == ListaPreguntasActualizar[i].Id && et.Nombre== ListaPreguntasActualizar[i].Nombre) >0)
                     {
 
                         ListaPreguntasTotal.Add(ListaPreguntasActualizar[i]);
@@ -152,7 +155,7 @@ namespace ProyectoMed.Logica
             //string[] DataWrite = null;
             for(int i = 0; i < Lista.Count; i++)
             {
-                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Nombre + '\t' + Lista[i].Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString());
+                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Nombre + '\t' + Lista[i].Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString());
             }
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {

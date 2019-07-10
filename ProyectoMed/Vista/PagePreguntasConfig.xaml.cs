@@ -159,22 +159,31 @@ namespace ProyectoMed.Vista
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
-            if(PuedeGuardar(this.ListaConCambios))
+            try
             {
-                if(this.LData.GuardarTxt(this.ListaConCambios, this.ListaOriginal, this.grado))
+                if(PuedeGuardar(this.ListaConCambios))
                 {
+                    if(this.LData.GuardarTxt(this.ListaConCambios, this.ListaOriginal, this.grado))
+                    {
 
-                    PageTableroCofig p = new PageTableroCofig(this.grado);
-                    NavigationService.Navigate(p);
+                        PageTableroCofig p = new PageTableroCofig(this.grado);
+                        NavigationService.Navigate(p);
+                    }
+                }
+                else
+                {
+                    MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar toda la informacion de las 5 preguntas.",
+                        "Configuracion",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Question);
                 }
             }
-            else {
-                MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar toda la informacion de las 5 preguntas.",
-                    "Configuracion",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Question);
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
             }
+
 
         }
     }

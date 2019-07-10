@@ -35,26 +35,35 @@ namespace ProyectoMed.Vista
 
         private void EquipoConfiguracion_Loaded(object sender, RoutedEventArgs e)
         {
-            this.titulo.Content = "Equipos del Grado " + this.grado;
-            if(this.numeroE == 0)
+            try
             {
-                LogicaExportarData l = new LogicaExportarData();
-                this.Lista = new List<Equipo>();
-                this.Lista = l.GetImportEequipos(this.grado);
-            }
-            else
-            {
-                for(int i = 0; i < this.numeroE; i++)
+                this.titulo.Content = "Equipos del Grado " + this.grado;
+                if(this.numeroE == 0)
                 {
-                    Equipo eq = new Equipo();
-                    eq.Grado = this.grado;
-                    this.Lista.Add(eq);
+                    LogicaExportarData l = new LogicaExportarData();
+                    this.Lista = new List<Equipo>();
+                    this.Lista = l.GetImportEequipos(this.grado);
                 }
+                else
+                {
+                    for(int i = 0; i < this.numeroE; i++)
+                    {
+                        Equipo eq = new Equipo();
+                        eq.Grado = this.grado;
+                        this.Lista.Add(eq);
+                    }
+                }
+
+
+                this.Griddata.ItemsSource = this.Lista;
+                this.Griddata.Items.Refresh();
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
             }
 
-
-            this.Griddata.ItemsSource = this.Lista;
-            this.Griddata.Items.Refresh();
         }
 
         public EquipoConfiguracion( int grado,int NumeroDeEquipos) : this()
@@ -68,16 +77,24 @@ namespace ProyectoMed.Vista
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBoxResult result0 = System.Windows.MessageBox.Show("Desea cancelar los cambios" + grado.ToString() + "?",
-                                             "Notificación",
-                                             MessageBoxButton.YesNo,
-                                             MessageBoxImage.Question);
-            if(result0 == MessageBoxResult.Yes)
+            try
             {
-                PageGradosConfig p = new PageGradosConfig();
-                NavigationService.Navigate(p);
+                MessageBoxResult result0 = System.Windows.MessageBox.Show("Desea cancelar los cambios" + grado.ToString() + "?",
+                                            "Notificación",
+                                            MessageBoxButton.YesNo,
+                                            MessageBoxImage.Question);
+                if(result0 == MessageBoxResult.Yes)
+                {
+                    PageGradosConfig p = new PageGradosConfig();
+                    NavigationService.Navigate(p);
+                }
             }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+
         }
 
         private void Button_Click_nuevo(object sender, RoutedEventArgs e)
@@ -151,36 +168,44 @@ namespace ProyectoMed.Vista
         }
         private bool PuedeGuardar(List<Equipo> lm)
         {
-
-            if(lm.Count > 1)
+            try
             {
-                if(Checkequipo(lm))
+                if(lm.Count > 1)
                 {
-                    foreach(var item in lm)
+                    if(Checkequipo(lm))
                     {
-                        if(item.Nombre == "")
-                            return false;
+                        foreach(var item in lm)
+                        {
+                            if(item.Nombre == "")
+                                return false;
+                        }
+                        return true;
                     }
-                    return true;
+                    else
+                    {
+                        MessageBoxResult result = System.Windows.MessageBox.Show("Los equipos  no deben de repetirse.",
+                                        "Configuracion",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Question);
+                        return false;
+                    }
                 }
                 else
                 {
-                    MessageBoxResult result = System.Windows.MessageBox.Show("Los equipos  no deben de repetirse.",
-                                    "Configuracion",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Question);
+                    MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar por lo menos 2 equipos.",
+                                        "Configuracion",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Question);
                     return false;
+
                 }
             }
-            else
+            catch(Exception err)
             {
-                MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar por lo menos 2 equipos.",
-                                    "Configuracion",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Question);
-                return false;
 
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
             }
+            return false;
         }
         private void Button_Click_GuardarCambios(object sender, RoutedEventArgs e)
         {

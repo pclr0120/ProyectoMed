@@ -36,26 +36,35 @@ namespace ProyectoMed.Vista
 
         private void MateriasConfig_Loaded(object sender, RoutedEventArgs e)
         {
-            this.titulo.Content = "Materias del Grado " + this.grado;
-            if(this.numeroE == 0)
+            try
             {
-                LogicaMaterias l = new LogicaMaterias();
-                this.Lista = new List<Materias>();
-                this.Lista = l.GetImport(this.grado);
-            }
-            else
-            {
-                for(int i = 0; i < this.numeroE; i++)
+                this.titulo.Content = "Materias del Grado " + this.grado;
+                if(this.numeroE == 0)
                 {
-                    Materias eq = new Materias();
-                    eq.Grado = this.grado;
-                    this.Lista.Add(eq);
+                    LogicaMaterias l = new LogicaMaterias();
+                    this.Lista = new List<Materias>();
+                    this.Lista = l.GetImport(this.grado);
                 }
+                else
+                {
+                    for(int i = 0; i < this.numeroE; i++)
+                    {
+                        Materias eq = new Materias();
+                        eq.Grado = this.grado;
+                        this.Lista.Add(eq);
+                    }
+                }
+
+
+                this.Griddata.ItemsSource = this.Lista;
+                this.Griddata.Items.Refresh();
             }
+            catch(Exception err)
+            {
 
-
-            this.Griddata.ItemsSource = this.Lista;
-            this.Griddata.Items.Refresh();
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+        
         }
 
         public MateriasConfig(int grado, int NumeroDeEquipos) : this()
@@ -69,16 +78,24 @@ namespace ProyectoMed.Vista
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBoxResult result0 = System.Windows.MessageBox.Show("Desea cancelar los cambios del grado" + grado.ToString() + "?",
-                                             "Notificación",
-                                             MessageBoxButton.YesNo,
-                                             MessageBoxImage.Question);
-            if(result0 == MessageBoxResult.Yes)
+            try
             {
-                PageGradosConfig p = new PageGradosConfig();
-                NavigationService.Navigate(p);
+                MessageBoxResult result0 = System.Windows.MessageBox.Show("Desea cancelar los cambios del grado" + grado.ToString() + "?",
+                                            "Notificación",
+                                            MessageBoxButton.YesNo,
+                                            MessageBoxImage.Question);
+                if(result0 == MessageBoxResult.Yes)
+                {
+                    PageGradosConfig p = new PageGradosConfig();
+                    NavigationService.Navigate(p);
+                }
             }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+           
         }
 
         private void Button_Click_nuevo(object sender, RoutedEventArgs e)
@@ -113,11 +130,12 @@ namespace ProyectoMed.Vista
 
         private void Button_Click_Eliminar(object sender, RoutedEventArgs e)
         {
-            Button b = sender as Button;
-            this.Lista.RemoveAll(i => i.Id.Equals(b.CommandParameter.ToString()));
-            this.Griddata.Items.Refresh();
+          
             try
             {
+                Button b = sender as Button;
+                this.Lista.RemoveAll(i => i.Id.Equals(b.CommandParameter.ToString()));
+                this.Griddata.Items.Refresh();
                 Materias eq = new Materias();
                 eq.Grado = this.grado;
                 this.Lista.Add(eq);
@@ -136,61 +154,78 @@ namespace ProyectoMed.Vista
 
         }
         private bool PuedeGuardar(List<Materias>lm) {
-
-            if(lm.Count > 4)
+            try
             {
-                if(CheckMateria(lm))
+                if(lm.Count > 4)
                 {
+                    if(CheckMateria(lm))
+                    {
+                        foreach(var item in lm)
+                        {
+                            if(item.Nombre == "")
+                                return false;
+                        }
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBoxResult result = System.Windows.MessageBox.Show("Las  materias no deben de repetirse.",
+                                        "Configuracion",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Question);
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar las 5 materias.",
+                                        "Configuracion",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Question);
+                    return false;
+
+                }
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+            return false;
+
+        }
+
+        private bool CheckMateria(List<Materias> lm)
+        {
+            try
+            {
+                if(lm.Count > 4)
+                {
+
+
                     foreach(var item in lm)
                     {
-                        if(item.Nombre == "")
+                        if(lm.FindAll(i => i.Nombre == item.Nombre).Count > 1)
                             return false;
                     }
                     return true;
                 }
                 else
                 {
-                    MessageBoxResult result = System.Windows.MessageBox.Show("Las  materias no deben de repetirse.",
-                                    "Configuracion",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Question);
+                    MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar las 5 materias.",
+                                        "Configuracion",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Question);
                     return false;
+
                 }
             }
-            else
-            {
-                MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar las 5 materias.",
-                                    "Configuracion",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Question);
-                return false;
-
-            }
-        }
-
-        private bool CheckMateria(List<Materias> lm)
-        {
-
-            if(lm.Count > 4)
+            catch(Exception err)
             {
 
-                
-                foreach(var item in lm)
-                {
-                    if(lm.FindAll(i=>i.Nombre==item.Nombre).Count>1)
-                        return false;
-                }
-                return true;
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
             }
-            else
-            {
-                MessageBoxResult result = System.Windows.MessageBox.Show("Para poder continuar debe de capturar las 5 materias.",
-                                    "Configuracion",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Question);
-                return false;
-
-            }
+            return false;
         }
         private void Button_Click_GuardarCambios(object sender, RoutedEventArgs e)
         {

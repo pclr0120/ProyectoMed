@@ -9,11 +9,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ProyectoMed.Vista
 {
@@ -26,10 +28,11 @@ namespace ProyectoMed.Vista
         List<Pregunta> ListaPreguntas;
         List<Equipo> Equipos;
         int Puntaje = 0;
-        string respuesta;
+        string respuesta = "Se termino el tiempo";
         string materia;
         int grado;
         int nivel;
+        string RondaID;
         public PagePregunta()
         {
             InitializeComponent();
@@ -37,7 +40,8 @@ namespace ProyectoMed.Vista
 
             this.Loaded += PagePregunta_Loaded;
         }
-        public PagePregunta(string materia,int grado,int nivel, List<Equipo> Equipos) : this() {
+        public PagePregunta(string materia, int grado, int nivel, List<Equipo> Equipos, string IDRonda) : this() {
+            this.RondaID = IDRonda;
             this.materia = materia;
             this.grado = grado;
             this.nivel = nivel;
@@ -46,68 +50,78 @@ namespace ProyectoMed.Vista
 
         private void PagePregunta_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                this.TiempoIniciar();
+                LogicaExportarData l = new LogicaExportarData();
+                LogicaMaterias lm = new LogicaMaterias();
+                List<Pregunta> listaPreguntas = l.GetImport1(this.grado).FindAll(i => i.Materia == materia && i.Nivel == this.nivel && i.Estatus == true);
+                Random r = new Random();
+                int random = r.Next(0, 8);
 
-            LogicaExportarData l = new LogicaExportarData();
-            LogicaMaterias lm = new LogicaMaterias();
-            List<Pregunta> listaPreguntas = l.GetImport1(this.grado).FindAll(i => i.Materia == materia && i.Nivel == this.nivel);
-            Random r = new Random();
-            int random = r.Next(0,8);
-          
-           
-            Modelo.Pregunta Pr= listaPreguntas[random];
-            this.Pregtunta = Pr;
-            
-            string puntaje = "";
-            if (nivel == 1)
-                puntaje = "200";
-                if (nivel == 2)
-                puntaje = "400";
-            if (nivel == 3)
-                puntaje = "600";
-            if (nivel == 4)
-                puntaje = "800";
-            if (nivel == 5)
-                puntaje = "1000";
-            this.Puntaje = int.Parse(puntaje);
-            this.Titulo.Content = this.materia +" Por "+puntaje;
 
-            this.Pregunta.Text = Pr.Descripcion;
-            Random r2= new Random();
-            int rm2 = r2.Next(0, 4);
-            if(rm2==0) {
-                this.R1.Content ="A:"+ Pr.R1;
-                this.R2.Content = "B:" + Pr.R2;
-                this.R3.Content = "C:"+Pr.R3;
-                this.R4.Content ="D:"+Pr.Rc;
+                Modelo.Pregunta Pr = listaPreguntas[random];
+                this.Pregtunta = Pr;
+                Pr.Estatus = false;
+                string puntaje = "";
+                if(nivel == 1)
+                    puntaje = "200";
+                if(nivel == 2)
+                    puntaje = "400";
+                if(nivel == 3)
+                    puntaje = "600";
+                if(nivel == 4)
+                    puntaje = "800";
+                if(nivel == 5)
+                    puntaje = "1000";
+                this.Puntaje = int.Parse(puntaje);
+                this.Titulo.Content = this.materia + " Por " + puntaje;
+
+                this.Pregunta.Text = Pr.Descripcion;
+                Random r2 = new Random();
+                int rm2 = r2.Next(0, 4);
+                if(rm2 == 0)
+                {
+                    this.R1.Content = "A:" + Pr.R1;
+                    this.R2.Content = "B:" + Pr.R2;
+                    this.R3.Content = "C:" + Pr.R3;
+                    this.R4.Content = "D:" + Pr.Rc;
+                }
+                if(rm2 == 1)
+                {
+                    this.R1.Content = "A:" + Pr.Rc;
+                    this.R2.Content = "B:" + Pr.R2;
+                    this.R3.Content = "C:" + Pr.R3;
+                    this.R4.Content = "D:" + Pr.R1;
+                }
+                if(rm2 == 2)
+                {
+                    this.R1.Content = "A:" + Pr.R2;
+                    this.R2.Content = "B:" + Pr.Rc;
+                    this.R3.Content = "C:" + Pr.R3;
+                    this.R4.Content = "D:" + Pr.R1;
+                }
+                if(rm2 == 3)
+                {
+                    this.R1.Content = "A:" + Pr.R2;
+                    this.R2.Content = "B:" + Pr.R3;
+                    this.R3.Content = "C:" + Pr.Rc;
+                    this.R4.Content = "D:" + Pr.R1;
+                }
+                if(rm2 == 4)
+                {
+                    this.R1.Content = "A:" + Pr.R2;
+                    this.R2.Content = "B:" + Pr.R1;
+                    this.R3.Content = "C:" + Pr.Rc;
+                    this.R4.Content = "D:" + Pr.R3;
+                }
             }
-            if(rm2 == 1)
+            catch(Exception err)
             {
-                this.R1.Content = "A:" + Pr.Rc;
-                this.R2.Content = "B:"+Pr.R2;
-                this.R3.Content = "C:" + Pr.R3;
-                this.R4.Content = "D:"+Pr.R1;
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
             }
-            if(rm2 == 2)
-            {
-                this.R1.Content ="A:"+ Pr.R2;
-                this.R2.Content = "B:"+Pr.Rc;
-                this.R3.Content = "C:"+Pr.R3;
-                this.R4.Content = "D:"+Pr.R1;
-            }
-            if(rm2 == 3)
-            {
-                this.R1.Content ="A:"+ Pr.R2;
-                this.R2.Content = "B:"+Pr.R3;
-                this.R3.Content = "C:"+Pr.Rc;
-                this.R4.Content = "D:"+Pr.R1;
-            }
-            if(rm2 == 4)
-            {
-                this.R1.Content = "A:"+Pr.R2;
-                this.R2.Content = "B:"+Pr.R1;
-                this.R3.Content ="C:"+ Pr.Rc;
-                this.R4.Content = "D:"+Pr.R3;
-            }
+
 
         }
 
@@ -125,45 +139,54 @@ namespace ProyectoMed.Vista
         private void R1_Checked(object sender, RoutedEventArgs e)
         {
 
+            try
+            {
+                System.Windows.Controls.RadioButton r = sender as System.Windows.Controls.RadioButton;
+                if(r.Name.Equals("R1"))
+                {
+                    r.Foreground = Brushes.Yellow;
+                    this.R2.Foreground = Brushes.White;
+                    this.R3.Foreground = Brushes.White;
+                    this.R4.Foreground = Brushes.White;
+                    this.respuesta = r.Content.ToString();
+                }
 
-            RadioButton r = sender as RadioButton;
-            if (r.Name.Equals("R1"))
-            {
-                r.Foreground = Brushes.Yellow;
-                this.R2.Foreground = Brushes.White;
-                this.R3.Foreground = Brushes.White;
-                this.R4.Foreground = Brushes.White;
-                this.respuesta = r.Content.ToString();
-            }
-          
 
-            if (r.Name.Equals("R2"))
-            {
-                r.Foreground = Brushes.Yellow;
-                this.R1.Foreground = Brushes.White;
-                this.R3.Foreground = Brushes.White;
-                this.R4.Foreground = Brushes.White;
-                this.respuesta = r.Content.ToString();
+                if(r.Name.Equals("R2"))
+                {
+                    r.Foreground = Brushes.Yellow;
+                    this.R1.Foreground = Brushes.White;
+                    this.R3.Foreground = Brushes.White;
+                    this.R4.Foreground = Brushes.White;
+                    this.respuesta = r.Content.ToString();
+                }
+
+                if(r.Name.Equals("R3"))
+                {
+                    r.Foreground = Brushes.Yellow;
+                    this.R1.Foreground = Brushes.White;
+                    this.R2.Foreground = Brushes.White;
+                    this.R4.Foreground = Brushes.White;
+                    this.respuesta = r.Content.ToString();
+                }
+
+                if(r.Name.Equals("R4"))
+                {
+                    r.Foreground = Brushes.Yellow;
+                    this.R1.Foreground = Brushes.White;
+                    this.R2.Foreground = Brushes.White;
+                    this.R3.Foreground = Brushes.White;
+                    this.respuesta = r.Content.ToString();
+                }
+
             }
-           
-            if (r.Name.Equals("R3"))
+            catch(Exception err)
             {
-                r.Foreground = Brushes.Yellow;
-                this.R1.Foreground = Brushes.White;
-                this.R2.Foreground = Brushes.White;
-                this.R4.Foreground = Brushes.White;
-                this.respuesta = r.Content.ToString();
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
             }
-          
-            if (r.Name.Equals("R4"))
-            {
-                r.Foreground = Brushes.Yellow;
-                this.R1.Foreground = Brushes.White;
-                this.R2.Foreground = Brushes.White;
-                this.R3.Foreground = Brushes.White;
-                this.respuesta = r.Content.ToString();
-            }
-          
+
+
 
 
 
@@ -171,8 +194,66 @@ namespace ProyectoMed.Vista
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Resultado R = new Resultado(this.Pregtunta,this.respuesta,this.grado,this.Puntaje,this.Equipos);
+            try
+            {
+                this.siguiente();
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+
+        }
+
+        void GuardarHisrotial (){
+            LogicaExportarData LE = new LogicaExportarData();
+            LogicaHistorialRonda LR = new LogicaHistorialRonda();
+            LR.GuardarTxtRonda();
+        }
+        void siguiente() {
+            Resultado R = new Resultado(this.Pregtunta, this.respuesta, this.grado, this.Puntaje, this.Equipos);
             this.NavigationService.Navigate(R);
+        }
+        Timer myTimer = new Timer();
+        int timeLeft = 30;
+
+        private void TiempoIniciar()
+        {
+            //set properties for the Timer
+            myTimer.Interval = 1000;
+            myTimer.Enabled = true;
+
+            //Set the event handler for the timer, named "myTimer_Tick"
+            myTimer.Tick += myTimer_Tick;
+
+            //Start the timer as soon as the form is loaded
+            myTimer.Start();
+
+            //Show the time set in the "timeLeft" variable
+            Tiempo.Content = timeLeft.ToString();
+        }
+
+        private void myTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                //perform these actions at the interval set in the properties.
+                Tiempo.Content = timeLeft.ToString();
+                timeLeft -= 1;
+
+                if(timeLeft < 0)
+                {
+                    myTimer.Stop();
+                    this.siguiente();
+                }
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012","Tablero");
+            }
+
         }
     }
 }

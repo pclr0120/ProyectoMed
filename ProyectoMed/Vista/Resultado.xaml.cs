@@ -71,7 +71,7 @@ namespace ProyectoMed.Vista
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //  Grados G = new Grados();
-            PageTablero t =  new PageTablero(this.grado,this.Equipos);
+            PageTablero t =  new PageTablero(this.grado);
             this.NavigationService.Navigate(t);
         }
     }

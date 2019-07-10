@@ -25,8 +25,10 @@ namespace ProyectoMed.Vista
             InitializeComponent();
         }
 
+      
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             Grados G = new Grados();
             this.NavigationService.Navigate(G);
         }

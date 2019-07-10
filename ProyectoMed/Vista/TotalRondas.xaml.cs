@@ -41,12 +41,22 @@ namespace ProyectoMed.Vista
         }
         List<Equipo> eq;
         List<Equipo> eq2;
-        private void EquipoSeleccionar() {
-            LogicaExportarData l = new LogicaExportarData();
-            eq = l.GetImportEequipos(this.Grado);
-            
-            this.cb2.IsEnabled = false;
-       
+        private void EquipoSeleccionar()
+        {
+            try
+            {
+                LogicaExportarData l = new LogicaExportarData();
+                eq = l.GetImportEequipos(this.Grado);
+
+                this.cb2.IsEnabled = false;
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+
+
 
 
         }
@@ -57,62 +67,99 @@ namespace ProyectoMed.Vista
 
 
         private  bool Continuar() {
-            if(int.Parse(TxtNumero.Text.ToString()) > 2)
+            try
             {
-                if((cb1.SelectedValue.ToString()!="" && cb1.SelectedValue!=null))
-                 return true;
+                if(int.Parse(TxtNumero.Text.ToString()) > 2)
+                {
+                    if((cb1.SelectedValue.ToString() != "" && cb1.SelectedValue != null))
+                        return true;
+                    else
+                        MessageBox.Show("Se deben de seleccionar los dos equipos para porder continuar..", "Rondas");
+                }
                 else
-                    MessageBox.Show("Se deben de seleccionar los dos equipos para porder continuar..", "Rondas");
+                {
+                    MessageBox.Show("El numero de rondas minimo son 3", "Rondas");
+                    return false;
+                }
+
             }
-            else
+            catch(Exception err)
             {
-                MessageBox.Show("El numero de rondas minimo son 3", "Rondas");
-                return false;
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
             }
             return false;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            List<Equipo> Equipos = new List<Equipo>();
-            Equipo e1 = this.eq.Find(i => i.Nombre == cb1.Text);
-            Equipos.Add(e1);
-            Equipo e2 = this.eq.Find(i => i.Nombre == cb2.Text);
-            Equipos.Add(e2);
-            if(Continuar())
+
+            try
             {
-                LogicaHistorialRonda Lh = new LogicaHistorialRonda();
-                Ronda ronda = new Ronda();
-                ronda.Grado = this.Grado;
-                ronda.TotalRonda = int.Parse(this.TxtNumero.Text.ToString());
-                ronda.Equipo1 = this.cb1.Text;
-                ronda.Equipo2 = this.cb2.Text;
-                List<Ronda> lr = new List<Ronda>();
-                lr.Add(ronda);
-                if(Lh.GuardarTxtRonda(lr, Lh.GetRondas(this.Grado), this.Grado))
+                List<Equipo> Equipos = new List<Equipo>();
+                Equipo e1 = this.eq.Find(i => i.Nombre == cb1.Text);
+                Equipos.Add(e1);
+                Equipo e2 = this.eq.Find(i => i.Nombre == cb2.Text);
+                Equipos.Add(e2);
+                if(Continuar())
                 {
-                    PageTablero Tb = new PageTablero(this.Grado, Equipos);
-                    this.NavigationService.Navigate(Tb);
+                    LogicaHistorialRonda Lh = new LogicaHistorialRonda();
+
+                    Ronda ronda = new Ronda();
+                    ronda.Grado = this.Grado;
+                    ronda.TotalRonda = int.Parse(this.TxtNumero.Text.ToString());
+                    ronda.Equipo1 = this.cb1.Text;
+                    ronda.Equipo2 = this.cb2.Text;
+                    List<Ronda> lr = new List<Ronda>();
+                    lr.Add(ronda);
+                    if(Lh.GuardarTxtRonda(lr, Lh.GetRondas(this.Grado), this.Grado))
+                    {
+
+                        PageTablero Tb = new PageTablero(this.Grado);
+                        this.NavigationService.Navigate(Tb);
+                    }
+                    else MessageBox.Show("Ups!. Ocurrio un error si persiste comuniquese con el desarrollador  al siguiente telefono 6681010012", "Tablero");
                 }
-                else MessageBox.Show("Ups!. Ocurrio un error si persiste comuniquese con el desarrollador  al siguiente telefono 6681010012","Tablero");
             }
-            
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+
         }
 
         private void Cb1_DropDownOpened(object sender, EventArgs e)
         {
-            EquipoSeleccionar();
-            cb1.ItemsSource = this.eq;
-         
+            try
+            {
+                EquipoSeleccionar();
+                cb1.ItemsSource = this.eq;
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+
+
         }
 
         private void Cb1_DropDownClosed(object sender, EventArgs e)
         {
-            
-            this.cb2.IsEnabled = true;
-            this.eq2 = this.eq;
-            this.eq2.RemoveAll(i=>i.Nombre==cb1.Text);
-            cb2.ItemsSource = this.eq2;
-           
+            try
+            {
+                this.cb2.IsEnabled = true;
+                this.eq2 = this.eq;
+                this.eq2.RemoveAll(i => i.Nombre == cb1.Text);
+                cb2.ItemsSource = this.eq2;
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+
+
         }
 
         private void TxtNumero_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -131,8 +178,17 @@ namespace ProyectoMed.Vista
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Grados p = new Grados();
-            this.NavigationService.Navigate(p);
+            try
+            {
+                Grados p = new Grados();
+                this.NavigationService.Navigate(p);
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
+
         }
     }
 }

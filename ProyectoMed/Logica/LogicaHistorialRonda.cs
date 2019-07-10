@@ -61,8 +61,8 @@ namespace ProyectoMed.Logica
                         Pre.Equipo2Puntaje = int.Parse(_Pregunta[8]);
                         Pre.Fecha = _Pregunta[9];
                         Pre.Estatus = bool.Parse(_Pregunta[10]);
-                       
-                       
+                        Pre.Id = _Pregunta[11];
+
 
                         //if (_Pregunta[8].Equals("true"))
 
@@ -131,7 +131,7 @@ namespace ProyectoMed.Logica
             //string[] DataWrite = null;
             for(int i = 0; i < Lista.Count; i++)
             {
-                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].TotalRonda + '\t' + Lista[i].RondaActual.ToString() + '\t' + Lista[i].Turno.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].Equipo1.ToString() + '\t' + Lista[i].Equipo1Puntaje.ToString() + '\t' + Lista[i].Equipo2.ToString() + '\t' + Lista[i].Equipo2Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString());
+                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].TotalRonda + '\t' + Lista[i].RondaActual.ToString() + '\t' + Lista[i].Turno.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].Equipo1.ToString() + '\t' + Lista[i].Equipo1Puntaje.ToString() + '\t' + Lista[i].Equipo2.ToString() + '\t' + Lista[i].Equipo2Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString());
             }
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {
@@ -145,7 +145,21 @@ namespace ProyectoMed.Logica
             string ruta = this.rutaEquipos + gradoRuta;
             if(File.Exists(ruta) ? true : false)
             {
+                LogicaExportarData le = new LogicaExportarData();
+                List<Equipo> tem = new List<Equipo>();
+                List<Equipo> LEquipo = new List<Equipo>();
+                Equipo equipo = new Equipo();
+                LogicaMarcador lm = new LogicaMarcador();
+                tem =  le.GetImportEequipos(Lista[0].Grado);
+                equipo = tem.Find(item=>item.Nombre== Lista[0].Equipo1);
+                equipo.Id = Lista[0].Id;
+                LEquipo.Add(equipo);
+               
+                equipo = tem.Find(item => item.Nombre == Lista[0].Equipo2);
+                equipo.Id = Lista[0].Id;
+                LEquipo.Add(equipo);
 
+               lm.GuardarTxtEquipos(LEquipo,lm.GetImportEequipos(Lista[0].Grado), Lista[0].Grado);
                 //MessageBoxResult result = System.Windows.MessageBox.Show("Configuracion salvada correctamente!",
                 //                              "Notificación",
                 //                              MessageBoxButton.OK,

@@ -85,10 +85,22 @@ namespace ProyectoMed.Vista
 
         private void ClickSelect(object sender, RoutedEventArgs e)
         {
-              Button b=sender as Button;
+            try
+            {
+                Button b = sender as Button;
 
-            GradoSelect(int.Parse(b.CommandParameter.ToString()));
-        
+                GradoSelect(int.Parse(b.CommandParameter.ToString()));
+            }
+            catch(Exception err)
+            {
+                MessageBoxResult result = System.Windows.MessageBox.Show("Ups!, Ocurrio un problema:Si el error persiste  reportelo al 6681010012.",
+                                    "Error",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Question);
+
+            }
+
+
         }
 
    

@@ -287,6 +287,14 @@
                             </LinearGradientBrush>
                         </Label.Foreground>
                     </Label>
+                    <Label Name="lblTurno" Grid.Row="0" Content="Turno:Team1" FontFamily="Segoe UI Black" FontWeight="Bold" FontSize="14">
+                        <Label.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFEAD507" Offset="0.667"/>
+                            </LinearGradientBrush>
+                        </Label.Foreground>
+                    </Label>
 
                 </Grid>
                 <Grid Grid.Column="2" Height="auto" Width="auto"  Margin="10,0,10,10" Background="#FFF3F3F3" >
