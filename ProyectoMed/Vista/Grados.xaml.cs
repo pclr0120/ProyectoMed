@@ -1,4 +1,5 @@
 ﻿using ProyectoMed.Logica;
+using ProyectoMed.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,11 +37,17 @@ namespace ProyectoMed.Vista
         private void TotalPreguntas() {
             try
             {
+                LogicaPreguntasHistorial Lh = new LogicaPreguntasHistorial();
                 LogicaExportarData l = new LogicaExportarData();
-                p1.Content = l.GetImport1(1).FindAll(i => i.Grado == 1).Count.ToString() +"/125";
-                p2.Content = l.GetImport1(2).FindAll(i => i.Grado == 2).Count.ToString() + "/125";
-                p3.Content = l.GetImport1(3).FindAll(i => i.Grado == 3).Count.ToString() + "/125";
-                p4.Content = l.GetImport1(4).FindAll(i => i.Grado == 4).Count.ToString() + "/125";
+                Lh.GuardarTxt(l.GetImport1(1),new List<Modelo.Pregunta>(),1);
+                Lh.GuardarTxt(l.GetImport1(2), new List<Modelo.Pregunta>(), 2);
+                Lh.GuardarTxt(l.GetImport1(3), new List<Modelo.Pregunta>(), 3);
+                Lh.GuardarTxt(l.GetImport1(4), new List<Modelo.Pregunta>(), 4);
+
+                p1.Content = Lh.GetImport1(1).FindAll(i => i.Grado == 1 && i.Estatus == true).Count.ToString() +"/125";
+                p2.Content = Lh.GetImport1(2).FindAll(i => i.Grado == 2 && i.Estatus == true).Count.ToString() + "/125";
+                p3.Content = Lh.GetImport1(3).FindAll(i => i.Grado == 3 && i.Estatus == true).Count.ToString() + "/125";
+                p4.Content = Lh.GetImport1(4).FindAll(i => i.Grado == 4 && i.Estatus==true).Count.ToString() + "/125";
             }
             catch(Exception e)
             {
@@ -58,10 +65,16 @@ namespace ProyectoMed.Vista
             try
             {
                 LogicaExportarData l = new LogicaExportarData();
-                e1.Content = l.GetImportEequipos(1).FindAll(i => i.Grado == 1).Count.ToString();
-                e2.Content = l.GetImportEequipos(2).FindAll(i => i.Grado == 2).Count.ToString();
-                e3.Content = l.GetImportEequipos(3).FindAll(i => i.Grado == 3).Count.ToString();
-                e4.Content = l.GetImportEequipos(4).FindAll(i => i.Grado == 4).Count.ToString();
+                LogicaHistorialEquipos LE = new LogicaHistorialEquipos();
+                LE.GuardarTxtEquipos(l.GetImportEequipos(1),new List<Equipo>(),1);
+                LE.GuardarTxtEquipos(l.GetImportEequipos(2), new List<Equipo>(), 2);
+                LE.GuardarTxtEquipos(l.GetImportEequipos(3), new List<Equipo>(), 3);
+                LE.GuardarTxtEquipos(l.GetImportEequipos(4), new List<Equipo>(), 4);
+
+                e1.Content = LE.GetImportEequipos(1).FindAll(i => i.Grado == 1).Count.ToString();
+                e2.Content = LE.GetImportEequipos(2).FindAll(i => i.Grado == 2).Count.ToString();
+                e3.Content = LE.GetImportEequipos(3).FindAll(i => i.Grado == 3).Count.ToString();
+                e4.Content = LE.GetImportEequipos(4).FindAll(i => i.Grado == 4).Count.ToString();
             }
             catch(Exception e)
             {

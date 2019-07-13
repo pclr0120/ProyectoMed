@@ -1,4 +1,5 @@
-﻿using ProyectoMed.Modelo;
+﻿using ProyectoMed.Logica;
+using ProyectoMed.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,8 +72,62 @@ namespace ProyectoMed.Vista
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //  Grados G = new Grados();
-            PageTablero t =  new PageTablero(this.grado);
-            this.NavigationService.Navigate(t);
+           
+        }
+
+        public void rondaFinish() {
+            try
+            {
+                LogicaHistorialRonda lr = new LogicaHistorialRonda();
+                LogicaHistorialEquipos lh = new LogicaHistorialEquipos();
+                List<Ronda> r = lr.GetRondas(this.grado);
+                Ronda RondaActual = r.Find(i => i.Id == this.Equipos[0].Id);
+                if(RondaActual.RondaActual == RondaActual.TotalRonda)
+                {
+                    MessageBoxResult result = System.Windows.MessageBox.Show("Fin de las rondas",
+                                                                           "Fin ronda",
+                                                                          MessageBoxButton.OK,
+                                                                           MessageBoxImage.Question);
+                    Grados t = new Grados();
+                    this.NavigationService.Navigate(t);
+                }
+                else if((this.Equipos[0].Turno && this.Equipos[1].Turno == false && RondaActual.Turno == 0))
+                {
+                    this.Equipos[1].Turno = true;
+                    RondaActual.Turno = 1;
+                    PageTablero t = new PageTablero(this.grado);
+                    this.NavigationService.Navigate(t);
+                }
+                else if(this.Equipos[0].Turno && this.Equipos[1].Turno == true && RondaActual.Turno == 1)
+                {
+                    this.Equipos[0].Turno = true;
+                    this.Equipos[1].Turno = false;
+                    RondaActual.Turno = 0;
+                    RondaActual.RondaActual += 1;
+                    PageTablero t = new PageTablero(this.grado);
+                    this.NavigationService.Navigate(t);
+
+                }
+                List<Ronda> ListaRondaActual = new List<Ronda>();
+                RondaActual.Estatus = false; //desctivar
+                ListaRondaActual.Add(RondaActual);
+
+                lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
+                lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
+            }
+            catch(Exception)
+            {
+
+                MessageBoxResult result = System.Windows.MessageBox.Show("Ups!, Ocurrio un problema:Si el error persiste  reportelo al 6681010012.",
+                                                       "Error",
+                                                       MessageBoxButton.OK,
+                                                       MessageBoxImage.Question);
+            }
+          
+                
+
+
+
         }
     }
 }

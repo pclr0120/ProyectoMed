@@ -151,13 +151,13 @@ namespace ProyectoMed.Logica
         {     /// guarda todo los cambios      
             string gradoRuta = "";
             if(grado==1) {
-                gradoRuta = "g1.txt";
+                gradoRuta = "p1.txt";
             }else if(grado==2)
-                gradoRuta = "g2.txt";
+                gradoRuta = "p2.txt";
              else if(grado==3)
-                gradoRuta = "g3.txt";
+                gradoRuta = "p3.txt";
             else if(grado == 4)
-                gradoRuta = "g4.txt";
+                gradoRuta = "p4.txt";
 
 
             List<Pregunta> Lista = new List<Pregunta>();

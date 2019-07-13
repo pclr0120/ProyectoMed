@@ -46,14 +46,15 @@ namespace ProyectoMed.Vista
             {
                 this._Grado = grado;
 
-
-                LogicaExportarData l = new LogicaExportarData();
+                LogicaPreguntasHistorial Lhp = new LogicaPreguntasHistorial();
+                LogicaHistorialEquipos l = new LogicaHistorialEquipos();
                 LogicaMaterias m = new LogicaMaterias();
+                LogicaMarcador lm=new LogicaMarcador();
                 LogicaHistorialRonda lh = new LogicaHistorialRonda();
                 Equipos = new List<Equipo>();
                 List<Ronda> lronda = lh.GetRondas(this._Grado);
-                Equipo e1 = l.GetImportEequipos(this._Grado).Find(i => i.Nombre == lronda[lronda.Count - 1].Equipo1);
-                Equipo e2 = l.GetImportEequipos(this._Grado).Find(i => i.Nombre == lronda[lronda.Count - 1].Equipo2);
+                Equipo e1 = lm.GetImportEequipos(this._Grado).FindAll(i => i.Id == lronda[lronda.Count - 1].Id )[0];
+                Equipo e2 = lm.GetImportEequipos(this._Grado).FindAll(i => i.Id == lronda[lronda.Count - 1].Id)[1];
                 this.Equipos.Add(e1);
                 this.Equipos.Add(e2);
                 //simpre habra uno por que se tiene que registrar la rondas antes de empezar
@@ -73,12 +74,14 @@ namespace ProyectoMed.Vista
 
                     if(this.turno == 0)
                     {
-                        this.InputTeam1.Background = Brushes.LightYellow;
+                        this.Equipos[0].Turno = true;
+                    //   this.InputTeam1.Background = Brushes.LightYellow;
                         this.lblTurno.Content = "Turno:" + this.InputTeam1.Content.ToString();
                     }
                     else
                     {
-                        this.InputTeam2.Background = Brushes.LightYellow;
+                        this.Equipos[0].Turno = true;
+                   //     this.InputTeam2.Background = Brushes.LightYellow;
                         this.lblTurno.Content = "Turno:" + this.InputTeam2.Content.ToString();
                     }
                 }
@@ -88,7 +91,7 @@ namespace ProyectoMed.Vista
                 try
                 {
 
-                    this.ListaPreguntas = l.GetImport1(this.grado);
+                    this.ListaPreguntas = Lhp.GetImport1(this.grado);
                     this.ListaMaterias = m.GetImport(this._Grado);
                     // if() {
                     this.M1.Content = this.ListaMaterias[0].Nombre.ToString();

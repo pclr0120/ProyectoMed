@@ -18,6 +18,7 @@ namespace ProyectoMed.Modelo
         private string r3;
         private string rc;//repuesta correcta
         private bool estatus;
+        private int turno = 0;
 
 
         public Pregunta() {

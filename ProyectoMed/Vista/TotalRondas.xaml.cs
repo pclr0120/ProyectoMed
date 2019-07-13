@@ -45,9 +45,10 @@ namespace ProyectoMed.Vista
         {
             try
             {
-                LogicaExportarData l = new LogicaExportarData();
-                eq = l.GetImportEequipos(this.Grado);
-
+                LogicaHistorialEquipos LE = new LogicaHistorialEquipos();
+               
+                eq = LE.GetImportEequipos(this.Grado);
+                
                 this.cb2.IsEnabled = false;
             }
             catch(Exception err)
@@ -95,27 +96,36 @@ namespace ProyectoMed.Vista
 
             try
             {
-                List<Equipo> Equipos = new List<Equipo>();
-                Equipo e1 = this.eq.Find(i => i.Nombre == cb1.Text);
-                Equipos.Add(e1);
-                Equipo e2 = this.eq.Find(i => i.Nombre == cb2.Text);
-                Equipos.Add(e2);
+
                 if(Continuar())
                 {
                     LogicaHistorialRonda Lh = new LogicaHistorialRonda();
-
+                    LogicaHistorialEquipos le = new LogicaHistorialEquipos();
+                    List<Equipo> Lequipo = new List<Equipo>();
+                    LogicaHistorialEquipos LE = new LogicaHistorialEquipos();
                     Ronda ronda = new Ronda();
                     ronda.Grado = this.Grado;
                     ronda.TotalRonda = int.Parse(this.TxtNumero.Text.ToString());
                     ronda.Equipo1 = this.cb1.Text;
                     ronda.Equipo2 = this.cb2.Text;
                     List<Ronda> lr = new List<Ronda>();
+                    List<Equipo> Equipos = new List<Equipo>();
+                    eq2 = LE.GetImportEequipos(this.Grado);
+                    Equipo e1 = this.eq2.Find(i => i.Nombre == cb1.Text);
+                    e1.Id = ronda.Id;
+                    Equipos.Add(e1);
+                    Equipo e2 = this.eq2.Find(i => i.Nombre == cb2.Text);
+                    e2.Id = ronda.Id;
+                    Equipos.Add(e2);
                     lr.Add(ronda);
                     if(Lh.GuardarTxtRonda(lr, Lh.GetRondas(this.Grado), this.Grado))
                     {
-
-                        PageTablero Tb = new PageTablero(this.Grado);
-                        this.NavigationService.Navigate(Tb);
+                        if(le.GuardarTxtEquipos(Equipos, le.GetImportEequipos(this.Grado), this.Grado))
+                        {
+                            PageTablero Tb = new PageTablero(this.Grado);
+                            this.NavigationService.Navigate(Tb);
+                        }else
+                            MessageBox.Show("Ups!. Ocurrio un error si persiste comuniquese con el desarrollador  al siguiente telefono 6681010012", "Tablero");
                     }
                     else MessageBox.Show("Ups!. Ocurrio un error si persiste comuniquese con el desarrollador  al siguiente telefono 6681010012", "Tablero");
                 }

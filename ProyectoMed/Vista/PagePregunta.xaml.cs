@@ -24,7 +24,7 @@ namespace ProyectoMed.Vista
     /// </summary>
     public partial class PagePregunta : Page
     {
-        Pregunta Pregtunta;
+        Pregunta pregunta;
         List<Pregunta> ListaPreguntas;
         List<Equipo> Equipos;
         int Puntaje = 0;
@@ -53,7 +53,7 @@ namespace ProyectoMed.Vista
             try
             {
                 this.TiempoIniciar();
-                LogicaExportarData l = new LogicaExportarData();
+                LogicaPreguntasHistorial l = new LogicaPreguntasHistorial();
                 LogicaMaterias lm = new LogicaMaterias();
                 List<Pregunta> listaPreguntas = l.GetImport1(this.grado).FindAll(i => i.Materia == materia && i.Nivel == this.nivel && i.Estatus == true);
                 Random r = new Random();
@@ -61,7 +61,7 @@ namespace ProyectoMed.Vista
 
 
                 Modelo.Pregunta Pr = listaPreguntas[random];
-                this.Pregtunta = Pr;
+                this.pregunta = Pr;
                 Pr.Estatus = false;
                 string puntaje = "";
                 if(nivel == 1)
@@ -207,12 +207,51 @@ namespace ProyectoMed.Vista
         }
 
         void GuardarHisrotial (){
+            try
+            {
+
+          
             LogicaExportarData LE = new LogicaExportarData();
             LogicaHistorialRonda LR = new LogicaHistorialRonda();
-            LR.GuardarTxtRonda();
+            LogicaMarcador Lm = new LogicaMarcador();
+            Ronda RondaActual = LR.GetRondas(this.grado).Find(i=>i.Id==this.RondaID);
+            List<Ronda> ListR  = new List<Ronda>();
+                string[] res = this.respuesta.Split(':');
+                this.respuesta = res[1];
+                if(this.respuesta == this.pregunta.Rc)
+                {
+                    if(RondaActual.Turno == 0)
+                    {
+                        RondaActual.Turno = 1;
+                        RondaActual.Equipo1Puntaje += this.Puntaje;
+                        this.Equipos[0].Puntaje += this.Puntaje;
+                    }
+                    else
+                    {
+                        RondaActual.Turno = 0;
+                        RondaActual.Equipo2Puntaje += this.Puntaje;
+                        this.Equipos[1].Puntaje += this.Puntaje;
+
+                    }
+                }
+      
+            ListR.Add(RondaActual);
+
+            if(LR.GuardarTxtRonda(ListR, LR.GetRondas(this.grado), this.grado)) {
+               List<Equipo> listEquipos= Lm.GetImportEequipos(this.grado);
+               
+                Lm.GuardarTxtEquipos(this.Equipos,listEquipos,this.grado);
+            }
+            }
+            catch(Exception err)
+            {
+
+                System.Windows.MessageBox.Show("Up!. Ocurrio un error si esto persiste reportelo al 6681010012", "Tablero");
+            }
         }
         void siguiente() {
-            Resultado R = new Resultado(this.Pregtunta, this.respuesta, this.grado, this.Puntaje, this.Equipos);
+            this.GuardarHisrotial();
+            Resultado R = new Resultado(this.pregunta, this.respuesta, this.grado, this.Puntaje, this.Equipos);
             this.NavigationService.Navigate(R);
         }
         Timer myTimer = new Timer();
