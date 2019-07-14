@@ -57,7 +57,7 @@ namespace ProyectoMed.Vista
                 LogicaMaterias lm = new LogicaMaterias();
                 List<Pregunta> listaPreguntas = l.GetImport1(this.grado).FindAll(i => i.Materia == materia && i.Nivel == this.nivel && i.Estatus == true);
                 Random r = new Random();
-                int random = r.Next(0, 8);
+                int random = r.Next(0, listaPreguntas.Count-1);
 
 
                 Modelo.Pregunta Pr = listaPreguntas[random];
@@ -216,6 +216,10 @@ namespace ProyectoMed.Vista
             LogicaMarcador Lm = new LogicaMarcador();
             Ronda RondaActual = LR.GetRondas(this.grado).Find(i=>i.Id==this.RondaID);
             List<Ronda> ListR  = new List<Ronda>();
+                LogicaPreguntasHistorial lpp = new LogicaPreguntasHistorial();
+                List<Pregunta> listActualizar = new List<Pregunta>();
+                listActualizar.Add(this.pregunta);
+                lpp.GuardarTxt(listActualizar, lpp.GetImport1(this.grado), this.grado);
                 string[] res = this.respuesta.Split(':');
                 this.respuesta = res[1];
                 if(this.respuesta == this.pregunta.Rc)
@@ -250,6 +254,8 @@ namespace ProyectoMed.Vista
             }
         }
         void siguiente() {
+            myTimer.Stop();
+            myTimer.Dispose();
             this.GuardarHisrotial();
             Resultado R = new Resultado(this.pregunta, this.respuesta, this.grado, this.Puntaje, this.Equipos);
             this.NavigationService.Navigate(R);

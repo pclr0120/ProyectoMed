@@ -41,7 +41,8 @@ namespace ProyectoMed.Vista
 
         private void Resultado_Loaded(object sender, RoutedEventArgs e)
         {
-
+            LogicaPreguntasHistorial lh = new LogicaPreguntasHistorial();
+            this.ListaPreguntas = lh.GetImport1(this.grado);
             Pregunta p=this.ListaPreguntas.Find(item => item.Id == Pregunta.Id);
             if (p.Nivel == 1)
                 this.puntaje = 200;
@@ -72,7 +73,7 @@ namespace ProyectoMed.Vista
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //  Grados G = new Grados();
-           
+            this.rondaFinish();
         }
 
         public void rondaFinish() {
@@ -84,19 +85,18 @@ namespace ProyectoMed.Vista
                 Ronda RondaActual = r.Find(i => i.Id == this.Equipos[0].Id);
                 if(RondaActual.RondaActual == RondaActual.TotalRonda)
                 {
+                    RondaActual.Estatus = false; //desctivar
                     MessageBoxResult result = System.Windows.MessageBox.Show("Fin de las rondas",
                                                                            "Fin ronda",
                                                                           MessageBoxButton.OK,
                                                                            MessageBoxImage.Question);
-                    Grados t = new Grados();
-                    this.NavigationService.Navigate(t);
+              
                 }
                 else if((this.Equipos[0].Turno && this.Equipos[1].Turno == false && RondaActual.Turno == 0))
                 {
                     this.Equipos[1].Turno = true;
                     RondaActual.Turno = 1;
-                    PageTablero t = new PageTablero(this.grado);
-                    this.NavigationService.Navigate(t);
+               
                 }
                 else if(this.Equipos[0].Turno && this.Equipos[1].Turno == true && RondaActual.Turno == 1)
                 {
@@ -104,16 +104,17 @@ namespace ProyectoMed.Vista
                     this.Equipos[1].Turno = false;
                     RondaActual.Turno = 0;
                     RondaActual.RondaActual += 1;
-                    PageTablero t = new PageTablero(this.grado);
-                    this.NavigationService.Navigate(t);
+
 
                 }
                 List<Ronda> ListaRondaActual = new List<Ronda>();
-                RondaActual.Estatus = false; //desctivar
+             
                 ListaRondaActual.Add(RondaActual);
 
                 lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
                 lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
+                PageTablero t = new PageTablero(this.grado);
+                this.NavigationService.Navigate(t);
             }
             catch(Exception)
             {

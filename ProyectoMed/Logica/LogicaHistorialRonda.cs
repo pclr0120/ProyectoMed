@@ -91,7 +91,7 @@ namespace ProyectoMed.Logica
 
                 for(int i = 0; i < ListaPreguntasActualizar.Count; i++)
                 {
-                    if(ListaPreguntasTotal.Remove(ListaPreguntasActualizar[i]))
+                    if(ListaPreguntasTotal.RemoveAll(item=>item.Id==ListaPreguntasActualizar[i].Id)>0)
                     {
 
                         ListaPreguntasTotal.Add(ListaPreguntasActualizar[i]);

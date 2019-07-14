@@ -56,7 +56,8 @@ namespace ProyectoMed.Logica
                         Pre.R3 = _Pregunta[6];
                         Pre.Rc = _Pregunta[7];
                         //if (_Pregunta[8].Equals("true"))
-                        Pre.Estatus = true;
+                        Pre.Estatus = bool.Parse(_Pregunta[8]);
+                        Pre.Id = _Pregunta[9];
                         //else
                         //    Pre.Estatus = false;
                         ListaPreguntasTxt.Add(Pre);
@@ -82,7 +83,7 @@ namespace ProyectoMed.Logica
 
                 for(int i = 0; i < ListaPreguntasActualizar.Count; i++)
                 {
-                    if(ListaPreguntasTotal.Remove(ListaPreguntasActualizar[i]))
+                    if(ListaPreguntasTotal.RemoveAll(item=>item.Id==ListaPreguntasActualizar[i].Id)>0)
                     {
 
                         ListaPreguntasTotal.Add(ListaPreguntasActualizar[i]);
@@ -128,7 +129,7 @@ namespace ProyectoMed.Logica
             //string[] DataWrite = null;
             for(int i = 0; i < Lista.Count; i++)
             {
-                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Materia + '\t' + Lista[i].Nivel.ToString() + '\t' + Lista[i].Descripcion.ToString() + '\t' + Lista[i].R1.ToString() + '\t' + Lista[i].R2.ToString() + '\t' + Lista[i].R3.ToString() + '\t' + Lista[i].Rc.ToString() + '\t' + Lista[i].Estatus.ToString());
+                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Materia + '\t' + Lista[i].Nivel.ToString() + '\t' + Lista[i].Descripcion.ToString() + '\t' + Lista[i].R1.ToString() + '\t' + Lista[i].R2.ToString() + '\t' + Lista[i].R3.ToString() + '\t' + Lista[i].Rc.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString());
             }
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {
