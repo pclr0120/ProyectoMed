@@ -47,7 +47,7 @@ namespace ProyectoMed.Vista
                 this._Grado = grado;
 
                 LogicaPreguntasHistorial Lhp = new LogicaPreguntasHistorial();
-                LogicaHistorialEquipos l = new LogicaHistorialEquipos();
+               // LogicaHistorialEquipos l = new LogicaHistorialEquipos();
                 LogicaMaterias m = new LogicaMaterias();
                 LogicaMarcador lm=new LogicaMarcador();
                 LogicaHistorialRonda lh = new LogicaHistorialRonda();
@@ -117,15 +117,32 @@ namespace ProyectoMed.Vista
         }
 
 
+        List<Pregunta> GetConteoPreguntas(int Materia,int nivel) {
+
+            List<Pregunta> List;
+            try
+            {
+              return List = this.ListaPreguntas.FindAll(item => item.Nivel == nivel && item.Estatus == true && item.Materia == this.ListaMaterias[Materia].Nombre && item.Estatus == true);
+            }
+            catch(Exception)
+            {
+
+                throw;
+            }
+            return null;
+        }
+
         void CargarTablero()
         {
             try
             {
-                this.P11.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5"; ;
+            
+
+                this.P11.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5"; 
                 this.P12.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
                 this.P13.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
                 this.P14.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
-                this.P15.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
+                this.P15.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "+5";
 
                 this.P21.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre && item.Estatus == true).Count + "/5";
                 this.P22.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre && item.Estatus == true).Count + "/5";
@@ -192,10 +209,16 @@ namespace ProyectoMed.Vista
                 if(b.Content.ToString().Split(' ')[0].Equals("1000"))
                     nivel = 5;
 
-
-                PagePregunta p = new PagePregunta(materia, this.grado, nivel, this.Equipos,this.IdRonda);
-                this.NavigationService.Navigate(p);
-
+                if(this.ListaPreguntas.FindAll(item => item.Nivel == nivel && item.Estatus == true && item.Materia == materia && item.Estatus == true).Count > 0)
+                {
+                    PagePregunta p = new PagePregunta(materia, this.grado, nivel, this.Equipos, this.IdRonda);
+                    this.NavigationService.Navigate(p);
+                }
+                else {
+                    b.Background = Brushes.Red;
+                    b.Foreground = Brushes.Red;
+                    b.IsEnabled = false;
+                }
             }
             catch(Exception err)
             {

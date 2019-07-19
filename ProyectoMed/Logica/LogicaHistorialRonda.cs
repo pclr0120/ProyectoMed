@@ -54,7 +54,7 @@ namespace ProyectoMed.Logica
 
                      
 
-                        Pre.Ganador = _Pregunta[4];
+                        Pre.Ganador = int.Parse(_Pregunta[4]);
                         Pre.Equipo1 = _Pregunta[5];
                         Pre.Equipo1Puntaje = int.Parse(_Pregunta[6]);
                         Pre.Equipo2 = _Pregunta[7];
@@ -62,6 +62,8 @@ namespace ProyectoMed.Logica
                         Pre.Fecha = _Pregunta[9];
                         Pre.Estatus = bool.Parse(_Pregunta[10]);
                         Pre.Id = _Pregunta[11];
+                        Pre.Ganador= int.Parse(_Pregunta[12]);
+                        Pre.GaneManual= bool.Parse(_Pregunta[13]);
 
 
                         //if (_Pregunta[8].Equals("true"))
@@ -131,7 +133,7 @@ namespace ProyectoMed.Logica
             //string[] DataWrite = null;
             for(int i = 0; i < Lista.Count; i++)
             {
-                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].TotalRonda + '\t' + Lista[i].RondaActual.ToString() + '\t' + Lista[i].Turno.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].Equipo1.ToString() + '\t' + Lista[i].Equipo1Puntaje.ToString() + '\t' + Lista[i].Equipo2.ToString() + '\t' + Lista[i].Equipo2Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString());
+                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].TotalRonda + '\t' + Lista[i].RondaActual.ToString() + '\t' + Lista[i].Turno.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].Equipo1.ToString() + '\t' + Lista[i].Equipo1Puntaje.ToString() + '\t' + Lista[i].Equipo2.ToString() + '\t' + Lista[i].Equipo2Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].GaneManual.ToString());
             }
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {

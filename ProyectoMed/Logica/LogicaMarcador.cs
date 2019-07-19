@@ -84,13 +84,16 @@ namespace ProyectoMed.Logica
                         Pre.Puntaje = int.Parse(_Pregunta[2]);
                         Pre.Fecha = _Pregunta[3];
                         Pre.Estatus = bool.Parse(_Pregunta[4]);
+                
                         Pre.Id= _Pregunta[5];
+                        Pre.Turno = bool.Parse(_Pregunta[6]);
+                        Pre.Ganador = bool.Parse(_Pregunta[7]);
 
-                    //if (_Pregunta[8].Equals("true"))
+                        //if (_Pregunta[8].Equals("true"))
 
-                    //else
-                    //    Pre.Estatus = false;
-                    ListaPreguntasTxt.Add(Pre);
+                        //else
+                        //    Pre.Estatus = false;
+                        ListaPreguntasTxt.Add(Pre);
                     }
                 }
 
@@ -155,7 +158,7 @@ namespace ProyectoMed.Logica
             //string[] DataWrite = null;
             for(int i = 0; i < Lista.Count; i++)
             {
-                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Nombre + '\t' + Lista[i].Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString());
+                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Nombre + '\t' + Lista[i].Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString() + '\t' + Lista[i].Turno.ToString() + '\t' + Lista[i].Ganador.ToString());
             }
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {

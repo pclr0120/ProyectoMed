@@ -19,9 +19,9 @@ using System.Windows.Shapes;
 namespace ProyectoMed.Vista
 {
     /// <summary>
-    /// Lógica de interacción para Resultado.xaml
+    /// Lógica de interacción para Incorrecto.xaml
     /// </summary>
-    public partial class Resultado : Page
+    public partial class Incorrecto : Page
     {
         List<Pregunta> ListaPreguntas;
         Pregunta Pregunta;
@@ -29,7 +29,7 @@ namespace ProyectoMed.Vista
         string Res;
         int puntaje;
         int grado;
-        public Resultado(Pregunta Pregunta,string Respuesta,int grado,int puntaje,List<Equipo> Equipos)
+        public Incorrecto(Pregunta Pregunta, string Respuesta, int grado, int puntaje, List<Equipo> Equipos)
         {
             InitializeComponent();
             this.grado = grado;
@@ -43,48 +43,42 @@ namespace ProyectoMed.Vista
         private void Resultado_Loaded(object sender, RoutedEventArgs e)
         {
 
-             sonido = new SoundPlayer(@"c:\cr.wav");
+            sonido = new SoundPlayer(@"c:\incorrecto.wav");
             sonido.Play();
 
             if(this.Equipos[0].Turno == this.Equipos[1].Turno)
             {
                 this.InputTeam1.Content = this.Equipos[1].Nombre;
-                this.InputTeam1Puntaje.Content= "+"+this.Equipos[1].Puntaje.ToString();
+                this.InputTeam1Puntaje.Content = "+" + this.Equipos[1].Puntaje.ToString();
             }
             else
             {
                 this.InputTeam1.Content = this.Equipos[0].Nombre;
-                this.InputTeam1Puntaje.Content ="+"+ this.Equipos[0].Puntaje.ToString();
+                this.InputTeam1Puntaje.Content = "+" + this.Equipos[0].Puntaje.ToString();
             }
 
             LogicaPreguntasHistorial lh = new LogicaPreguntasHistorial();
             this.ListaPreguntas = lh.GetImport1(this.grado);
-            Pregunta p=this.ListaPreguntas.Find(item => item.Id == Pregunta.Id);
-            if (p.Nivel == 1)
+            Pregunta p = this.ListaPreguntas.Find(item => item.Id == Pregunta.Id);
+            if(p.Nivel == 1)
                 this.puntaje = 200;
-            if (p.Nivel == 2)
+            if(p.Nivel == 2)
                 this.puntaje = 400;
-            if (p.Nivel == 3)
+            if(p.Nivel == 3)
                 this.puntaje = 600;
-            if (p.Nivel == 4)
+            if(p.Nivel == 4)
                 this.puntaje = 800;
-            if (p.Nivel == 5)
+            if(p.Nivel == 5)
                 this.puntaje = 1000;
-
+            this.lblCorrecta.Content = "R:" + this.Pregunta.Rc;
             this.Estado.Content = "TU RESPUESTA FUE: " + this.Res;
-            if (p.Rc.Equals(this.Res))
-            {
-                
-                this.Respusta.Content = "Tu repuesta fue correcta!";
-                this.Puntos.Content = " Puntos obtenidos: +" + this.puntaje;
-            }
-            else {
-                this.Respusta.Content = "Tu repuesta fue Incorrecta.";
-                this.Puntos.Content = "Puntos obtenidos: 0"  ;
-            }
 
-          var a=  this.ListaPreguntas.Find(item => item.Id == Pregunta.Id).Estatus = false;
-            var bb = this.ListaPreguntas.FindAll(i=>i.Estatus==false);
+            this.Respusta.Content = "Tu repuesta fue Incorrecta.";
+            this.Puntos.Content = "Puntos obtenidos: 0";
+
+
+            var a = this.ListaPreguntas.Find(item => item.Id == Pregunta.Id).Estatus = false;
+            var bb = this.ListaPreguntas.FindAll(i => i.Estatus == false);
 
         }
 
@@ -93,6 +87,7 @@ namespace ProyectoMed.Vista
             //  Grados G = new Grados();
             this.rondaFinish();
         }
+
 
         public void rondaFinish()
         {

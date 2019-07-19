@@ -15,6 +15,7 @@ namespace ProyectoMed.Modelo
         private bool estatus = true;
         private string fecha = "";
         private bool turno = false;
+        private bool ganador = false;
         public Equipo() {
             this.Id = Guid.NewGuid().ToString();
             DateTime now = DateTime.Now;
@@ -24,6 +25,7 @@ namespace ProyectoMed.Modelo
             this.puntaje = 0;
             this.Estatus = true;
             this.Turno = false;
+            this.Ganador = false;
             
 
         }
@@ -37,5 +39,6 @@ namespace ProyectoMed.Modelo
         public string Id { get => id; set => id = value; }
         public bool Estatus { get => estatus; set => estatus = value; }
         public bool Turno { get => turno; set => turno = value; }
+        public bool Ganador { get => ganador; set => ganador = value; }
     }
 }

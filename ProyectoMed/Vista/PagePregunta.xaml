@@ -15,11 +15,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="110"/>
+            <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
         <Grid>
             <Grid.Background>
@@ -34,7 +34,20 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Label  Name="Titulo" Grid.Column="1" Content="Anatomia por 1000" FontSize="24" FontWeight="Bold" Foreground="#FF0684B7" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Label  Name="Titulo" Grid.Column="1" Content="Anatomia por 1000" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.581"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+                <Label.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.BorderBrush>
+            </Label>
 
 
 
@@ -45,7 +58,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button  Grid.Column="2" Width="auto" Height="30" Margin="5,5,5.5,0" Content="Verificar" Background="{x:Null}" Foreground="#FFFFFF0B" FontSize="18" BorderBrush="White" FontStyle="Italic" Click="Button_Click" VerticalAlignment="Top"></Button>
+                <Button  Grid.Column="2" Width="auto" Height="30" Margin="5,5,5.5,0" Content="Verificar" Foreground="#FFFFFF0B" FontSize="18" BorderBrush="#FFF1E700" FontStyle="Italic" Click="Button_Click" VerticalAlignment="Top" Background="Black"/>
 
             </Grid>
         </Grid>
@@ -91,13 +104,24 @@
         </Grid>
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
-
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="3" Height="auto" Width="auto"  Margin="10,0,10,10" Background="#FFF3F3F3" >
+            <Grid Grid.Column="7" Height="auto" Width="auto"  Margin="10,0,10,10" >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FF033587"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
                 <Grid.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="10" RenderingBias="Quality" Direction="320"/>
                 </Grid.Effect>
@@ -106,9 +130,16 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBox Name="InputTeam1" Height="30" Text="Team 1"  Grid.Row="0" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20" TextDecorations="Underline" HorizontalAlignment="Center" Background="#FFF3F3F3" BorderBrush="{x:Null}"  ></TextBox>
-                <TextBox Name="InputTeam1Puntaje" Height="35"  Text="+1000"  Grid.Row="1" FontSize="22" FontFamily="Segoe UI Black" FontWeight="Bold" Background="{x:Null}" BorderBrush="#FFE7D14C" Foreground="#FF0684B7" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-                <Grid  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Label Name="InputTeam1" Height="40" Content="Team 1"  Grid.Row="0" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="24" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center"  >
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="White" Offset="0.263"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label Name="InputTeam1Puntaje" Height="50"  Content="+0"  Grid.Row="1" FontSize="36" FontFamily="Segoe UI Black" FontWeight="Bold" BorderBrush="#FFE7D14C" Foreground="#FFD3D316" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{x:Null}"   />
+                <Grid  Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
@@ -118,6 +149,7 @@
                 </Grid>
 
             </Grid>
+
             <Grid Grid.Column="0" Height="auto" Width="auto"  Margin="10,0,10,10" Background="WhiteSmoke" >
                 <Grid.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="10" RenderingBias="Quality" Direction="320"/>
@@ -127,9 +159,16 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-
-                <Label Content="Tiempo:" Width="auto" Grid.Row="0" FontWeight="Bold" FontSize="18" Background="{x:Null}" Foreground="#FF0684B7" FontFamily="Rockwell Extra Bold" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                <Label Name="Tiempo" Content="30" Width="auto" Grid.Row="1" FontSize="48" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60725" FontFamily="Stencil" BorderBrush="{x:Null}" HorizontalAlignment="Center"></Label>
+                <Image Height="40" Width="50" Source="/Recursos/Tiempo.png" Cursor="Cross"/>
+                <Label Content="Tiempo:" Width="auto" Grid.Row="1" FontWeight="Bold" FontSize="18" Background="{x:Null}" Foreground="#FF0684B7" FontFamily="Rockwell Extra Bold" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Label Name="Tiempo" Content="30" Width="auto" Grid.Row="2" FontSize="48" FontWeight="Bold"  Background="{x:Null}" FontFamily="Stencil" BorderBrush="{x:Null}" HorizontalAlignment="Center">
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FFF00000" Offset="0.548"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
 
 
             </Grid>

@@ -33,6 +33,7 @@ namespace ProyectoMed.Vista
         int grado;
         int nivel;
         string RondaID;
+        bool Correcta = false;
         public PagePregunta()
         {
             InitializeComponent();
@@ -52,14 +53,25 @@ namespace ProyectoMed.Vista
         {
             try
             {
+                this.Correcta = false;
                 this.TiempoIniciar();
                 LogicaPreguntasHistorial l = new LogicaPreguntasHistorial();
-                LogicaMaterias lm = new LogicaMaterias();
+                LogicaHistorialRonda Lm = new LogicaHistorialRonda();
+                Ronda ronda = Lm.GetRondas(this.grado).Find(item=>item.Id==this.Equipos[0].Id);
                 List<Pregunta> listaPreguntas = l.GetImport1(this.grado).FindAll(i => i.Materia == materia && i.Nivel == this.nivel && i.Estatus == true);
                 Random r = new Random();
                 int random = r.Next(0, listaPreguntas.Count-1);
+                if(ronda.Turno == 0)
+                {
+                    this.InputTeam1.Content = this.Equipos[0].Nombre;
+                    this.InputTeam1Puntaje.Content = this.Equipos[0].Puntaje.ToString();
+                }
+                else {
+                    this.InputTeam1.Content = this.Equipos[1].Nombre;
+                    this.InputTeam1Puntaje.Content = this.Equipos[1].Puntaje.ToString();
 
-
+                }
+               
                 Modelo.Pregunta Pr = listaPreguntas[random];
                 this.pregunta = Pr;
                 Pr.Estatus = false;
@@ -75,7 +87,7 @@ namespace ProyectoMed.Vista
                 if(nivel == 5)
                     puntaje = "1000";
                 this.Puntaje = int.Parse(puntaje);
-                this.Titulo.Content = this.materia + " Por " + puntaje;
+                this.Titulo.Content = (this.materia + " POR " + puntaje).ToUpper();
 
                 this.Pregunta.Text = Pr.Descripcion;
                 Random r2 = new Random();
@@ -222,8 +234,10 @@ namespace ProyectoMed.Vista
                 lpp.GuardarTxt(listActualizar, lpp.GetImport1(this.grado), this.grado);
                 string[] res = this.respuesta.Split(':');
                 this.respuesta = res[1];
+
                 if(this.respuesta == this.pregunta.Rc)
                 {
+                    this.Correcta = true;
                     if(RondaActual.Turno == 0)
                     {
                         RondaActual.Turno = 1;
@@ -237,6 +251,9 @@ namespace ProyectoMed.Vista
                         this.Equipos[1].Puntaje += this.Puntaje;
 
                     }
+                }
+                else {
+                    this.Correcta = false;
                 }
       
             ListR.Add(RondaActual);
@@ -257,8 +274,15 @@ namespace ProyectoMed.Vista
             myTimer.Stop();
             myTimer.Dispose();
             this.GuardarHisrotial();
-            Resultado R = new Resultado(this.pregunta, this.respuesta, this.grado, this.Puntaje, this.Equipos);
-            this.NavigationService.Navigate(R);
+            if(this.Correcta)
+            {
+                Resultado R = new Resultado(this.pregunta, this.respuesta, this.grado, this.Puntaje, this.Equipos);
+                this.NavigationService.Navigate(R);
+            }
+            else {
+                Incorrecto R = new Incorrecto(this.pregunta, this.respuesta, this.grado, this.Puntaje, this.Equipos);
+                this.NavigationService.Navigate(R);
+            }
         }
         Timer myTimer = new Timer();
         int timeLeft = 30;

@@ -80,6 +80,9 @@
     <Compile Include="Vista\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Incorrecto.xaml.cs">
+      <DependentUpon>Incorrecto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\MateriasConfig.xaml.cs">
       <DependentUpon>MateriasConfig.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vista\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Incorrecto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -212,7 +219,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Recursos\Aplausos.png" />
+    <Resource Include="Recursos\flecha.png" />
+    <Resource Include="Recursos\flecha2.png" />
+    <Resource Include="Recursos\Ganador.png" />
+    <Resource Include="Recursos\Ganador0.png" />
+    <Resource Include="Recursos\ganador1.png" />
+    <Resource Include="Recursos\Juego.png" />
+    <Resource Include="Recursos\Perdi.png" />
+    <Resource Include="Recursos\Tiempo.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Recursos\Imagenes\Logo.jpeg" />
   </ItemGroup>

@@ -16,11 +16,13 @@ namespace ProyectoMed.Modelo
         private int turno = 0;
         private bool estatus = true;
         private string fecha = "";
-        private string ganador="";
+        private int ganador=-1;
         private int equipo1Puntaje = 0;
         private int equipo2Puntaje = 0;
         private string equipo1="";
         private string equipo2 = "";
+        private bool ganeManual = false;
+        
         public Ronda() {
             this.Id = Guid.NewGuid().ToString();
             DateTime now = DateTime.Now;
@@ -32,7 +34,9 @@ namespace ProyectoMed.Modelo
             this.Estatus = true;
             this.Equipo1 = "";
             this.Equipo2 = "";
-            this.Ganador = "N";
+            this.Ganador = -1;
+            this.GaneManual = false;
+           
         }
 
         public string Id { get => id; set => id = value; }
@@ -41,11 +45,12 @@ namespace ProyectoMed.Modelo
         public int Turno { get => turno; set => turno = value; }
         public bool Estatus { get => estatus; set => estatus = value; }
         public string Fecha { get => fecha; set => fecha = value; }
-        public string Ganador { get => ganador; set => ganador = value; }
+        public int Ganador { get => ganador; set => ganador = value; }
         public string Equipo1 { get => equipo1; set => equipo1 = value; }
         public string Equipo2 { get => equipo2; set => equipo2 = value; }
         public int RondaActual { get => rondaActual; set => rondaActual = value; }
         public int Equipo1Puntaje { get => equipo1Puntaje; set => equipo1Puntaje = value; }
         public int Equipo2Puntaje { get => equipo2Puntaje; set => equipo2Puntaje = value; }
+        public bool GaneManual { get => ganeManual; set => ganeManual = value; }
     }
 }

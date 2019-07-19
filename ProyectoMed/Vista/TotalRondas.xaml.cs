@@ -72,7 +72,7 @@ namespace ProyectoMed.Vista
             {
                 if(int.Parse(TxtNumero.Text.ToString()) > 2)
                 {
-                    if((cb1.SelectedValue.ToString() != "" && cb1.SelectedValue != null))
+                    if((cb1.SelectedItem != null && cb2.SelectedItem != null))
                         return true;
                     else
                         MessageBox.Show("Se deben de seleccionar los dos equipos para porder continuar..", "Rondas");
@@ -100,7 +100,7 @@ namespace ProyectoMed.Vista
                 if(Continuar())
                 {
                     LogicaHistorialRonda Lh = new LogicaHistorialRonda();
-                    LogicaHistorialEquipos le = new LogicaHistorialEquipos();
+                    LogicaMarcador le = new LogicaMarcador();
                     List<Equipo> Lequipo = new List<Equipo>();
                     LogicaHistorialEquipos LE = new LogicaHistorialEquipos();
                     Ronda ronda = new Ronda();
