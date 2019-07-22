@@ -62,7 +62,7 @@ namespace ProyectoMed.Logica
                         _Pregunta = _Preguntas[i].ToString().Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
                         Pregunta Pre = new Pregunta();
 
-                        // Pre.Id = _Pregunta[0];
+                        Pre.Id = _Pregunta[9];
                         Pre.Grado = int.Parse(_Pregunta[0]);
                         Pre.Materia = _Pregunta[1];
                       
@@ -127,7 +127,7 @@ namespace ProyectoMed.Logica
 
                 for(int i = 0; i < ListaPreguntasActualizar.Count; i++)
                 {
-                    if(ListaPreguntasTotal.Remove(ListaPreguntasActualizar[i]))
+                    if(ListaPreguntasTotal.RemoveAll(item=>item.Id==ListaPreguntasActualizar[i].Id)>0)
                     {
 
                         ListaPreguntasTotal.Add(ListaPreguntasActualizar[i]);
@@ -171,7 +171,7 @@ namespace ProyectoMed.Logica
             //string[] DataWrite = null;
             for (int i = 0; i < Lista.Count; i++)
             {
-                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Materia + '\t' + Lista[i].Nivel.ToString() + '\t' + Lista[i].Descripcion.ToString() + '\t' + Lista[i].R1.ToString() + '\t' + Lista[i].R2.ToString() + '\t' + Lista[i].R3.ToString() + '\t' + Lista[i].Rc.ToString() + '\t' + Lista[i].Estatus.ToString());
+                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Materia + '\t' + Lista[i].Nivel.ToString() + '\t' + Lista[i].Descripcion.ToString() + '\t' + Lista[i].R1.ToString() + '\t' + Lista[i].R2.ToString() + '\t' + Lista[i].R3.ToString() + '\t' + Lista[i].Rc.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString());
             }
             File.Delete(docPath + gradoRuta);
             using (System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath,gradoRuta)))
@@ -334,6 +334,7 @@ namespace ProyectoMed.Logica
                 string[] _Preguntas;
 
                 List<Equipo> ListaPreguntasTxt = new List<Equipo>();
+
                 string ruta =this.rutaEquipos + gradoRuta;
                 if(File.Exists(ruta) ? true : false)
                 {
@@ -373,7 +374,7 @@ namespace ProyectoMed.Logica
             }
 
         }
-
+     
         private List<Equipo> Guardar(List<Equipo> ListaPreguntasActualizar, List<Equipo> ListaPreguntasTotal)
         {
 
@@ -383,7 +384,7 @@ namespace ProyectoMed.Logica
 
                 for(int i = 0; i < ListaPreguntasActualizar.Count; i++)
                 {
-                    if(ListaPreguntasTotal.Remove(ListaPreguntasActualizar[i]))
+                    if(ListaPreguntasTotal.RemoveAll(item=>item.Nombre==ListaPreguntasActualizar[i].Nombre)>0)
                     {
 
                         ListaPreguntasTotal.Add(ListaPreguntasActualizar[i]);

@@ -75,11 +75,11 @@ namespace ProyectoMed.Vista
             if (p.Rc.Equals(this.Res))
             {
                 
-                this.Respusta.Content = "Tu repuesta fue correcta!";
+                this.Respusta.Content = "Tu respuesta fue correcta!";
                 this.Puntos.Content = " Puntos obtenidos: +" + this.puntaje;
             }
             else {
-                this.Respusta.Content = "Tu repuesta fue Incorrecta.";
+                this.Respusta.Content = "Tu respuesta fue Incorrecta.";
                 this.Puntos.Content = "Puntos obtenidos: 0"  ;
             }
 

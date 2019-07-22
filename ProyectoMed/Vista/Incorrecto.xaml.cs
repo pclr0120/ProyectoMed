@@ -77,7 +77,7 @@ namespace ProyectoMed.Vista
             this.lblCorrecta.Content = "R:" + this.Pregunta.Rc;
             this.Estado.Content = "TU RESPUESTA FUE: " + this.Res;
 
-            this.Respusta.Content = "Tu repuesta fue Incorrecta.";
+            this.Respusta.Content = "Tu respuesta fue Incorrecta.";
             this.Puntos.Content = "Puntos obtenidos: 0";
 
 

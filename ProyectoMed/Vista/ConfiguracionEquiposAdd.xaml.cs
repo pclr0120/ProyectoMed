@@ -27,8 +27,10 @@ namespace ProyectoMed.Vista
 
         private int _grado = 0;
         private int numEquipo = 0;
-        public ConfiguracionEquiposAdd(int grado):this(){
+        public ConfiguracionEquiposAdd(int grado) : this() {
             this._grado = grado;
+            this.Titulo.Content = "Cuantos equipos se registraran en el grado " + this._grado +" ?";
+            
             //this.numEquipo = numEquipo;
         }
 
