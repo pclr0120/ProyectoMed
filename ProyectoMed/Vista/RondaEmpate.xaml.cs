@@ -28,7 +28,7 @@ namespace ProyectoMed.Vista
         string Res;
         int puntaje;
         int grado;
-
+        int ganador=-1;
         public RondaEmpate(Pregunta Pregunta, string Respuesta, int grado, int puntaje, List<Equipo> Equipos)
         {
             InitializeComponent();
@@ -75,16 +75,18 @@ namespace ProyectoMed.Vista
                         RondaActual.GaneManual = true;
                         RondaActual.Ganador = 0;
                         this.Equipos[0].Ganador = true;
+                        this.ganador = 0;
                     }
                     else
                     {
+                        this.ganador = 1;
                         RondaActual.GaneManual = true;
                         RondaActual.Ganador = 1;
                         this.Equipos[1].Ganador = true;
                     }
                 else
                     MessageBox.Show("Debe de elegir un ganador para contunuar..");
-
+                RondaActual.Estatus = false;
                 List<Ronda> ListaRondaActual = new List<Ronda>();
 
                 ListaRondaActual.Add(RondaActual);
@@ -112,7 +114,7 @@ namespace ProyectoMed.Vista
         {
             if(this.Continuar())
             {
-                Grados t = new Grados();
+                PageGanador t = new PageGanador(this.Equipos,this.ganador);
                 this.NavigationService.Navigate(t);
             }
             else {

@@ -68,6 +68,9 @@
     <Compile Include="Vista\ConfiguracionEquiposAdd.xaml.cs">
       <DependentUpon>ConfiguracionEquiposAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Confirmacion.xaml.cs">
+      <DependentUpon>Confirmacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\EquipoConfiguracion.xaml.cs">
       <DependentUpon>EquipoConfiguracion.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,9 @@
     <Compile Include="Vista\MateriasConfig.xaml.cs">
       <DependentUpon>MateriasConfig.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vista\PageGanador.xaml.cs">
+      <DependentUpon>PageGanador.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\PageGradosConfig.xaml.cs">
       <DependentUpon>PageGradosConfig.xaml</DependentUpon>
     </Compile>
@@ -94,6 +100,9 @@
     </Compile>
     <Compile Include="Vista\PagePreguntasConfig.xaml.cs">
       <DependentUpon>PagePreguntasConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\PageRenudar.xaml.cs">
+      <DependentUpon>PageRenudar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vista\PageTablero.xaml.cs">
       <DependentUpon>PageTablero.xaml</DependentUpon>
@@ -131,6 +140,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vista\Confirmacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vista\EquipoConfiguracion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vista\PageGanador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vista\PageGradosConfig.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vista\PagePreguntasConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\PageRenudar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

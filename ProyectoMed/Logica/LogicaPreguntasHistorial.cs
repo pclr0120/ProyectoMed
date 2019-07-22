@@ -120,7 +120,7 @@ namespace ProyectoMed.Logica
 
             List<Pregunta> Lista = new List<Pregunta>();
             List<string> ListaTemp = new List<string>();
-            if(GetImport1(grado).Count > 0)
+            if(GetImport1(grado).Count > 0 && listaActulizar.Count>0 && ListaPreguntasTotal.Count>0)
                 Lista = this.Guardar(listaActulizar, GetImport1(grado));
             else
                 Lista = listaActulizar;
@@ -131,9 +131,10 @@ namespace ProyectoMed.Logica
             {
                 ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Materia + '\t' + Lista[i].Nivel.ToString() + '\t' + Lista[i].Descripcion.ToString() + '\t' + Lista[i].R1.ToString() + '\t' + Lista[i].R2.ToString() + '\t' + Lista[i].R3.ToString() + '\t' + Lista[i].Rc.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString());
             }
+            File.Delete(docPath + gradoRuta);
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {
-
+           
                 foreach(string i in ListaTemp)
                 {
                     outputFile.WriteLine(i);
@@ -144,10 +145,10 @@ namespace ProyectoMed.Logica
             if(File.Exists(ruta) ? true : false)
             {
 
-                MessageBoxResult result = System.Windows.MessageBox.Show("Configuracion salvada correctamente!",
-                                              "Notificación",
-                                              MessageBoxButton.OK,
-                                              MessageBoxImage.Question);
+                //MessageBoxResult result = System.Windows.MessageBox.Show("Configuracion salvada correctamente!",
+                //                              "Notificación",
+                //                              MessageBoxButton.OK,
+                //                              MessageBoxImage.Question);
                 return true;
             }
             else

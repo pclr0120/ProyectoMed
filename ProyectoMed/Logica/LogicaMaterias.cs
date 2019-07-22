@@ -196,9 +196,10 @@ namespace ProyectoMed.Logica
             {
                 ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Nombre + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString());
             }
+           
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {
-
+              
                 foreach(string i in ListaTemp)
                 {
                     outputFile.WriteLine(i);

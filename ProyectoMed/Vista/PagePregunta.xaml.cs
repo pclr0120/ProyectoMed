@@ -234,27 +234,64 @@ namespace ProyectoMed.Vista
                 lpp.GuardarTxt(listActualizar, lpp.GetImport1(this.grado), this.grado);
                 string[] res = this.respuesta.Split(':');
                 this.respuesta = res[1];
-
-                if(this.respuesta == this.pregunta.Rc)
+                if(RondaActual.RondaActual == RondaActual.TotalRonda && RondaActual.Turno == 1)
+                {
+                    RondaActual.Estatus = false;
+                  
+                }
+                else
+                if(this.respuesta == this.pregunta.Rc && RondaActual.Estatus)
                 {
                     this.Correcta = true;
                     if(RondaActual.Turno == 0)
                     {
                         RondaActual.Turno = 1;
+                        this.Equipos[0].Turno = true;
+                        this.Equipos[1].Turno = true;
                         RondaActual.Equipo1Puntaje += this.Puntaje;
                         this.Equipos[0].Puntaje += this.Puntaje;
                     }
-                    else
+                    else if(RondaActual.Turno == 1 )
                     {
                         RondaActual.Turno = 0;
+                        this.Equipos[0].Turno = true;
+                        this.Equipos[1].Turno = false;
                         RondaActual.Equipo2Puntaje += this.Puntaje;
                         this.Equipos[1].Puntaje += this.Puntaje;
+                        RondaActual.RondaActual += 1;
 
                     }
+                    //if(RondaActual.RondaActual == RondaActual.TotalRonda)
+                    //    RondaActual.Estatus = false;
+
                 }
-                else {
+                else
+                {
                     this.Correcta = false;
+
+                    if(RondaActual.Turno == 0 && RondaActual.Estatus)
+                    {
+                        RondaActual.Turno = 1;
+                        this.Equipos[0].Turno = true;
+                        this.Equipos[1].Turno = true;
+                        // RondaActual.Equipo1Puntaje += this.Puntaje;
+                        //this.Equipos[0].Puntaje += this.Puntaje;
+                    }
+                    else if(RondaActual.Turno == 1 && RondaActual.Estatus)
+                    {
+                        RondaActual.Turno = 0;
+                        this.Equipos[0].Turno = true;
+                        this.Equipos[1].Turno = false;
+                        RondaActual.RondaActual += 1;
+                        // RondaActual.Equipo2Puntaje += this.Puntaje;
+                        //   this.Equipos[1].Puntaje += this.Puntaje;
+                        //  RondaActual.RondaActual += 1;
+
+                    }
+
+
                 }
+
       
             ListR.Add(RondaActual);
 

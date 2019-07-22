@@ -160,6 +160,7 @@ namespace ProyectoMed.Logica
             {
                 ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Nombre + '\t' + Lista[i].Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString() + '\t' + Lista[i].Turno.ToString() + '\t' + Lista[i].Ganador.ToString());
             }
+            File.Delete(docPath + gradoRuta);
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {
 

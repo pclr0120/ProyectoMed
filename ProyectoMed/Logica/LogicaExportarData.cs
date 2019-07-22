@@ -173,9 +173,10 @@ namespace ProyectoMed.Logica
             {
                 ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Materia + '\t' + Lista[i].Nivel.ToString() + '\t' + Lista[i].Descripcion.ToString() + '\t' + Lista[i].R1.ToString() + '\t' + Lista[i].R2.ToString() + '\t' + Lista[i].R3.ToString() + '\t' + Lista[i].Rc.ToString() + '\t' + Lista[i].Estatus.ToString());
             }
+            File.Delete(docPath + gradoRuta);
             using (System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath,gradoRuta)))
             {
-
+               
                 foreach (string i in ListaTemp)
                 {
                     outputFile.WriteLine(i);

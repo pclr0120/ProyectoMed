@@ -48,13 +48,13 @@ namespace ProyectoMed.Vista
 
             if(this.Equipos[0].Turno == this.Equipos[1].Turno)
             {
-                this.InputTeam1.Content = this.Equipos[1].Nombre;
-                this.InputTeam1Puntaje.Content= "+"+this.Equipos[1].Puntaje.ToString();
+                this.InputTeam1.Content = this.Equipos[0].Nombre;
+                this.InputTeam1Puntaje.Content= "+"+this.Equipos[0].Puntaje.ToString();
             }
             else
             {
-                this.InputTeam1.Content = this.Equipos[0].Nombre;
-                this.InputTeam1Puntaje.Content ="+"+ this.Equipos[0].Puntaje.ToString();
+                this.InputTeam1.Content = this.Equipos[1].Nombre;
+                this.InputTeam1Puntaje.Content ="+"+ this.Equipos[1].Puntaje.ToString();
             }
 
             LogicaPreguntasHistorial lh = new LogicaPreguntasHistorial();
@@ -102,21 +102,54 @@ namespace ProyectoMed.Vista
                 LogicaMarcador lh = new LogicaMarcador();
                 List<Ronda> r = lr.GetRondas(this.grado);
                 Ronda RondaActual = r.Find(i => i.Id == this.Equipos[0].Id);
-                if(RondaActual.RondaActual == RondaActual.TotalRonda && RondaActual.Turno == 1)
+                if(RondaActual.RondaActual == RondaActual.TotalRonda && RondaActual.Turno == 1 && RondaActual.Estatus == false)
                 {
                     RondaActual.Estatus = false; //desctivar
                     MessageBoxResult result = System.Windows.MessageBox.Show("Fin de las rondas",
                                                                            "Fin ronda",
                                                                           MessageBoxButton.OK,
                                                                            MessageBoxImage.Question);
+
+                    if(this.Equipos[0].Puntaje != this.Equipos[1].Puntaje)
+                    {
+                        //List<Ronda> ListaRondaActual = new List<Ronda>();
+                        //RondaActual.Estatus = false;
+                        int ganador = -1;
+                        if(this.Equipos[0].Puntaje > this.Equipos[1].Puntaje)
+                        {
+                            //RondaActual.Ganador = 0;
+                            //this.Equipos[0].Ganador = true;
+                            //this.Equipos[0].Estatus = false;
+                            ganador = 0;
+                        }
+
+                        else
+                        {
+                            //this.Equipos[1].Estatus = false;
+                            //this.Equipos[1].Ganador = true;
+                            //RondaActual.Ganador = 1;
+                            ganador = 1;
+                        }
+                        //ListaRondaActual.Add(RondaActual);
+
+                        //lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
+                        //lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
+                        this.sonido.Stop();
+                        this.sonido.Dispose();
+
+                        PageGanador R = new PageGanador(this.Equipos, ganador);
+                        this.NavigationService.Navigate(R);
+
+                    }
+                    else
                     if(this.Equipos[0].Puntaje == this.Equipos[1].Puntaje)
                     {
-                        List<Ronda> ListaRondaActual = new List<Ronda>();
+                        //List<Ronda> ListaRondaActual = new List<Ronda>();
 
-                        ListaRondaActual.Add(RondaActual);
+                        //ListaRondaActual.Add(RondaActual);
 
-                        lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
-                        lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
+                        //lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
+                        //lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
                         this.sonido.Stop();
                         this.sonido.Dispose();
 
@@ -127,40 +160,47 @@ namespace ProyectoMed.Vista
 
 
                 }
-                else if((this.Equipos[0].Turno && this.Equipos[1].Turno == false && RondaActual.RondaActual <= RondaActual.TotalRonda))
+                else
                 {
-                    this.Equipos[1].Turno = true;
-                    RondaActual.Turno = 1;
-                    List<Ronda> ListaRondaActual = new List<Ronda>();
-
-                    ListaRondaActual.Add(RondaActual);
-
-                    lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
-                    lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
-                    this.sonido.Stop();
-                    this.sonido.Dispose();
-                    PageTablero t = new PageTablero(this.grado);
-                    this.NavigationService.Navigate(t);
-
-                }
-                else if(this.Equipos[0].Turno && this.Equipos[1].Turno == true && RondaActual.RondaActual <= RondaActual.TotalRonda)
-                {
-                    this.Equipos[0].Turno = true;
-                    this.Equipos[1].Turno = false;
-                    RondaActual.Turno = 0;
-                    RondaActual.RondaActual += 1;
-
-                    List<Ronda> ListaRondaActual = new List<Ronda>();
-
-                    ListaRondaActual.Add(RondaActual);
-
-                    lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
-                    lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
                     this.sonido.Stop();
                     this.sonido.Dispose();
                     PageTablero t = new PageTablero(this.grado);
                     this.NavigationService.Navigate(t);
                 }
+                //else if((this.Equipos[0].Turno && this.Equipos[1].Turno && RondaActual.Turno == 1)) ///los turnos se gurdan en la pagepregunta 
+                //{
+                //    //this.Equipos[1].Turno = true;
+                //    //RondaActual.Turno = 1;
+                //    //List<Ronda> ListaRondaActual = new List<Ronda>();
+
+                //    //ListaRondaActual.Add(RondaActual);
+
+                //    //lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
+                //    //lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
+                //    this.sonido.Stop();
+                //    this.sonido.Dispose();
+                //PageTablero t = new PageTablero(this.grado);
+                // this.NavigationService.Navigate(t);
+
+                //}
+                //else if(this.Equipos[0].Turno && this.Equipos[1].Turno == false && RondaActual.Turno == 0)
+                //{
+                //    //this.Equipos[0].Turno = true;
+                //    //this.Equipos[1].Turno = false;
+                //    //RondaActual.Turno = 0;
+                //    //RondaActual.RondaActual += 1;
+
+                //    //List<Ronda> ListaRondaActual = new List<Ronda>();
+
+                //    //ListaRondaActual.Add(RondaActual);
+
+                //    //lr.GuardarTxtRonda(ListaRondaActual, r, this.grado);
+                //    //lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
+                //    this.sonido.Stop();
+                //    this.sonido.Dispose();
+                //    PageTablero t = new PageTablero(this.grado);
+                //    this.NavigationService.Navigate(t);
+                //}
 
 
             }

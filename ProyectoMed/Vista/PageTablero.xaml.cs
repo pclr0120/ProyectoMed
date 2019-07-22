@@ -44,6 +44,7 @@ namespace ProyectoMed.Vista
 
             try
             {
+               
                 this._Grado = grado;
 
                 LogicaPreguntasHistorial Lhp = new LogicaPreguntasHistorial();
@@ -138,13 +139,19 @@ namespace ProyectoMed.Vista
             {
             
 
-                this.P11.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5"; 
+                this.P11.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
+           
+    
                 this.P12.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
+
                 this.P13.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
-                this.P14.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
-                this.P15.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "+5";
+                this.P14.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia== this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
+                this.P15.Content = "1000 " + this.ListaPreguntas.FindAll(item => item.Nivel == 5 && item.Estatus == true && item.Materia == this.ListaMaterias[0].Nombre && item.Estatus == true).Count + "/5";
+
 
                 this.P21.Content = "200 " + this.ListaPreguntas.FindAll(item => item.Nivel == 1 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre && item.Estatus == true).Count + "/5";
+
+              
                 this.P22.Content = "400 " + this.ListaPreguntas.FindAll(item => item.Nivel == 2 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre && item.Estatus == true).Count + "/5";
                 this.P23.Content = "600 " + this.ListaPreguntas.FindAll(item => item.Nivel == 3 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre && item.Estatus == true).Count + "/5";
                 this.P24.Content = "800 " + this.ListaPreguntas.FindAll(item => item.Nivel == 4 && item.Estatus == true && item.Materia == this.ListaMaterias[1].Nombre && item.Estatus == true).Count + "/5";

@@ -526,8 +526,8 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <Button Name="b1M" Content="+" Width="30" Grid.Column="0" FontSize="18" Foreground="#FF00B608" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="B1M_Click" FontWeight="Bold" Background="{x:Null}"/>
-                        <Button  Name="b1R" Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold" Foreground="#FFE60707" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="B1R_Click" Background="{x:Null}"/>
+                        <Button Visibility="Hidden" IsEnabled="False"  Name="b1M" Content="+" Width="30" Grid.Column="0" FontSize="18" Foreground="#FF00B608" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="B1M_Click" FontWeight="Bold" Background="{x:Null}"/>
+                        <Button Visibility="Hidden" IsEnabled="False"  Name="b1R" Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold" Foreground="#FFE60707" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="B1R_Click" Background="{x:Null}"/>
                     </Grid>
 
                 </Grid>
@@ -565,8 +565,8 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <Button Name="b2M" Content="+" Width="30" Grid.Column="0" FontWeight="Bold" FontSize="18" Foreground="#FF00B608" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="B2M_Click" Background="{x:Null}"/>
-                        <Button Name="b2R"  Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60707" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="B2R_Click"/>
+                        <Button Visibility="Hidden" IsEnabled="False"  Name="b2M" Content="+" Width="30" Grid.Column="0" FontWeight="Bold" FontSize="18" Foreground="#FF00B608" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="B2M_Click" Background="{x:Null}"/>
+                        <Button Visibility="Hidden" IsEnabled="False"  Name="b2R"  Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60707" FontFamily="Arial Black" BorderBrush="{x:Null}" Click="B2R_Click"/>
                     </Grid>
 
                 </Grid>

@@ -124,9 +124,10 @@ namespace ProyectoMed.Logica
             {
                 ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Nombre + '\t' + Lista[i].Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString());
             }
+            File.Delete(docPath + gradoRuta);
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {
-
+             
                 foreach(string i in ListaTemp)
                 {
                     outputFile.WriteLine(i);
@@ -137,10 +138,10 @@ namespace ProyectoMed.Logica
             if(File.Exists(ruta) ? true : false)
             {
 
-                MessageBoxResult result = System.Windows.MessageBox.Show("Configuracion salvada correctamente!",
-                                              "Notificación",
-                                              MessageBoxButton.OK,
-                                              MessageBoxImage.Question);
+                //MessageBoxResult result = System.Windows.MessageBox.Show("Configuracion salvada correctamente!",
+                //                              "Notificación",
+                //                              MessageBoxButton.OK,
+                //                              MessageBoxImage.Question);
                 return true;
             }
             else

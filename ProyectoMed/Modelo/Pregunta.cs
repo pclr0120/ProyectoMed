@@ -36,7 +36,7 @@ namespace ProyectoMed.Modelo
         }
         public string Id { get => id; set => id = value; }
         public int Grado { get => grado; set => grado = value; }
-        public string Materia { get => materia; set => materia = value; }
+        public string Materia { get => materia; set => materia = value.Trim(); }
         public int Nivel { get => nivel; set => nivel = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public string R1 { get => r1; set => r1 = value; }
