@@ -279,10 +279,16 @@ namespace ProyectoMed.Vista
         }
 
         void GradoSelect(int grado) {
-
-            TotalRondas Tb = new TotalRondas(grado);
-            this.NavigationService.Navigate(Tb);
-        
+            Validacion v = new Validacion();
+            if(v.IsValido(grado))
+            {
+                TotalRondas Tb = new TotalRondas(grado);
+                this.NavigationService.Navigate(Tb);
+            }
+            else {
+                Notificacion c = new Notificacion("El tablero del grado "+grado.ToString()+" no tiene suficientes preguntas.","","",false);
+                c.ShowDialog();
+            }
             
         }
 

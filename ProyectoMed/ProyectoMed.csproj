@@ -62,6 +62,7 @@
     <Compile Include="Logica\LogicaMarcador.cs" />
     <Compile Include="Logica\LogicaMaterias.cs" />
     <Compile Include="Logica\LogicaPreguntasHistorial.cs" />
+    <Compile Include="Logica\Validacion.cs" />
     <Compile Include="Modelo\Materias.cs" />
     <Compile Include="Modelo\PreguntaSeleccionada.cs" />
     <Compile Include="Modelo\Ronda.cs" />
@@ -88,6 +89,9 @@
     </Compile>
     <Compile Include="Vista\MateriasConfig.xaml.cs">
       <DependentUpon>MateriasConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Notificacion.xaml.cs">
+      <DependentUpon>Notificacion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vista\PageGanador.xaml.cs">
       <DependentUpon>PageGanador.xaml</DependentUpon>
@@ -165,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vista\MateriasConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Notificacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -101,7 +101,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
@@ -136,8 +136,8 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Name="Restar" Content="+" Width="30" Grid.Column="0" FontWeight="Bold" FontSize="18" Background="{x:Null}" Foreground="#FF00B608" FontFamily="Rockwell Extra Bold" BorderBrush="{x:Null}"></Button>
-                    <Button Name="Sumar" Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60707" FontFamily="Stencil" BorderBrush="{x:Null}"></Button>
+                    <Button  Visibility="Hidden" Name="Restar" Content="+" Width="30" Grid.Column="0" FontWeight="Bold" FontSize="18" Background="{x:Null}" Foreground="#FF00B608" FontFamily="Rockwell Extra Bold" BorderBrush="{x:Null}"></Button>
+                    <Button  Visibility="Hidden" Name="Sumar" Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60707" FontFamily="Stencil" BorderBrush="{x:Null}"></Button>
                 </Grid>
 
             </Grid>

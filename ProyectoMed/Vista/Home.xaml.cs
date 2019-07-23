@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoMed.Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,14 +24,35 @@ namespace ProyectoMed.Vista
         public Home()
         {
             InitializeComponent();
+
+          
         }
 
-      
+
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            Grados G = new Grados();
-            this.NavigationService.Navigate(G);
+            Notificacion n = new Notificacion("No se puede iniciar el juego por que faltan informacion en configuracion.", "Ir configuracion", "OK", true);
+            Validacion v = new Validacion();
+            if(v.ContinuarAGrado())
+            {
+                Grados G = new Grados();
+                this.NavigationService.Navigate(G);
+            }
+            else {
+                n.ShowDialog();
+                if(n.Respuesta)
+                {
+                    PageGradosConfig G = new PageGradosConfig();
+                    this.NavigationService.Navigate(G);
+                }
+                else {
+                    Home G = new Home();
+                    this.NavigationService.Navigate(G);
+                }
+            }
+        
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

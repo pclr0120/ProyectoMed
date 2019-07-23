@@ -25,7 +25,7 @@ namespace ProyectoMed
         public MainWindow()
         {
             InitializeComponent();
-
+              
          
         }
 
@@ -33,10 +33,11 @@ namespace ProyectoMed
         {
 
             //Grados g = new Grados();
-       
-            if (e.Key.Equals(Key.Escape) && NavigationService.CanGoBack)
-                NavigationService.GoBack();
-               // NavigationService.Navigate(g);
+            NavigationService.RemoveBackEntry();
+           
+            //if (e.Key.Equals(Key.Escape) && NavigationService.CanGoBack)
+            //    NavigationService.GoBack();
+            // NavigationService.Navigate(g);
         }
     }
 }
