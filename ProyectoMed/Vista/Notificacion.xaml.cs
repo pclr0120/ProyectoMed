@@ -50,6 +50,7 @@ namespace ProyectoMed.Vista
             else {
                 this.cmd1.Visibility = Visibility.Hidden;
                 this.cmd2.Visibility = Visibility.Hidden;
+                this.cmd0.Visibility = Visibility.Visible;
             }
             this.lblMensaje.Content = this.Mensaje;
             this.cmd1.Content = this.btn1;

@@ -24,22 +24,24 @@ namespace ProyectoMed.Vista
     /// </summary>
     public partial class PagePregunta : Page
     {
-        Pregunta pregunta;
-        List<Pregunta> ListaPreguntas;
-        List<Equipo> Equipos;
-        int Puntaje = 0;
-        string respuesta = "Se termino el tiempo";
-        string materia;
-        int grado;
-        int nivel;
-        string RondaID;
-        bool Correcta = false;
+        private Pregunta pregunta;
+        private List<Pregunta> ListaPreguntas;
+        private List<Equipo> Equipos;
+        private int Puntaje = 0;
+        private string respuesta = "Se termino el tiempo";
+        private string materia;
+        private int grado;
+        private int nivel;
+        private string RondaID;
+        private bool Correcta = false;
+        private int TipoPregunta = 0;
         public PagePregunta()
         {
             InitializeComponent();
 
 
             this.Loaded += PagePregunta_Loaded;
+            this.RespuestaUser.Visibility = Visibility.Hidden;
         }
         public PagePregunta(string materia, int grado, int nivel, List<Equipo> Equipos, string IDRonda) : this() {
             this.RondaID = IDRonda;
@@ -47,6 +49,45 @@ namespace ProyectoMed.Vista
             this.grado = grado;
             this.nivel = nivel;
             this.Equipos = Equipos;
+        }
+
+        private int tipoPregunta(Pregunta pregunta) {
+
+
+            int V1 = pregunta.Rc.ToUpper().IndexOf("VERDADERO");
+            int V2 = pregunta.Rc.ToUpper().IndexOf("VERDAD");
+            int V3 = pregunta.Rc.ToUpper().IndexOf("FALSO");
+
+            if(V1 > -1 || V2 != -1 || V3 != -1)
+            {
+                this.R1.Visibility = Visibility.Visible;
+                this.R2.Visibility = Visibility.Visible;
+                this.R3.Visibility = Visibility.Hidden;
+                this.R4.Visibility = Visibility.Hidden;
+                if(pregunta.Rc.ToUpper() == "VERDADERO" && pregunta.Rc.ToUpper() == "VERDAD")
+                {
+                    this.R1.Content = "A:" + pregunta.Rc;
+                    this.R2.Content = "B:Falso";
+                }
+                else {
+                    this.R1.Content = "A:" + pregunta.Rc;
+                    this.R2.Content = "B:Verdadero";
+                }
+                return 1;
+            }
+
+
+            else if(pregunta.R1 == "" || pregunta.R2 == "" || pregunta.R3 == "" || pregunta.R1.ToUpper() == "N" || pregunta.R2.ToUpper() == "N" || pregunta.R3.ToUpper() == "N") {
+                this.R1.Visibility = Visibility.Hidden;
+                this.R2.Visibility = Visibility.Hidden;
+                this.R3.Visibility = Visibility.Hidden;
+                this.R4.Visibility = Visibility.Hidden;
+                this.RespuestaUser.Visibility = Visibility.Visible;
+                return 2;
+
+            }
+                
+            return 0;
         }
 
         private void PagePregunta_Loaded(object sender, RoutedEventArgs e)
@@ -73,6 +114,8 @@ namespace ProyectoMed.Vista
                 }
                
                 Modelo.Pregunta Pr = listaPreguntas[random];
+             
+
                 this.pregunta = Pr;
                 Pr.Estatus = false;
                 string puntaje = "";
@@ -90,42 +133,46 @@ namespace ProyectoMed.Vista
                 this.Titulo.Content = (this.materia + " POR " + puntaje).ToUpper();
 
                 this.Pregunta.Text = Pr.Descripcion;
-                Random r2 = new Random();
-                int rm2 = r2.Next(0, 4);
-                if(rm2 == 0)
+                this.TipoPregunta = this.tipoPregunta(Pr);
+                if( this.TipoPregunta== 0)
                 {
-                    this.R1.Content = "A:" + Pr.R1;
-                    this.R2.Content = "B:" + Pr.R2;
-                    this.R3.Content = "C:" + Pr.R3;
-                    this.R4.Content = "D:" + Pr.Rc;
-                }
-                if(rm2 == 1)
-                {
-                    this.R1.Content = "A:" + Pr.Rc;
-                    this.R2.Content = "B:" + Pr.R2;
-                    this.R3.Content = "C:" + Pr.R3;
-                    this.R4.Content = "D:" + Pr.R1;
-                }
-                if(rm2 == 2)
-                {
-                    this.R1.Content = "A:" + Pr.R2;
-                    this.R2.Content = "B:" + Pr.Rc;
-                    this.R3.Content = "C:" + Pr.R3;
-                    this.R4.Content = "D:" + Pr.R1;
-                }
-                if(rm2 == 3)
-                {
-                    this.R1.Content = "A:" + Pr.R2;
-                    this.R2.Content = "B:" + Pr.R3;
-                    this.R3.Content = "C:" + Pr.Rc;
-                    this.R4.Content = "D:" + Pr.R1;
-                }
-                if(rm2 == 4)
-                {
-                    this.R1.Content = "A:" + Pr.R2;
-                    this.R2.Content = "B:" + Pr.R1;
-                    this.R3.Content = "C:" + Pr.Rc;
-                    this.R4.Content = "D:" + Pr.R3;
+                    Random r2 = new Random();
+                    int rm2 = r2.Next(0, 4);
+                    if(rm2 == 0)
+                    {
+                        this.R1.Content = "A:" + Pr.R1;
+                        this.R2.Content = "B:" + Pr.R2;
+                        this.R3.Content = "C:" + Pr.R3;
+                        this.R4.Content = "D:" + Pr.Rc;
+                    }
+                    if(rm2 == 1)
+                    {
+                        this.R1.Content = "A:" + Pr.Rc;
+                        this.R2.Content = "B:" + Pr.R2;
+                        this.R3.Content = "C:" + Pr.R3;
+                        this.R4.Content = "D:" + Pr.R1;
+                    }
+                    if(rm2 == 2)
+                    {
+                        this.R1.Content = "A:" + Pr.R2;
+                        this.R2.Content = "B:" + Pr.Rc;
+                        this.R3.Content = "C:" + Pr.R3;
+                        this.R4.Content = "D:" + Pr.R1;
+                    }
+                    if(rm2 == 3)
+                    {
+                        this.R1.Content = "A:" + Pr.R2;
+                        this.R2.Content = "B:" + Pr.R3;
+                        this.R3.Content = "C:" + Pr.Rc;
+                        this.R4.Content = "D:" + Pr.R1;
+                    }
+                    if(rm2 == 4)
+                    {
+                        this.R1.Content = "A:" + Pr.R2;
+                        this.R2.Content = "B:" + Pr.R1;
+                        this.R3.Content = "C:" + Pr.Rc;
+                        this.R4.Content = "D:" + Pr.R3;
+                    }
                 }
             }
             catch(Exception err)
@@ -222,7 +269,7 @@ namespace ProyectoMed.Vista
             try
             {
 
-          
+                
             LogicaExportarData LE = new LogicaExportarData();
             LogicaHistorialRonda LR = new LogicaHistorialRonda();
             LogicaMarcador Lm = new LogicaMarcador();
@@ -232,8 +279,12 @@ namespace ProyectoMed.Vista
                 List<Pregunta> listActualizar = new List<Pregunta>();
                 listActualizar.Add(this.pregunta);
                 lpp.GuardarTxt(listActualizar, lpp.GetImport1(this.grado), this.grado);
-                string[] res = this.respuesta.Split(':');
-                this.respuesta = res[1];
+                if(this.TipoPregunta == 0)
+                {
+                    string[] res = this.respuesta.Split(':');
+
+                    this.respuesta = res[1];
+                }
                 if(RondaActual.RondaActual == RondaActual.TotalRonda && RondaActual.Turno == 1)
                 {
                     RondaActual.Estatus = false;
@@ -310,6 +361,16 @@ namespace ProyectoMed.Vista
         void siguiente() {
             myTimer.Stop();
             myTimer.Dispose();
+            if(this.TipoPregunta == 2)
+            {
+                ModalPreguntaAbierta Modal = new ModalPreguntaAbierta(this.pregunta,this.RespuestaUser.Text);
+                Modal.ShowDialog();
+                if(Modal.Repuesta)
+                {
+                    this.respuesta = this.pregunta.Rc;
+                }
+                else this.respuesta = this.RespuestaUser.Text;
+            }
             this.GuardarHisrotial();
             if(this.Correcta)
             {

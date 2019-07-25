@@ -104,10 +104,7 @@ namespace ProyectoMed.Vista
                 if(RondaActual.RondaActual == RondaActual.TotalRonda && RondaActual.Turno == 1 && RondaActual.Estatus == false)
                 {
                     RondaActual.Estatus = false; //desctivar
-                    MessageBoxResult result = System.Windows.MessageBox.Show("Fin de las rondas",
-                                                                           "Fin ronda",
-                                                                          MessageBoxButton.OK,
-                                                                           MessageBoxImage.Question);
+                   
 
                     if(this.Equipos[0].Puntaje != this.Equipos[1].Puntaje)
                     {

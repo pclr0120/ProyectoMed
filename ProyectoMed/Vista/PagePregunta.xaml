@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProyectoMed.Vista"
       mc:Ignorable="d"
-      Title="PagePregunta" Height="auto" Width="auto">
+      Title="PagePregunta"  d:DesignHeight="750" d:DesignWidth="800">
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
@@ -62,7 +62,7 @@
 
             </Grid>
         </Grid>
-        <TextBlock Name="Pregunta"  Margin="30,2,10,5" Width="auto" Height="auto" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Text="¿En el mundo tecnológico actual, todos utilizamos o formamos parte, de una u otra manera, de diferentes redes sociales, como blogs, Twitter, Facebook, LinkedIn, Google, etc. Y resulta de suma importancia contar con una herramienta como la que le ofrecemos, que le permita contar palabras y caracteres?." Foreground="White" FontSize="36" TextDecorations="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Segoe UI Semibold"/>
+        <TextBlock Name="Pregunta"  Margin="30,2,10,5" Width="auto" Height="auto" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Text="¿En el mundo tecnológico actual, todos utilizamos o formamos parte, de una u otra manera, de diferentes redes sociales, como blogs, Twitter, Facebook, LinkedIn, Google, etc. Y resulta de suma importanci." Foreground="White" FontSize="36" TextDecorations="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Segoe UI Semibold"/>
 
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
@@ -73,27 +73,40 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <TextBox Name="RespuestaUser" Grid.Row="1" Text="Capture la respuesta" Height="60" BorderBrush="#FFD3C308" FontSize="36" FontWeight="Bold" TextAlignment="Center">
+                <TextBox.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFD3C308" Offset="0.553"/>
+                    </LinearGradientBrush>
+                </TextBox.Foreground>
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FF070E1C" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
 
-
-            <RadioButton Name="R1" Margin="30,50,10,10" Grid.Row="0" Content="A:Los enlaces que son TwoWay " Foreground="White" FontSize="20" FontWeight="Bold" Checked="R1_Checked" >
+            <RadioButton Name="R1" Margin="30,50,10,10" Grid.Row="0" Content="A:Los enlaces que son TwoWay " Foreground="White" FontSize="26" FontWeight="Bold" Checked="R1_Checked" >
                 <RadioButton.Effect>
                     <DropShadowEffect/>
                 </RadioButton.Effect>
             </RadioButton>
 
-            <RadioButton Name="R2" Margin="30,1,10,10"  Grid.Row="1" Content="B:Los enlaces que son TwoWay " Foreground="White" FontSize="20" FontWeight="Bold" Checked="R1_Checked" >
+            <RadioButton Name="R2" Margin="30,1,10,10"  Grid.Row="1" Content="B:Los enlaces que son TwoWay " Foreground="White" FontSize="26" FontWeight="Bold" Checked="R1_Checked" >
                 <RadioButton.Effect>
                     <DropShadowEffect/>
                 </RadioButton.Effect>
             </RadioButton>
 
-            <RadioButton Name="R3" Margin="30,1,10,10"  Grid.Row="2" Content="C:Los enlaces que son TwoWay " Foreground="White" FontSize="20" FontWeight="Bold" Checked="R1_Checked" >
+            <RadioButton Name="R3" Margin="30,1,10,10"  Grid.Row="2" Content="C:Los enlaces que son TwoWay " Foreground="White" FontSize="26" FontWeight="Bold" Checked="R1_Checked" >
                 <RadioButton.Effect>
                     <DropShadowEffect/>
                 </RadioButton.Effect>
             </RadioButton>
 
-            <RadioButton Name="R4" Margin="30,1,10,10"  Grid.Row="3" Content="D:Los enlaces que son TwoWay " Foreground="White" FontSize="20" FontWeight="Bold" Checked="R1_Checked" >
+            <RadioButton Name="R4" Margin="30,1,10,10"  Grid.Row="3" Content="D:Los enlaces que son TwoWay " Foreground="White" FontSize="26" FontWeight="Bold" Checked="R1_Checked" >
                 <RadioButton.Effect>
                     <DropShadowEffect/>
                 </RadioButton.Effect>
@@ -144,8 +157,8 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Name="Restar" Content="+" Width="30" Grid.Column="0" FontWeight="Bold" FontSize="18" Background="{x:Null}" Foreground="#FF00B608" FontFamily="Rockwell Extra Bold" BorderBrush="{x:Null}"></Button>
-                    <Button Name="Sumar" Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60707" FontFamily="Stencil" BorderBrush="{x:Null}"></Button>
+                    <Button Visibility="Hidden" Name="Restar" Content="+" Width="30" Grid.Column="0" FontWeight="Bold" FontSize="18" Background="{x:Null}" Foreground="#FF00B608" FontFamily="Rockwell Extra Bold" BorderBrush="{x:Null}"></Button>
+                    <Button Visibility="Hidden" Name="Sumar" Content="-" Width="30" Grid.Column="1" FontSize="18" FontWeight="Bold"  Background="{x:Null}" Foreground="#FFE60707" FontFamily="Stencil" BorderBrush="{x:Null}"></Button>
                 </Grid>
 
             </Grid>

@@ -477,7 +477,7 @@
                         <Label.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black" Offset="0"/>
-                                <GradientStop Color="White" Offset="0.667"/>
+                                <GradientStop Color="White" Offset="0.301"/>
                             </LinearGradientBrush>
                         </Label.Foreground>
                     </Label>
@@ -485,7 +485,7 @@
                         <Label.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black" Offset="0"/>
-                                <GradientStop Color="White" Offset="0.119"/>
+                                <GradientStop Color="White" Offset="0.301"/>
                             </LinearGradientBrush>
                         </Label.Foreground>
                     </Label>
@@ -504,11 +504,11 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <Label Name="InputTeam1" Height="30" Content="Team 1"  Grid.Row="0" FontWeight="Bold" FontFamily="Arial Black" FontSize="18" Background="{x:Null}" HorizontalAlignment="Center"   >
+                    <Label Name="InputTeam1" Height="35" Content="Team 1"  Grid.Row="0" FontWeight="Bold" FontFamily="Arial Black" FontSize="20" Background="{x:Null}" HorizontalAlignment="Center"   >
                         <Label.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black" Offset="0"/>
-                                <GradientStop Color="#FFE0ECFF" Offset="0.637"/>
+                                <GradientStop Color="#FFE0ECFF" Offset="0.389"/>
                             </LinearGradientBrush>
                         </Label.Foreground>
                     </Label>
@@ -544,11 +544,11 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <Label Name="InputTeam2" Height="30" Content="Team 2"  Grid.Row="0" FontWeight="Bold" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center"   >
+                    <Label Name="InputTeam2" Height="35" Content="Team 2"  Grid.Row="0" FontWeight="Bold" FontFamily="Arial Black" FontSize="20" HorizontalAlignment="Center"   >
                         <Label.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black" Offset="0"/>
-                                <GradientStop Color="White" Offset="1"/>
+                                <GradientStop Color="White" Offset="0.295"/>
                             </LinearGradientBrush>
                         </Label.Foreground>
                     </Label>

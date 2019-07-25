@@ -112,16 +112,29 @@ namespace ProyectoMed.Vista
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(this.Continuar())
+
+            if(this.tem1.IsChecked == true || this.tem2.IsChecked == true)
             {
-                PageGanador t = new PageGanador(this.Equipos,this.ganador);
-                this.NavigationService.Navigate(t);
+                if(this.Continuar())
+                {
+                    PageGanador t = new PageGanador(this.Equipos, this.ganador);
+                    this.NavigationService.Navigate(t);
+                }
+                else
+                {
+                    MessageBoxResult result = System.Windows.MessageBox.Show("Ups!, Ocurrio un problema:Si el error persiste  reportelo al 6681010012.",
+                                                           "Error",
+                                                           MessageBoxButton.OK,
+                                                           MessageBoxImage.Question);
+                }
+
             }
-            else {
-                MessageBoxResult result = System.Windows.MessageBox.Show("Ups!, Ocurrio un problema:Si el error persiste  reportelo al 6681010012.",
-                                                       "Error",
-                                                       MessageBoxButton.OK,
-                                                       MessageBoxImage.Question);
+            else
+            {
+                MessageBoxResult result = System.Windows.MessageBox.Show("Elija a un ganador para poder continuar...",
+                                                          "Tablero",
+                                                          MessageBoxButton.OK,
+                                                          MessageBoxImage.Question);
             }
 
         }

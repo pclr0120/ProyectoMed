@@ -69,9 +69,9 @@ namespace ProyectoMed.Vista
                     this.Totalronda = lronda[lronda.Count - 1].TotalRonda;
                     this.InputTeam1.Content = lronda[lronda.Count - 1].Equipo1;
                     this.InputTeam2.Content = lronda[lronda.Count - 1].Equipo2;
-                    this.InputTeam1Puntaje.Content = lronda[lronda.Count - 1].Equipo1Puntaje;
-                    this.InputTeam2Puntaje.Content = lronda[lronda.Count - 1].Equipo2Puntaje;
-                    this.lblRondas.Content = lronda[lronda.Count - 1].RondaActual.ToString() + " de " + lronda[lronda.Count - 1].TotalRonda.ToString();
+                    this.InputTeam1Puntaje.Content ="+"+ lronda[lronda.Count - 1].Equipo1Puntaje;
+                    this.InputTeam2Puntaje.Content ="+"+ lronda[lronda.Count - 1].Equipo2Puntaje;
+                    this.lblRondas.Content ="Rondas "+ lronda[lronda.Count - 1].RondaActual.ToString() + " de " + lronda[lronda.Count - 1].TotalRonda.ToString();
 
                     if(this.turno == 0)
                     {

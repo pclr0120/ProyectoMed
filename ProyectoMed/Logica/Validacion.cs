@@ -119,7 +119,7 @@ namespace ProyectoMed.Logica
             try
             {
 
-                int p1 = LP.GetImport1(grado).Count;
+                int p1 = LP.GetImport1(grado).FindAll(item=>item.Estatus==true).Count;
 
                 if(p1 >= 5)
                     return true;

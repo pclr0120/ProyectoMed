@@ -90,6 +90,9 @@
     <Compile Include="Vista\MateriasConfig.xaml.cs">
       <DependentUpon>MateriasConfig.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vista\ModalPreguntaAbierta.xaml.cs">
+      <DependentUpon>ModalPreguntaAbierta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Notificacion.xaml.cs">
       <DependentUpon>Notificacion.xaml</DependentUpon>
     </Compile>
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vista\MateriasConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\ModalPreguntaAbierta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -264,6 +271,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="LOgo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Pensando.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
