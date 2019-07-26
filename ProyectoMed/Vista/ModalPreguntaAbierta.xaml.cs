@@ -1,4 +1,5 @@
-﻿using ProyectoMed.Modelo;
+﻿using ProyectoMed.Logica;
+using ProyectoMed.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,10 @@ namespace ProyectoMed.Vista
             InitializeComponent();
             this.lblRepuestaUser.Content = "Tu respusta fue: " + respuesta.ToUpper();
             this.lblRespustaCorrecta.Content = "Repuesta correcta es: " + pregunta.Rc.ToUpper() ;
+
+            Validacion v = new Validacion();
+            this.lblRepuestaUser.FontSize = v.sizeLetraRespuestas(respuesta);
+            this.lblRespustaCorrecta.FontSize = v.sizeLetraRespuestas(pregunta.Rc);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

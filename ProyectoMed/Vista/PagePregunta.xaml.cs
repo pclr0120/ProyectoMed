@@ -66,8 +66,8 @@ namespace ProyectoMed.Vista
                 this.R4.Visibility = Visibility.Hidden;
                 if(pregunta.Rc.ToUpper() == "VERDADERO" && pregunta.Rc.ToUpper() == "VERDAD")
                 {
-                    this.R1.Content = "A:" + pregunta.Rc;
-                    this.R2.Content = "B:Falso";
+                    this.R1.Content = "A:" + pregunta.Rc.ToUpper();
+                    this.R2.Content = "B:Falso".ToUpper();
                 }
                 else {
                     this.R1.Content = "A:" + pregunta.Rc;
@@ -279,7 +279,7 @@ namespace ProyectoMed.Vista
                 List<Pregunta> listActualizar = new List<Pregunta>();
                 listActualizar.Add(this.pregunta);
                 lpp.GuardarTxt(listActualizar, lpp.GetImport1(this.grado), this.grado);
-                if(this.TipoPregunta == 0)
+                if(this.TipoPregunta < 2)
                 {
                     string[] res = this.respuesta.Split(':');
 
@@ -294,7 +294,7 @@ namespace ProyectoMed.Vista
                 if(this.respuesta == this.pregunta.Rc && RondaActual.Estatus)
                 {
                     this.Correcta = true;
-                    if(RondaActual.Turno == 0)
+                    if(RondaActual.Turno == 0) 
                     {
                         RondaActual.Turno = 1;
                         this.Equipos[0].Turno = true;

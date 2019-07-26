@@ -72,6 +72,8 @@ namespace ProyectoMed.Vista
                 this.puntaje = 1000;
 
             this.Estado.Content = "TU RESPUESTA FUE: " + this.Res;
+            Validacion v = new Validacion();
+            this.Estado.FontSize = v.sizeLetraRespuestas(this.Res);
             if (p.Rc.Equals(this.Res))
             {
                 

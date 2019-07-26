@@ -61,7 +61,7 @@
                 </Label.Foreground>
             </Label>
             <Image Height="60" Width="60" Grid.Row="3" Source="/Recursos/perdi.png"></Image>
-            <Label Name="Estado" Content="Tu respuesta es: Incorrecta" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Background="{x:Null}" FontWeight="Bold">
+            <Label Name="Estado" Content="Tu respuesta es: Incorrecta000000000000000000000000000000" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>

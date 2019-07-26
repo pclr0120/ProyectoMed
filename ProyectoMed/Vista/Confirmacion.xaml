@@ -8,7 +8,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterOwner"
         WindowState="Maximized"
-        Title="Confirmacion" Height="450" Width="800">
+        Title="Confirmacion"   d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

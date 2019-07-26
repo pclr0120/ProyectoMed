@@ -72,18 +72,21 @@ namespace ProyectoMed.Vista
                     this.InputTeam1Puntaje.Content ="+"+ lronda[lronda.Count - 1].Equipo1Puntaje;
                     this.InputTeam2Puntaje.Content ="+"+ lronda[lronda.Count - 1].Equipo2Puntaje;
                     this.lblRondas.Content ="Rondas "+ lronda[lronda.Count - 1].RondaActual.ToString() + " de " + lronda[lronda.Count - 1].TotalRonda.ToString();
-
+                    Validacion v = new Validacion();
+                  this.lblTurno.FontSize=v.sizeLetraNameTeam(this.InputTeam1.Content.ToString());
                     if(this.turno == 0)
                     {
                         this.Equipos[0].Turno = true;
                     //   this.InputTeam1.Background = Brushes.LightYellow;
-                        this.lblTurno.Content = "Turno:" + this.InputTeam1.Content.ToString();
+                        this.lblTurno.Content = this.InputTeam1.Content.ToString();
+
+                        
                     }
                     else
                     {
                         this.Equipos[0].Turno = true;
                    //     this.InputTeam2.Background = Brushes.LightYellow;
-                        this.lblTurno.Content = "Turno:" + this.InputTeam2.Content.ToString();
+                        this.lblTurno.Content = this.InputTeam2.Content.ToString();
                     }
                 }
 

@@ -135,6 +135,27 @@ namespace ProyectoMed.Logica
 
         }
 
+        public double sizeLetraRespuestas(string Cadena) {
+
+
+
+            if(Cadena.Length > 25)
+                return 16;
+            return 30;
+        }
+
+        public double sizeLetraName(string Cadena)
+        {
+            if(Cadena.Length > 10)
+                return 14;
+            return 18;
+        }
+        public double sizeLetraNameTeam(string Cadena)
+        {
+            if(Cadena.Length > 19)
+                return 15;
+            return 20;
+        }
 
     }
 

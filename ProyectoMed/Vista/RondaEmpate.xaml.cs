@@ -42,8 +42,8 @@ namespace ProyectoMed.Vista
 
         private void Resultado_Loaded(object sender, RoutedEventArgs e)
         {
-            this.lbl1.Content = this.Equipos[0].Nombre + " puntos: "+ this.Equipos[0].Puntaje;
-            this.lbl2.Content = this.Equipos[1].Nombre + " puntos: " + this.Equipos[1].Puntaje;
+            this.lbl1.Content = this.Equipos[0].Nombre + " puntos: +"+ this.Equipos[0].Puntaje;
+            this.lbl2.Content = this.Equipos[1].Nombre + " puntos: +" + this.Equipos[1].Puntaje;
             this.tem1.Content = this.Equipos[0].Nombre;
             this.tem2.Content = this.Equipos[1].Nombre;
 
@@ -70,6 +70,7 @@ namespace ProyectoMed.Vista
             try
             {
                 if(this.tem1.IsChecked == true || this.tem2.IsChecked == true)
+                {
                     if(this.tem1.IsChecked == true)
                     {
                         RondaActual.GaneManual = true;
@@ -84,18 +85,22 @@ namespace ProyectoMed.Vista
                         RondaActual.Ganador = 1;
                         this.Equipos[1].Ganador = true;
                     }
+
+
+                    RondaActual.Estatus = false;
+                    List<Ronda> ListaRondaActual = new List<Ronda>();
+
+                    ListaRondaActual.Add(RondaActual);
+
+                    if(lr.GuardarTxtRonda(ListaRondaActual, r, this.grado))
+                        return lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
+                    else
+                        return false;
+                }
                 else
                     MessageBox.Show("Debe de elegir un ganador para contunuar..");
-                RondaActual.Estatus = false;
-                List<Ronda> ListaRondaActual = new List<Ronda>();
+                return false;
 
-                ListaRondaActual.Add(RondaActual);
-
-                if(lr.GuardarTxtRonda(ListaRondaActual, r, this.grado))
-                    return lh.GuardarTxtEquipos(this.Equipos, lh.GetImportEequipos(this.grado), this.grado);
-                else
-                    return false;
-                
             }
             catch(Exception)
             {

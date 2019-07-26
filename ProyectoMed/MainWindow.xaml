@@ -2,6 +2,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                
-    Title="ExpenseIt"   Height="550" Width="800" Source="Vista/Home.xaml" ShowInTaskbar="False"  ShowsNavigationUI="False" KeyUp="NavigationWindow_KeyUp" >
+    Title="ExpenseIt"   Height="550" Width="800" Source="Vista/Home.xaml" ShowInTaskbar="False" WindowStyle="None"  ShowsNavigationUI="False" KeyUp="NavigationWindow_KeyUp" ResizeMode="NoResize" WindowState="Maximized" >
 
 </NavigationWindow>

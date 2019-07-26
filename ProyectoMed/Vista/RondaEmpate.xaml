@@ -4,9 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProyectoMed.Vista"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="RondaEmpate">
+      mc:Ignorable="d"
+      Title="RondaEmpate"   d:DesignHeight="450" d:DesignWidth="800">
 
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -62,7 +61,7 @@
 
 
                 </Grid.ColumnDefinitions>
-                <Label Name="lbl1" FontSize="30" Content="Equipo 1  puntos:+200" Grid.Column="0" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Name="lbl1" FontSize="35" Content="Equipo 1  puntos:+200" Grid.Column="0" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -70,15 +69,15 @@
                         </LinearGradientBrush>
                     </Label.Foreground>
                 </Label>
-                <Label  FontSize="30" Content="VS" Grid.Column="1" Background="{x:Null}" VerticalAlignment="Center">
+                <Label  FontSize="35" Content="VS" Grid.Column="1" Background="{x:Null}" VerticalAlignment="Center" FontWeight="Bold">
                     <Label.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="#FFB9B916" Offset="0.633"/>
+                            <GradientStop Color="#FFB9B916" Offset="0.351"/>
                         </LinearGradientBrush>
                     </Label.Foreground>
                 </Label>
-                <Label Name="lbl2" FontSize="30" Content="Equipo 1  puntos:+200" Grid.Column="2" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Name="lbl2" FontSize="35" Content="Equipo 1  puntos:+200" Grid.Column="2" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -103,7 +102,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Name="lbl0" FontSize="36" Content="Definir el ganador manualmente" Grid.Row="0" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Name="lbl0" FontSize="46" Content="Definir el ganador manualmente" Grid.Row="0" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -116,12 +115,12 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    
-                    <ColumnDefinition Width="auto"/>
+
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                    
+                    <ColumnDefinition Width="*"/>
+
                 </Grid.ColumnDefinitions>
                 <RadioButton Name="tem1" Grid.Column="2" Content="Equipo1" Margin="0,0,10,0" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center">
                     <RadioButton.Foreground>
@@ -131,7 +130,7 @@
                         </LinearGradientBrush>
                     </RadioButton.Foreground>
                 </RadioButton>
-                <RadioButton Name="tem2" Grid.Column="3" Content="Equipo2" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" Grid.ColumnSpan="3" >
+                <RadioButton Name="tem2" Grid.Column="3" Content="Equipo2" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center"  >
                     <RadioButton.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>

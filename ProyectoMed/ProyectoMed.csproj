@@ -123,6 +123,9 @@
     <Compile Include="Vista\RondaEmpate.xaml.cs">
       <DependentUpon>RondaEmpate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vista\RondasGanadasEquipos.xaml.cs">
+      <DependentUpon>RondasGanadasEquipos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Tablero.xaml.cs">
       <DependentUpon>Tablero.xaml</DependentUpon>
     </Compile>
@@ -219,6 +222,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vista\RondasGanadasEquipos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vista\Tablero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -274,6 +281,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recursos\Pensando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
