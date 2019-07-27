@@ -44,7 +44,7 @@ namespace ProyectoMed.Vista
             {
                 sonido = new SoundPlayer(@"c:\winer.wav");
                 sonido.Play();
-                this.lblGanador.Content = this.Equipos[this.ganador].Nombre;
+                this.lblGanador.Content = this.Equipos[this.ganador].Nombre.ToUpper();
                 this.lbl1.Content = this.Equipos[0].Nombre + " puntos: " + this.Equipos[0].Puntaje;
                 this.lbl2.Content = this.Equipos[1].Nombre + " puntos: " + this.Equipos[1].Puntaje;
             }

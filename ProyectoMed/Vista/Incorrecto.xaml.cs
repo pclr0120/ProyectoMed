@@ -74,10 +74,12 @@ namespace ProyectoMed.Vista
                 this.puntaje = 800;
             if(p.Nivel == 5)
                 this.puntaje = 1000;
-            this.lblCorrecta.Content = "R:" + this.Pregunta.Rc;
+            this.lblCorrecta.Content = "R: " + this.Pregunta.Rc;
             Validacion V = new Validacion();
             this.lblCorrecta.FontSize = V.sizeLetraRespuestas(this.Res);
             this.Estado.Content = "TU RESPUESTA FUE: " + this.Res;
+
+
      
             this.Estado.FontSize = V.sizeLetraRespuestas(this.Res);
 

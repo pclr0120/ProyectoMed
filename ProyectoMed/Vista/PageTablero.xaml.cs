@@ -71,7 +71,7 @@ namespace ProyectoMed.Vista
                     this.InputTeam2.Content = lronda[lronda.Count - 1].Equipo2;
                     this.InputTeam1Puntaje.Content ="+"+ lronda[lronda.Count - 1].Equipo1Puntaje;
                     this.InputTeam2Puntaje.Content ="+"+ lronda[lronda.Count - 1].Equipo2Puntaje;
-                    this.lblRondas.Content ="Rondas "+ lronda[lronda.Count - 1].RondaActual.ToString() + " de " + lronda[lronda.Count - 1].TotalRonda.ToString();
+                    this.lblRondas.Content ="RONDA "+ lronda[lronda.Count - 1].RondaActual.ToString() + " DE " + lronda[lronda.Count - 1].TotalRonda.ToString();
                     Validacion v = new Validacion();
                   this.lblTurno.FontSize=v.sizeLetraNameTeam(this.InputTeam1.Content.ToString());
                     if(this.turno == 0)

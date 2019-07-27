@@ -3,6 +3,7 @@ using ProyectoMed.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,6 +36,7 @@ namespace ProyectoMed.Vista
         private string RondaID;
         private bool Correcta = false;
         private int TipoPregunta = 0;
+        private SoundPlayer sonido;
         public PagePregunta()
         {
             InitializeComponent();
@@ -96,20 +98,27 @@ namespace ProyectoMed.Vista
             {
                 this.Correcta = false;
                 this.TiempoIniciar();
+
+                sonido = new SoundPlayer(@"c:\Titac.wav");
+                sonido.Play();
                 LogicaPreguntasHistorial l = new LogicaPreguntasHistorial();
                 LogicaHistorialRonda Lm = new LogicaHistorialRonda();
                 Ronda ronda = Lm.GetRondas(this.grado).Find(item=>item.Id==this.Equipos[0].Id);
                 List<Pregunta> listaPreguntas = l.GetImport1(this.grado).FindAll(i => i.Materia == materia && i.Nivel == this.nivel && i.Estatus == true);
                 Random r = new Random();
+                Validacion v = new Validacion();
                 int random = r.Next(0, listaPreguntas.Count-1);
+                this.respuesta = "null";
                 if(ronda.Turno == 0)
                 {
                     this.InputTeam1.Content = this.Equipos[0].Nombre;
-                    this.InputTeam1Puntaje.Content = this.Equipos[0].Puntaje.ToString();
+                    this.InputTeam1Puntaje.Content = "+" + this.Equipos[0].Puntaje.ToString();
+                    this.InputTeam1.FontSize = v.sizeLetraNameTeam(this.Equipos[0].Nombre);
                 }
                 else {
                     this.InputTeam1.Content = this.Equipos[1].Nombre;
-                    this.InputTeam1Puntaje.Content = this.Equipos[1].Puntaje.ToString();
+                    this.InputTeam1.FontSize = v.sizeLetraNameTeam(this.Equipos[1].Nombre);
+                    this.InputTeam1Puntaje.Content = "+" + this.Equipos[1].Puntaje.ToString();
 
                 }
                
@@ -255,7 +264,13 @@ namespace ProyectoMed.Vista
         {
             try
             {
+
+                if(this.TipoPregunta == 2)
+                    this.respuesta = this.RespuestaUser.Text.ToUpper();
+                if(this.respuesta!= "null" && this.respuesta != "Capture la respuesta".ToUpper())
                 this.siguiente();
+                else System.Windows.MessageBox.Show("No has seleccionado ninguna respuesta y aun queda tiempo", "Tablero");
+
             }
             catch(Exception err)
             {
@@ -363,6 +378,8 @@ namespace ProyectoMed.Vista
             myTimer.Dispose();
             if(this.TipoPregunta == 2)
             {
+                this.sonido.Stop();
+                this.sonido.Dispose();
                 ModalPreguntaAbierta Modal = new ModalPreguntaAbierta(this.pregunta,this.RespuestaUser.Text);
                 Modal.ShowDialog();
                 if(Modal.Repuesta)
@@ -398,7 +415,8 @@ namespace ProyectoMed.Vista
             myTimer.Start();
 
             //Show the time set in the "timeLeft" variable
-            Tiempo.Content = timeLeft.ToString();
+           
+            Tiempo.Content = timeLeft;
         }
 
         private void myTimer_Tick(object sender, EventArgs e)
@@ -406,12 +424,24 @@ namespace ProyectoMed.Vista
             try
             {
                 //perform these actions at the interval set in the properties.
-                Tiempo.Content = timeLeft.ToString();
+                
                 timeLeft -= 1;
-
-                if(timeLeft < 0)
+                Tiempo.Content = timeLeft.ToString();
+                if(timeLeft == 1) {
+                    this.sonido.Stop();
+                    this.sonido.Dispose();
+                    sonido = new SoundPlayer(@"c:\RelojFin.wav");
+                    sonido.Play();
+                  
+                }
+                    if(timeLeft < 0)
                 {
+                   
                     myTimer.Stop();
+                    if(this.TipoPregunta == 2)
+                        this.respuesta = this.RespuestaUser.Text.ToUpper();
+                    if(this.respuesta == "null" ||this.respuesta== "Capture la respuesta".ToUpper())
+                        this.respuesta = ":Se termino el tiempo";
                     this.siguiente();
                 }
             }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProyectoMed.Vista"
       mc:Ignorable="d" 
-        d:DesignHeight="450" d:DesignWidth="800"
+        d:DesignHeight="600" d:DesignWidth="800"
       Title="Resultado">
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -40,11 +40,13 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+              
+                <RowDefinition Height="80"/>
+             
                 <RowDefinition Height="70"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
 
             </Grid.RowDefinitions>
@@ -56,7 +58,7 @@
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0.152"/>
-                        <GradientStop Color="White" Offset="0.641"/>
+                        <GradientStop Color="White" Offset="0.293"/>
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
@@ -65,27 +67,27 @@
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FFE0E0E0" Offset="0.315"/>
+                        <GradientStop Color="#FFE0E0E0" Offset="0.202"/>
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
-            <Label Grid.Row="1" Name="Respusta" Content="Respuesta" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Background="Transparent" Foreground="#FFC2CB00"/>
+            <Label Grid.Row="1" Name="Respusta" Content="Respuesta" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold" Background="Transparent" Foreground="#FFC2CB00"/>
             <Grid Grid.Row="4">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
 
 
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
                 <Image Grid.Column="0" Height="50" Width="50" Source="/Recursos/flecha.png" HorizontalAlignment="Right"/>
                 <Image Grid.Column="2" Height="50" Width="50" Source="/Recursos/flecha2.png" HorizontalAlignment="Left"></Image>
-                <Label Grid.Column="1" Name="Puntos" Content="Puntos obtenidos: 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="{x:Null}">
+                <Label Grid.Column="1" Name="Puntos" Content="Puntos obtenidos: 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" Background="{x:Null}">
                     <Label.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -110,7 +112,7 @@
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="1"/>
                         <GradientStop Color="White"/>
-                        <GradientStop Color="#FF033587"/>
+                        <GradientStop Color="#FF3E3E2F"/>
                     </LinearGradientBrush>
                 </Grid.Background>
                 <Grid.Effect>

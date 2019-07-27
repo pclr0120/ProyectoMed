@@ -49,40 +49,40 @@
 
         </Grid>
 
-        <Label Content="TABLEROS" Grid.Row="1" Foreground="#FFC9D308" FontSize="36" FontWeight="Bold" Background="{x:Null}" BorderBrush="#FFF5EEEE"/>
-        <Button Name="G1" Content="Grado 1" Grid.Row="2" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" CommandParameter="1" Foreground="#FFF1F1F1" FontSize="36" FontFamily="Segoe UI Semibold" Click="ClickSelect">
+        <Label Content="TABLEROS" Grid.Row="1" Foreground="#FFC9D308" FontSize="40" FontWeight="Bold" Background="{x:Null}" BorderBrush="#FFF5EEEE"/>
+        <Button Name="G1" Content="Grado 1" Grid.Row="2" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" CommandParameter="1" Foreground="#FFF1F1F1" FontSize="40" FontFamily="Segoe UI Semibold" Click="ClickSelect">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Name="G2" Content="Grado 2" Grid.Row="3" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" CommandParameter="2" Foreground="#FFF1F1F1" FontSize="36" FontFamily="Segoe UI Semibold" Click="ClickSelect">
+        <Button Name="G2" Content="Grado 2" Grid.Row="3" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" CommandParameter="2" Foreground="#FFF1F1F1" FontSize="40" FontFamily="Segoe UI Semibold" Click="ClickSelect">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Name="G3" Content="Grado 3" Grid.Row="4" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" CommandParameter="3" Foreground="#FFF1F1F1" FontSize="36" FontFamily="Segoe UI Semibold" Click="ClickSelect">
+        <Button Name="G3" Content="Grado 3" Grid.Row="4" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" CommandParameter="3" Foreground="#FFF1F1F1" FontSize="40" FontFamily="Segoe UI Semibold" Click="ClickSelect">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button  Name="G4" Content="Grado 4" Grid.Row="5" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" CommandParameter="4" Foreground="#FFF1F1F1" FontSize="36" FontFamily="Segoe UI Semibold" Click="ClickSelect">
+        <Button  Name="G4" Content="Grado 4" Grid.Row="5" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" CommandParameter="4" Foreground="#FFF1F1F1" FontSize="40" FontFamily="Segoe UI Semibold" Click="ClickSelect">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
 
         </Button>
        
-        <Label Grid.Column="1" Grid.Row="1" Content="PREGUNTAS" Foreground="#FFC9D308" FontSize="36" FontWeight="Bold" Background="{x:Null}"/>
-        <Label Name="p1" Grid.Column="1" Grid.Row="2" Content="125/125" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"></Label>
-        <Label Name="p2" Grid.Column="1" Grid.Row="3" Content="125/125" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"></Label>
-        <Label Name="p3" Grid.Column="1" Grid.Row="4" Content="125/125" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"></Label>
-        <Label Name="p4" Grid.Column="1" Grid.Row="5" Content="125/125" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"></Label>
+        <Label Grid.Column="1" Grid.Row="1" Content="PREGUNTAS" Foreground="#FFC9D308" FontSize="40" FontWeight="Bold" Background="{x:Null}"/>
+        <Label Name="p1" Grid.Column="1" Grid.Row="2" Content="125/125" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold"></Label>
+        <Label Name="p2" Grid.Column="1" Grid.Row="3" Content="125/125" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold"></Label>
+        <Label Name="p3" Grid.Column="1" Grid.Row="4" Content="125/125" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold"></Label>
+        <Label Name="p4" Grid.Column="1" Grid.Row="5" Content="125/125" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold"></Label>
 
-        <Label Grid.Column="2" Grid.Row="1" Content="EQUIPOS" Foreground="#FFC9D308" FontSize="36" FontWeight="Bold" Background="{x:Null}"/>
-        <Label Name="e1" Grid.Column="2" Grid.Row="2" Content="0" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"></Label>
-        <Label Name="e2" Grid.Column="2" Grid.Row="3" Content="0" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"></Label>
-        <Label Name="e3" Grid.Column="2" Grid.Row="4" Content="0" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"></Label>
-        <Label Name="e4" Grid.Column="2" Grid.Row="5" Content="0" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"></Label>
+        <Label Grid.Column="2" Grid.Row="1" Content="EQUIPOS" Foreground="#FFC9D308" FontSize="40" FontWeight="Bold" Background="{x:Null}"/>
+        <Label Name="e1" Grid.Column="2" Grid.Row="2" Content="0" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold"></Label>
+        <Label Name="e2" Grid.Column="2" Grid.Row="3" Content="0" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold"></Label>
+        <Label Name="e3" Grid.Column="2" Grid.Row="4" Content="0" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold"></Label>
+        <Label Name="e4" Grid.Column="2" Grid.Row="5" Content="0" Foreground="#FFF1F1F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold"></Label>
 
 
     </Grid>

@@ -52,7 +52,7 @@
                 <RowDefinition/>
 
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Fin de las rondas: Empate " Foreground="#FFD8D80A" FontSize="48" HorizontalAlignment="Center"></Label>
+            <Label Grid.Row="0" Content="FIN DE LA PARTIDA: EMPATE  " Foreground="#FFD8D80A" FontSize="48" HorizontalAlignment="Center" FontWeight="Bold"></Label>
             <Grid Grid.Row="2" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -65,7 +65,7 @@
                     <Label.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="0.633"/>
+                            <GradientStop Color="White" Offset="0.078"/>
                         </LinearGradientBrush>
                     </Label.Foreground>
                 </Label>
@@ -81,7 +81,7 @@
                     <Label.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="0.633"/>
+                            <GradientStop Color="White" Offset="0.172"/>
                         </LinearGradientBrush>
                     </Label.Foreground>
                 </Label>
@@ -106,7 +106,7 @@
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="White" Offset="0.633"/>
+                        <GradientStop Color="White" Offset="0.132"/>
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
@@ -122,7 +122,7 @@
                     <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
-                <RadioButton Name="tem1" Grid.Column="2" Content="Equipo1" Margin="0,0,10,0" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center">
+                <RadioButton Name="tem1" Grid.Column="3" Content="Equipo1" Margin="0,0,10,0" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center">
                     <RadioButton.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -130,6 +130,23 @@
                         </LinearGradientBrush>
                     </RadioButton.Foreground>
                 </RadioButton>
+               
+
+
+
+            </Grid>
+            <Grid Grid.Row="2">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+               
                 <RadioButton Name="tem2" Grid.Column="3" Content="Equipo2" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center"  >
                     <RadioButton.Foreground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

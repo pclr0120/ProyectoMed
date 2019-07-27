@@ -139,8 +139,8 @@ namespace ProyectoMed.Logica
 
 
 
-            if(Cadena.Length > 25)
-                return 16;
+            if(Cadena.Length > 28)
+                return 20;
             return 30;
         }
 

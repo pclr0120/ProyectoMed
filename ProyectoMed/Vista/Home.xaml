@@ -38,7 +38,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Content="Configuracion" Foreground="#FFDCDC0C" Background="{x:Null}" HorizontalAlignment="Left" Click="Button_Click_1"></Button>
-            <Label Grid.Row="0" Grid.Column="1" Margin="1,1,1,1" Content="Bienvenidos" Background="{x:Null}" Foreground="#FF0684B7" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Grid.Row="0" Grid.Column="1" Margin="1,1,1,1" Content="BIENVENIDOS" Background="{x:Null}" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.531"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
                 <Label.Effect>
                     <DropShadowEffect RenderingBias="Quality"/>
                 </Label.Effect>
@@ -59,7 +65,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="1" Margin="5,5,5,5" Grid.Row="2" Width="500" Content="Iniciar" BorderBrush="WhiteSmoke" Foreground="#FFDCDC0C" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" FontStyle="Italic" Click="Button_Click">
+            <Button Grid.Column="1" Margin="5,5,5,5" Grid.Row="2" Width="500" Content="Iniciar" BorderBrush="WhiteSmoke" Foreground="#FFDCDC0C" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45" FontWeight="Bold" FontStyle="Italic" Click="Button_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
