@@ -11,7 +11,7 @@ namespace ProyectoMed.Logica
 {
    public  class LogicaPreguntasHistorial
     {
-        private string rutaPreguntas = @"C:\TableroConfiguracion\Enjuego\P\";
+        private string rutaPreguntas = @"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Enjuego\P\";
         public List<Pregunta> GetImport1(int grado)
         {
             try

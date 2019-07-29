@@ -27,8 +27,8 @@ namespace ProyectoMed.Vista
         public ModalPreguntaAbierta(Pregunta pregunta, string respuesta)
         {
             InitializeComponent();
-            this.lblRepuestaUser.Content = "Tu respusta fue: " + respuesta.ToUpper();
-            this.lblRespustaCorrecta.Content = "Repuesta correcta es: " + pregunta.Rc.ToUpper() ;
+            this.lblRepuestaUser.Text = "TU RESPUESTA FUE: " + respuesta.ToUpper();
+            this.lblRespustaCorrecta.Text = "RESPUESTA CORRECTA ES: " + pregunta.Rc.ToUpper() ;
 
             Validacion v = new Validacion();
             this.lblRepuestaUser.FontSize = v.sizeLetraRespuestas(respuesta);

@@ -43,7 +43,7 @@ namespace ProyectoMed.Vista
         private void Resultado_Loaded(object sender, RoutedEventArgs e)
         {
 
-             sonido = new SoundPlayer(@"c:\cr.wav");
+            sonido = new SoundPlayer(@"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Sonido\cr.wav");
             sonido.Play();
 
             if(this.Equipos[0].Turno == this.Equipos[1].Turno)
@@ -71,7 +71,7 @@ namespace ProyectoMed.Vista
             if (p.Nivel == 5)
                 this.puntaje = 1000;
 
-            this.Estado.Content = "TU RESPUESTA FUE: " + this.Res;
+            this.Estado.Text = "TU RESPUESTA FUE: " + this.Res;
             Validacion v = new Validacion();
             this.Estado.FontSize = v.sizeLetraRespuestas(this.Res);
             if (p.Rc.Equals(this.Res))
@@ -120,6 +120,7 @@ namespace ProyectoMed.Vista
                             //this.Equipos[0].Ganador = true;
                             //this.Equipos[0].Estatus = false;
                             ganador = 0;
+                            
                         }
 
                         else

@@ -59,14 +59,15 @@ namespace ProyectoMed.Vista
             int V1 = pregunta.Rc.ToUpper().IndexOf("VERDADERO");
             int V2 = pregunta.Rc.ToUpper().IndexOf("VERDAD");
             int V3 = pregunta.Rc.ToUpper().IndexOf("FALSO");
+            int V4 = pregunta.Rc.ToUpper().IndexOf("CIERTO");
 
-            if(V1 > -1 || V2 != -1 || V3 != -1)
+            if(V1 > -1 || V2 != -1 || V3 != -1 || V4 != -1)
             {
                 this.R1.Visibility = Visibility.Visible;
                 this.R2.Visibility = Visibility.Visible;
                 this.R3.Visibility = Visibility.Hidden;
                 this.R4.Visibility = Visibility.Hidden;
-                if(pregunta.Rc.ToUpper() == "VERDADERO" && pregunta.Rc.ToUpper() == "VERDAD")
+                if(pregunta.Rc.ToUpper() == "VERDADERO" || pregunta.Rc.ToUpper() == "VERDAD")
                 {
                     this.R1.Content = "A:" + pregunta.Rc.ToUpper();
                     this.R2.Content = "B:Falso".ToUpper();
@@ -75,7 +76,12 @@ namespace ProyectoMed.Vista
                     this.R1.Content = "A:" + pregunta.Rc;
                     this.R2.Content = "B:Verdadero";
                 }
-                return 1;
+
+                if(pregunta.Rc.ToUpper() == "CIERTO") {
+                    this.R1.Content = "A:" + pregunta.Rc.ToUpper();
+                    this.R2.Content = "B:CIERTO";
+                }
+                    return 1;
             }
 
 
@@ -99,7 +105,7 @@ namespace ProyectoMed.Vista
                 this.Correcta = false;
                 this.TiempoIniciar();
 
-                sonido = new SoundPlayer(@"c:\Titac.wav");
+                sonido = new SoundPlayer(@"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Sonido\Titac.wav");
                 sonido.Play();
                 LogicaPreguntasHistorial l = new LogicaPreguntasHistorial();
                 LogicaHistorialRonda Lm = new LogicaHistorialRonda();
@@ -358,6 +364,19 @@ namespace ProyectoMed.Vista
 
                 }
 
+                if(RondaActual.Estatus == false)//guarda al ganador
+                    if(RondaActual.Equipo1Puntaje > RondaActual.Equipo2Puntaje)
+                    {
+                        RondaActual.EquipoGanador = RondaActual.Equipo1;
+                        RondaActual.Ganador = 0;
+                    }
+                    else {
+                        RondaActual.EquipoGanador = RondaActual.Equipo2;
+                        RondaActual.Ganador = 1;
+                    }
+                            
+
+
       
             ListR.Add(RondaActual);
 
@@ -430,7 +449,7 @@ namespace ProyectoMed.Vista
                 if(timeLeft == 1) {
                     this.sonido.Stop();
                     this.sonido.Dispose();
-                    sonido = new SoundPlayer(@"c:\RelojFin.wav");
+                    sonido = new SoundPlayer(@"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Sonido\RelojFin.wav");
                     sonido.Play();
                   
                 }

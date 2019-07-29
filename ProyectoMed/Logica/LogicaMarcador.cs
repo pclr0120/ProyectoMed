@@ -13,7 +13,7 @@ namespace ProyectoMed.Logica
     {
 
 
-        private string rutaEquipos = @"C:\TableroConfiguracion\Enjuego\E\historial\";
+        private string rutaEquipos = @"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Enjuego\E\historial\";
         public List<Equipo> Sumar(List<Equipo> Equipo, int numEquipo, int puntajeAsumar,int ronda) {
 
             Equipo[numEquipo].Puntaje += puntajeAsumar;

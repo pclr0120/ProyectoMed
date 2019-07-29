@@ -40,10 +40,10 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
               
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="auto"/>
              
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="auto"/>
@@ -54,23 +54,27 @@
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
-            <Label Name="lblCorrecta" FontSize="24" Grid.Row="2" Content="Rcorrecta" HorizontalContentAlignment="Center" FontWeight="Bold" FontFamily="Segoe UI Semibold" Background="#FF570C05">
+            <TextBlock TextWrapping="Wrap" Name="lblCorrecta" Text="R: CORRECTA " Foreground="White" Grid.Row="2" FontSize="18" TextAlignment="Center"></TextBlock>
+            <!--<Label Name="lblCorrecta" FontSize="24" Grid.Row="2" Content="Rcorrecta" HorizontalContentAlignment="Center" FontWeight="Bold" FontFamily="Segoe UI Semibold" Background="#FF570C05">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0.152"/>
                         <GradientStop Color="White" Offset="0.293"/>
                     </LinearGradientBrush>
                 </Label.Foreground>
-            </Label>
+            </Label>-->
             <Image Height="60" Width="60" Grid.Row="3" Source="/Recursos/perdi.png"></Image>
-            <Label Name="Estado" Content="Tu respuesta es: Incorrecta000000000000000000000000000000" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Background="{x:Null}" FontWeight="Bold">
+
+            <TextBlock Name="Estado" TextWrapping="Wrap" Text="Tu respuesta es: Incorrecta000000000000000000000000000000"  Foreground="White" Grid.Row="0" FontSize="36" TextAlignment="Center"></TextBlock>
+
+            <!--<Label Name="Estado" Content="Tu respuesta es: Incorrecta000000000000000000000000000000" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
                         <GradientStop Color="#FFE0E0E0" Offset="0.202"/>
                     </LinearGradientBrush>
                 </Label.Foreground>
-            </Label>
+            </Label>-->
             <Label Grid.Row="1" Name="Respusta" Content="Respuesta" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold" Background="Transparent" Foreground="#FFC2CB00"/>
             <Grid Grid.Row="4">
                 <Grid.RowDefinitions>

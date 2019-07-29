@@ -70,6 +70,8 @@ namespace ProyectoMed.Vista
         private  bool Continuar() {
             try
             {
+                Validacion v = new Validacion();
+                if(v.RondaValida(this.Grado,int.Parse(TxtNumero.Text.ToString())))
                 if(int.Parse(TxtNumero.Text.ToString()) > 2)
                 {
                     if((cb1.SelectedItem != null && cb2.SelectedItem != null))
@@ -82,6 +84,9 @@ namespace ProyectoMed.Vista
                     MessageBox.Show("El numero de rondas minimo son 3", "Rondas");
                     return false;
                 }
+                else
+                    MessageBox.Show("No hay suficientes reduce el numero de rondas", "Rondas");
+                return false;
 
             }
             catch(Exception err)

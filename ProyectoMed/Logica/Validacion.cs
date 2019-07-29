@@ -135,6 +135,30 @@ namespace ProyectoMed.Logica
 
         }
 
+        public bool RondaValida(int grado,int rondas)
+        {
+            LogicaPreguntasHistorial LP = new LogicaPreguntasHistorial();
+
+
+            try
+            {
+
+                int p1 = LP.GetImport1(grado).FindAll(item => item.Estatus == true).Count;
+
+                if(p1 >= (rondas*2))
+                    return true;
+                else
+                    return false;
+            }
+            catch(Exception e)
+            {
+
+
+                return false;
+            }
+
+        }
+
         public double sizeLetraRespuestas(string Cadena) {
 
 

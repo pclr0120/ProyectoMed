@@ -77,6 +77,7 @@ namespace ProyectoMed.Vista
                         RondaActual.Ganador = 0;
                         this.Equipos[0].Ganador = true;
                         this.ganador = 0;
+                        RondaActual.EquipoGanador = RondaActual.Equipo1;
                     }
                     else
                     {
@@ -84,6 +85,7 @@ namespace ProyectoMed.Vista
                         RondaActual.GaneManual = true;
                         RondaActual.Ganador = 1;
                         this.Equipos[1].Ganador = true;
+                        RondaActual.EquipoGanador = RondaActual.Equipo2;
                     }
 
 
@@ -143,5 +145,8 @@ namespace ProyectoMed.Vista
             }
 
         }
+
+
     }
+
 }

@@ -319,5 +319,20 @@ namespace ProyectoMed.Vista
             this.NavigationService.GoBack();
           
         }
+
+        private void BtNetx_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = System.Windows.MessageBox.Show("Desea generar un tablero nuevo?",
+                                  "TABLERO",
+                                  MessageBoxButton.YesNo,
+                                  MessageBoxImage.Question);
+
+            if(result == MessageBoxResult.Yes)
+            {
+                this.CargarDatosNuevos();
+                Grados Tb = new Grados();
+                this.NavigationService.Navigate(Tb);
+            }
+        }
     }
 }

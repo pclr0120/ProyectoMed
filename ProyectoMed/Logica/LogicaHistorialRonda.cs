@@ -11,7 +11,7 @@ namespace ProyectoMed.Logica
 {
    public  class LogicaHistorialRonda
     {
-        private string rutaEquipos = @"C:\TableroConfiguracion\Enjuego\R\";
+        private string rutaEquipos = @"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Enjuego\R\";
         public List<Ronda> GetRondas(int grado)
         {
             try
@@ -64,6 +64,8 @@ namespace ProyectoMed.Logica
                         Pre.Id = _Pregunta[11];
                         Pre.Ganador= int.Parse(_Pregunta[12]);
                         Pre.GaneManual= bool.Parse(_Pregunta[13]);
+                        Pre.EquipoGanador = _Pregunta[14];
+
 
 
                         //if (_Pregunta[8].Equals("true"))
@@ -133,7 +135,7 @@ namespace ProyectoMed.Logica
             //string[] DataWrite = null;
             for(int i = 0; i < Lista.Count; i++)
             {
-                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].TotalRonda + '\t' + Lista[i].RondaActual.ToString() + '\t' + Lista[i].Turno.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].Equipo1.ToString() + '\t' + Lista[i].Equipo1Puntaje.ToString() + '\t' + Lista[i].Equipo2.ToString() + '\t' + Lista[i].Equipo2Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].GaneManual.ToString());
+                ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].TotalRonda + '\t' + Lista[i].RondaActual.ToString() + '\t' + Lista[i].Turno.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].Equipo1.ToString() + '\t' + Lista[i].Equipo1Puntaje.ToString() + '\t' + Lista[i].Equipo2.ToString() + '\t' + Lista[i].Equipo2Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString() + '\t' + Lista[i].Id.ToString() + '\t' + Lista[i].Ganador.ToString() + '\t' + Lista[i].GaneManual.ToString() + '\t' + Lista[i].EquipoGanador.ToString());
             }
             File.Delete(docPath + gradoRuta);
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))

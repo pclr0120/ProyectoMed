@@ -13,7 +13,7 @@ namespace ProyectoMed.Logica
     {
 
 
-        private string rutaMaterias = @"C:\TableroConfiguracion\Configuracion\M\";
+        private string rutaMaterias = @"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Configuracion\M\";
 
         public bool Eliminar(int grado)
         {

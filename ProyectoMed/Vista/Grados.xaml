@@ -43,9 +43,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+              
             </Grid.ColumnDefinitions>
-            <Button Visibility="Hidden" Name="btNetx" Grid.Column="3" Grid.Row="0" Content="Ir Atras" Background="{x:Null}" BorderBrush="#FFF0EAEA" Foreground="#FFC8D208" FontSize="22" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Visibility="Visible" Name="btNetx" Grid.Column="3" Grid.Row="0" Content="Nuevo Tablero" Background="{x:Null}"  Width="160" BorderBrush="#FFF0EAEA" Foreground="#FFC8D208" FontSize="22" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtNetx_Click"/>
 
         </Grid>
 

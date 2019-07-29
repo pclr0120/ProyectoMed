@@ -42,7 +42,7 @@ namespace ProyectoMed.Vista
 
             try
             {
-                sonido = new SoundPlayer(@"c:\winer.wav");
+                sonido = new SoundPlayer(@"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Sonido\winer.wav");
                 sonido.Play();
                 this.lblGanador.Content = this.Equipos[this.ganador].Nombre.ToUpper();
                 this.lbl1.Content = this.Equipos[0].Nombre + " puntos: " + this.Equipos[0].Puntaje;

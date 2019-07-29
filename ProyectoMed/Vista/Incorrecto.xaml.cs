@@ -44,8 +44,7 @@ namespace ProyectoMed.Vista
         {
 
 
-
-            sonido = new SoundPlayer(@"c:\incorrecto.wav");
+            sonido = new SoundPlayer(@"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Sonido\incorrecto.wav");
             sonido.Play();
             LogicaHistorialRonda LR = new LogicaHistorialRonda();
             Ronda RondaActual = LR.GetRondas(this.grado).Find(i => i.Id == this.Equipos[1].Id);
@@ -74,10 +73,10 @@ namespace ProyectoMed.Vista
                 this.puntaje = 800;
             if(p.Nivel == 5)
                 this.puntaje = 1000;
-            this.lblCorrecta.Content = "R: " + this.Pregunta.Rc;
+            this.lblCorrecta.Text = "R: " + this.Pregunta.Rc;
             Validacion V = new Validacion();
             this.lblCorrecta.FontSize = V.sizeLetraRespuestas(this.Res);
-            this.Estado.Content = "TU RESPUESTA FUE: " + this.Res;
+            this.Estado.Text = "TU RESPUESTA FUE: " + this.Res;
 
 
      

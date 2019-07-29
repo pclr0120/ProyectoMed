@@ -42,7 +42,7 @@
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -54,15 +54,21 @@
 
             </Grid.ColumnDefinitions>
             <Image Height="50" Width="60" Grid.Row="2" Source="/Recursos/Pensando.png"></Image>
-            <Label Name="lblRepuestaUser" Content="Tu respuesta Fue:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Background="{x:Null}" FontWeight="Bold">
+
+            <TextBlock TextWrapping="Wrap" Name="lblRepuestaUser" Text="Tu respuesta es: correcta " Foreground="White" Grid.Row="0" FontSize="35" TextAlignment="Center"></TextBlock>
+
+            <!--<Label Name="lblRepuestaUser" Content="Tu respuesta Fue:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
                         <GradientStop Color="#FFE0E0E0" Offset="0"/>
                     </LinearGradientBrush>
                 </Label.Foreground>
-            </Label>
-            <Label Grid.Row="1" Name="lblRespustaCorrecta" Content="Respuesta correcta es" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontWeight="Bold" Background="Transparent" Foreground="#FFC2CB00"/>
+            </Label>-->
+
+            <TextBlock Grid.Row="1" TextWrapping="Wrap" Name="lblRespustaCorrecta" Text="Respuesta correcta es" Foreground="#FFC2CB00"  FontSize="28" TextAlignment="Center"></TextBlock>
+
+            <!--<Label Grid.Row="1" Name="lblRespustaCorrecta" Content="Respuesta correcta es" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontWeight="Bold" Background="Transparent" Foreground="#FFC2CB00"/>-->
             <Grid Grid.Row="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>

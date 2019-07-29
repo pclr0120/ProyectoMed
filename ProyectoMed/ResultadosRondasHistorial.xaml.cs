@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProyectoMed.Vista
+namespace ProyectoMed
 {
     /// <summary>
-    /// Lógica de interacción para RondasGanadasEquipos.xaml
+    /// Lógica de interacción para ResultadosRondasHistorial.xaml
     /// </summary>
-    public partial class RondasGanadasEquipos : Page
+    public partial class ResultadosRondasHistorial : Window
     {
-        public RondasGanadasEquipos()
+        public ResultadosRondasHistorial()
         {
             InitializeComponent();
         }

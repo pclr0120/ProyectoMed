@@ -12,7 +12,7 @@ namespace ProyectoMed.Logica
    public class LogicaHistorialEquipos
     {
 
-        private string rutaEquipos = @"C:\TableroConfiguracion\Enjuego\E\";
+        private string rutaEquipos = @"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Enjuego\E\";
 
         public List<Equipo> GetImportEequipos(int grado)
         {

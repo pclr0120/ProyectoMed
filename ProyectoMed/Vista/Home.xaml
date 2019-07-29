@@ -52,11 +52,11 @@
 
 
         </Grid>
-        <!--<Image  Name="imglogo" Grid.Column="1" Margin="5,5,5,5"  Grid.Row="1" Source="/LOgo.png" >
+        <Image  Name="imglogo" Grid.Column="1" Margin="5,5,5,5"  Grid.Row="1" Source="/LOgo.png" >
             <Image.Effect>
                 <DropShadowEffect Direction="340" ShadowDepth="50"/>
             </Image.Effect>
-        </Image>-->
+        </Image>
         <Grid Grid.Row="3">
 
             <Grid.ColumnDefinitions>

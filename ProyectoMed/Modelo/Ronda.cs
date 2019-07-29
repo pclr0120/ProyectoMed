@@ -21,6 +21,7 @@ namespace ProyectoMed.Modelo
         private int equipo2Puntaje = 0;
         private string equipo1="";
         private string equipo2 = "";
+        private string equipoGanador = "";
         private bool ganeManual = false;
         
         public Ronda() {
@@ -36,6 +37,7 @@ namespace ProyectoMed.Modelo
             this.Equipo2 = "";
             this.Ganador = -1;
             this.GaneManual = false;
+            this.EquipoGanador = "null";
            
         }
 
@@ -52,5 +54,6 @@ namespace ProyectoMed.Modelo
         public int Equipo1Puntaje { get => equipo1Puntaje; set => equipo1Puntaje = value; }
         public int Equipo2Puntaje { get => equipo2Puntaje; set => equipo2Puntaje = value; }
         public bool GaneManual { get => ganeManual; set => ganeManual = value; }
+        public string EquipoGanador { get => equipoGanador; set => equipoGanador = value; }
     }
 }

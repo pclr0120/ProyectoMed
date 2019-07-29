@@ -1,4 +1,5 @@
 ﻿using ProyectoMed.Logica;
+using ProyectoMed.Modal;
 using ProyectoMed.Vista;
 using System;
 using System.Collections.Generic;
@@ -25,17 +26,29 @@ namespace ProyectoMed
         public MainWindow()
         {
             InitializeComponent();
-              
-         
+
+            this.Navigated += MainWindow_Navigated;
+        }
+
+        private void MainWindow_Navigated(object sender, NavigationEventArgs e)
+        {
+            NavigationService.RemoveBackEntry();
         }
 
         private void NavigationWindow_KeyUp(object sender, KeyEventArgs e)
         {
 
             //Grados g = new Grados();
-            NavigationService.RemoveBackEntry();
-           
-            //if (e.Key.Equals(Key.Escape) && NavigationService.CanGoBack)
+         
+            HistorialResultados h = new HistorialResultados();
+            if(e.Key.Equals(Key.Escape))
+                h.ShowDialog();
+
+            if(h.cerrar)
+            {
+                Environment.Exit(0);
+              
+            }
             //    NavigationService.GoBack();
             // NavigationService.Navigate(g);
         }

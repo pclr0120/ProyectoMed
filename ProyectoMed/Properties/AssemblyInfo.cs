@@ -7,13 +7,13 @@ using System.Windows;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("ProyectoMed")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("MedGame")]
+[assembly: AssemblyDescription("Juego de preguntas")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ProyectoMed")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Ing. Pablo Cesar Leyva Ramirez")]
+[assembly: AssemblyProduct("JuegoTablero")]
+[assembly: AssemblyCopyright("Copyright ©  2019 Todos los derecho reservados")]
+[assembly: AssemblyTrademark("PCLR  Soluciones")]
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 

@@ -18,9 +18,9 @@ namespace ProyectoMed.Logica
         private string[] Preguntas;
         public List<Pregunta> ListaPreguntas;
         public Pregunta Pregunta;
-        private string rutaPreguntas = @"C:\TableroConfiguracion\Configuracion\P\";
-        private string rutaEquipos = @"C:\TableroConfiguracion\Configuracion\E\";
-        private string rutaMaterias = @"C:\TableroConfiguracion\Configuracion\M\";
+        private string rutaPreguntas = @"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Configuracion\P\";
+        private string rutaEquipos = @"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Configuracion\E\";
+        private string rutaMaterias = @"C:\Program Files (x86)\PCLR\Instalador_Tablero_Preguntas_V_1_0\TableroConfiguracion\Configuracion\M\";
         public LogicaExportarData()
         {
 
