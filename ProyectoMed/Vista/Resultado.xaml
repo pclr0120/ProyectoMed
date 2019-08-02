@@ -116,15 +116,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <Label Name="InputTeam1" Height="40" Content="Team 1"  Grid.Row="0" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20" HorizontalAlignment="Center" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Center"  >
-                    <Label.Foreground>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="#FFEBF3FF" Offset="1"/>
-                            <GradientStop Color="#FFE5EDF9" Offset="0.667"/>
-                        </LinearGradientBrush>
-                    </Label.Foreground>
-                </Label>
+                <Label Name="InputTeam1" Height="40" Content="Team 1"  Grid.Row="0" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" FontSize="20" HorizontalAlignment="Center" BorderBrush="{x:Null}" VerticalAlignment="Center" Background="{x:Null}" Foreground="White"  />
                 <Label Name="InputTeam1Puntaje" Height="auto"  Width="auto" Content="+0"  Grid.Row="1" FontSize="36" FontFamily="Segoe UI Black" FontWeight="Bold" BorderBrush="#FFE7D14C" Foreground="#FFD3D316" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center"   />
                 <Grid  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Grid.ColumnDefinitions>

@@ -225,9 +225,11 @@ namespace ProyectoMed.Vista
                     this.NavigationService.Navigate(p);
                 }
                 else {
-                    b.Background = Brushes.Red;
-                    b.Foreground = Brushes.Red;
-                    b.IsEnabled = false;
+                    b.Background = Brushes.Gray;
+                    b.Foreground = Brushes.Black;
+                    b.Content = "0 preguntas";
+                    b.FontSize = 16;
+                   // b.IsEnabled = false;
                 }
             }
             catch(Exception err)

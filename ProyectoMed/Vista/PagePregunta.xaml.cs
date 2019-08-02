@@ -312,7 +312,7 @@ namespace ProyectoMed.Vista
                   
                 }
                 else
-                if(this.respuesta == this.pregunta.Rc && RondaActual.Estatus)
+                if(this.respuesta.ToUpper() == this.pregunta.Rc.ToUpper() && RondaActual.Estatus)
                 {
                     this.Correcta = true;
                     if(RondaActual.Turno == 0) 
