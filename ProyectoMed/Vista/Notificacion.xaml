@@ -52,7 +52,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Row="0" Grid.Column="1" Content="Cancelar"  Name="cmd1" Background="{x:Null}" Foreground="#FFFF" FontWeight="Bold" FontSize="20" Click="btnContinuar" CommandParameter="1" BorderBrush="#FFFBF7F7"/>
-            <Button Grid.Row="0" Grid.Column="3" Content="Cancelar"  Name="cmd2" Background="{x:Null}" Foreground="#FFB90C0C" FontWeight="Bold" FontSize="20" Click="btnContinuar" CommandParameter="0" BorderBrush="#FFFBF7F7"/>
+            <Button Grid.Row="0" Grid.Column="3" Content="Cancelar"  Name="cmd2" Background="{x:Null}" Foreground="#FFDCC802" FontWeight="Bold" FontSize="20" Click="btnContinuar" CommandParameter="0" BorderBrush="#FFFBF7F7"/>
 
         </Grid>
     </Grid>

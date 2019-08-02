@@ -418,7 +418,7 @@ namespace ProyectoMed.Logica
 
             List<Equipo> Lista = new List<Equipo>();
             List<string> ListaTemp = new List<string>();
-            Lista = this.Guardar(listaActulizar, ListaPreguntasTotal);
+            Lista = listaActulizar;
             string docPath = this.rutaEquipos;
             //Directory.CreateDirectory(docPath);
             //string[] DataWrite = null;
@@ -426,11 +426,14 @@ namespace ProyectoMed.Logica
             {
                 ListaTemp.Add(Lista[i].Grado.ToString() + '\t' + Lista[i].Nombre + '\t' + Lista[i].Puntaje.ToString() + '\t' + Lista[i].Fecha.ToString() + '\t' + Lista[i].Estatus.ToString());
             }
+            File.Delete(docPath + gradoRuta);
             using(System.IO.StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, gradoRuta)))
             {
+                
 
                 foreach(string i in ListaTemp)
                 {
+                 
                     outputFile.WriteLine(i);
                 }
 

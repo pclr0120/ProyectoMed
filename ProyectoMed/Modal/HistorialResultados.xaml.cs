@@ -69,10 +69,10 @@ namespace ProyectoMed.Modal
 
         void GradoSeleccionado(Button b) {
 
-            this.G1.Foreground = Brushes.White;
-            this.G2.Foreground = Brushes.White;
-            this.G3.Foreground = Brushes.White;
-            this.G4.Foreground = Brushes.White;
+            this.G1.Foreground = Brushes.Yellow;
+            this.G2.Foreground = Brushes.Yellow;
+            this.G3.Foreground = Brushes.Yellow;
+            this.G4.Foreground = Brushes.Yellow;
 
             b.Foreground = Brushes.Blue;
 

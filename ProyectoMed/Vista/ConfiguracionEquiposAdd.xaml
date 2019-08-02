@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button  Margin="5,5,5,5" Content="Cancelar" Grid.Column="0" Background="{x:Null}" Foreground="#FF6A0606" BorderBrush="#FFE4E40E" FontFamily="Segoe UI Black" FontWeight="Bold" Click="Button_Click_1"/>
+            <Button  Margin="5,5,5,5" Content="Cancelar" Grid.Column="0" Background="{x:Null}" Foreground="#FFC90303" BorderBrush="#FFE4E40E" FontFamily="Segoe UI Black" FontWeight="Bold" Click="Button_Click_1"/>
             <Button   Margin="5,5,5,5" Content="Continuar" Grid.Column="4" Background="{x:Null}" Foreground="#FFF0D007" BorderBrush="#FFF0D007" FontFamily="Segoe UI Black" FontWeight="Bold" Click="Button_Click"></Button>
 
         </Grid>

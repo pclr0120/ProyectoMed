@@ -228,7 +228,7 @@ namespace ProyectoMed.Vista
                                       MessageBoxImage.Question);
                 }
             }
-            catch(Exception)
+            catch(Exception err)
             {
 
                 MessageBoxResult result = System.Windows.MessageBox.Show("Ups!, Ocurrio un problema:Si el error persiste  reportelo al 6681010012.",

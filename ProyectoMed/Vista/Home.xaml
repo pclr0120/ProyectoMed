@@ -37,7 +37,7 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Configuracion" Foreground="#FFDCDC0C" Background="{x:Null}" HorizontalAlignment="Left" Click="Button_Click_1"></Button>
+            <Button Content="Configuracion" Foreground="#FFDCDC0C" Background="{x:Null}" HorizontalAlignment="Left" Click="Button_Click_1" BorderBrush="{x:Null}"></Button>
             <Label Grid.Row="0" Grid.Column="1" Margin="1,1,1,1" Content="BIENVENIDOS" Background="{x:Null}" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

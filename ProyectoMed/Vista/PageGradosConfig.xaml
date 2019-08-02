@@ -41,7 +41,7 @@
 
         </Grid>
         <Button Content="Atras" Grid.Column="0" Margin="5,5,5,5" Background="{x:Null}" Foreground="#FFF0D007" BorderBrush="#FFF0D007" FontFamily="Segoe UI Emoji" Click="Button_Click"/>
-        <Label Grid.Row="0" Grid.Column="2" Content="Configuracion de tableros" Foreground="White" Background="{x:Null}"></Label>
+        <Label Grid.Row="0" Grid.Column="2" Content="Configuracion de tableros" Foreground="White" Background="{x:Null}" FontSize="16"></Label>
         <Grid Grid.Column="2" Grid.Row="0">
 
             <Grid.ColumnDefinitions>
@@ -94,10 +94,10 @@
         <Button  CommandParameter="4" Name="e4" Grid.Column="2" Grid.Row="5" Content="0" Foreground="#FFF1F1F1" FontSize="22" FontWeight="Bold" Background="{x:Null}" Click="E1_Click" BorderBrush="{x:Null}"/>
 
         <Label Grid.Column="3" Grid.Row="1" Content="CONTROLES" Foreground="#FFC9D308" FontSize="36" FontWeight="Bold" Background="{x:Null}"/>
-        <Button Grid.Column="3" Grid.Row="2"  Name="b1"  Content="Elimnar " BorderBrush="{x:Null}" FontSize="18" Background="{x:Null}" Foreground="#FFCF0000" FontWeight="Bold" FontStyle="Italic" Click="B1_Click"/>
-        <Button Grid.Column="3" Grid.Row="3"  Name="b2"  Content="Elimnar " BorderBrush="{x:Null}" FontSize="18" Background="{x:Null}" Foreground="#FFCF0000" FontWeight="Bold" FontStyle="Italic" Click="B2_Click"/>
-        <Button Grid.Column="3" Grid.Row="4"  Name="b3"  Content="Elimnar " BorderBrush="{x:Null}" FontSize="18" Background="{x:Null}" Foreground="#FFCF0000" FontWeight="Bold" FontStyle="Italic" Click="B3_Click"/>
-        <Button Grid.Column="3" Grid.Row="5"  Name="b4"  Content="Elimnar" BorderBrush="{x:Null}" FontSize="18" Background="{x:Null}" Foreground="#FFCF0000" FontWeight="Bold" FontStyle="Italic" Click="B4_Click"/>
+        <Button Grid.Column="3" Grid.Row="2"  Name="b1"  Content="Eliminar " BorderBrush="{x:Null}" FontSize="18" Background="{x:Null}" Foreground="#FFD3CCCC" FontWeight="Bold" FontStyle="Italic" Click="B1_Click"/>
+        <Button Grid.Column="3" Grid.Row="3"  Name="b2"  Content="Eliminar " BorderBrush="{x:Null}" FontSize="18" Background="{x:Null}" Foreground="#FFE6E6E6" FontWeight="Bold" FontStyle="Italic" Click="B2_Click"/>
+        <Button Grid.Column="3" Grid.Row="4"  Name="b3"  Content="Eliminar " BorderBrush="{x:Null}" FontSize="18" Background="{x:Null}" Foreground="#FFECECEC" FontWeight="Bold" FontStyle="Italic" Click="B3_Click"/>
+        <Button Grid.Column="3" Grid.Row="5"  Name="b4"  Content="Eliminar" BorderBrush="{x:Null}" FontSize="18" Background="{x:Null}" Foreground="#FFE8E8E8" FontWeight="Bold" FontStyle="Italic" Click="B4_Click"/>
 
     </Grid>
 

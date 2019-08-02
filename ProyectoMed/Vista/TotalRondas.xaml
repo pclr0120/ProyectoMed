@@ -33,11 +33,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Cancelar" Margin="5,5,5,5" Grid.Column="0" Background="{x:Null}" BorderBrush="#FFE7E00A" FontFamily="Segoe UI Black" FontWeight="Bold" Click="Button_Click_1">
+            <Button Content="Cancelar" Margin="5,5,5,5" Grid.Column="0" Background="{x:Null}" BorderBrush="#FFC30505" FontFamily="Segoe UI Black" FontWeight="Bold" Click="Button_Click_1">
                 <Button.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FFA40A0A" Offset="0.296"/>
+                        <GradientStop Color="#FFC30505" Offset="0.296"/>
                     </LinearGradientBrush>
                 </Button.Foreground>
             </Button>
@@ -56,7 +56,7 @@
                 <TextBox.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FFECECEC" Offset="0.984"/>
+                        <GradientStop Color="White" Offset="0.259"/>
                     </LinearGradientBrush>
                 </TextBox.Foreground>
             </TextBox>
